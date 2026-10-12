@@ -85,17 +85,27 @@ a{color:inherit}
 /* TICKETS */
 .group-title{font-family:"Shippori Mincho",serif;font-size:1.1rem;color:var(--navy);margin:0 0 14px;display:flex;align-items:center;gap:10px}
 .group-title::after{content:"";flex:1;height:1px;background:var(--paper2)}
+
+/* wadah grid semua tiket */
 .tickets{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-bottom:44px}
+
+/* satu kartu tiket */
 .ticket{display:flex;background:#12365e;border-radius:12px;overflow:hidden;text-decoration:none;color:#fff;box-shadow:0 3px 12px rgba(10,31,61,.16);transition:.2s;position:relative}
 .ticket:hover{transform:translateY(-3px) scale(1.01);box-shadow:0 12px 28px rgba(10,31,61,.24)}
+
+/* KIRI: kotak nomor kuning */
 .ticket-num{flex:none;width:74px;background:var(--gold);color:var(--navy2);display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:"JetBrains Mono",monospace;position:relative}
 .ticket-num .no{font-size:1.7rem;font-weight:700}
 .ticket-num .lbl{font-size:.55rem;letter-spacing:1px;text-transform:uppercase}
 .ticket-num::after{content:"";position:absolute;right:-8px;top:50%;transform:translateY(-50%);width:16px;height:16px;background:var(--paper);border-radius:50%}
+
+/* KANAN: isi tiket */
 .ticket-body{padding:16px 18px;display:flex;flex-direction:column;justify-content:center;gap:5px;flex:1;border-left:2px dashed rgba(255,255,255,.25)}
 .ticket-body .title{font-weight:700;font-size:.98rem}
 .ticket-body .desc{font-size:.8rem;color:#d3deef;line-height:1.4}
 .ticket-body .meta{font-family:"JetBrains Mono",monospace;font-size:.72rem;color:var(--muted)}
+
+/* label kecil */
 .badge{align-self:flex-start;font-size:.65rem;font-weight:700;padding:2px 8px;border-radius:20px;background:rgba(224,181,42,.18);color:var(--gold);border:1px solid rgba(224,181,42,.4)}
 .badge.new{background:rgba(179,56,46,.25);color:#ffb4ac;border-color:rgba(179,56,46,.6)}
 
@@ -136,7 +146,6 @@ footer{text-align:center;color:var(--ink-soft);font-size:.85rem;padding:34px 20p
           <a href="kanjidasar.html">Kanji Flash Card</a>
           <a href="materikosakata.html">Materi Kosakata JLPT</a>
         </div>
-      </div>
       </div>
 
       <div class="dropdown">
@@ -254,53 +263,89 @@ footer{text-align:center;color:var(--ink-soft);font-size:.85rem;padding:34px 20p
 <script>
 /* =========================================================
    DATA LATIHAN — edit di sini untuk menambah / mengubah
+   no   : nomor latihan
    file : nama file halaman soal
    ket  : keterangan singkat latihan
    tag  : label kecil (boleh dikosongkan "")
+   baru : true = label berwarna merah
 ========================================================= */
 const LATIHAN = [
-  { no:1,  file:"ujianjfta2test1.html",  ket:"Pengenalan format soal JFT A2, tingkat dasar.",       tag:"Pemula" },
-  { no:2,  file:"ujianjfta2test2.html",  ket:"Kosakata sehari-hari dan ungkapan umum.",            tag:"Pemula" },
-  { no:3,  file:"ujianjfta2test3.html",  ket:"Tata bahasa dan partikel dasar.",                    tag:"Pemula" },
-  { no:4,  file:"ujianjfta2test4.html",  ket:"Percakapan di tempat kerja dan kehidupan harian.",   tag:"Pemula" },
-  { no:5,  file:"ujianjfta2test5.html",  ket:"Membaca pengumuman dan informasi singkat.",          tag:"Pemula" },
-  { no:6,  file:"ujianjfta2test6.html",  ket:"Campuran kosakata dan tata bahasa.",                 tag:"Menengah" },
-  { no:7,  file:"ujianjfta2test7.html",  ket:"Bentuk kata kerja, keigo dasar, dan ungkapan sopan.", tag:"Menengah" },
-  { no:8,  file:"ujianjfta2test8.html",  ket:"Soal membaca (dokkai) lebih panjang.",               tag:"Menengah" },
-  { no:9,  file:"ujianjfta2test9.html",  ket:"Simulasi campuran seperti ujian asli.",              tag:"Simulasi", baru:true },
-  { no:10, file:"ujianjfta2test10.html", ket:"Simulasi akhir sebelum ujian.",                      tag:"Simulasi", baru:true }
+  { no:1,  file:"ujianjfta2test1.html",  ket:"Pengenalan format soal JFT A2, tingkat dasar.",        tag:"Pemula" },
+  { no:2,  file:"ujianjfta2test2.html",  ket:"Kosakata sehari-hari dan ungkapan umum.",              tag:"Pemula" },
+  { no:3,  file:"ujianjfta2test3.html",  ket:"Tata bahasa dan partikel dasar.",                      tag:"Pemula" },
+  { no:4,  file:"ujianjfta2test4.html",  ket:"Percakapan di tempat kerja dan kehidupan harian.",     tag:"Pemula" },
+  { no:5,  file:"ujianjfta2test5.html",  ket:"Membaca pengumuman dan informasi singkat.",            tag:"Pemula" },
+  { no:6,  file:"ujianjfta2test6.html",  ket:"Campuran kosakata dan tata bahasa.",                   tag:"Menengah" },
+  { no:7,  file:"ujianjfta2test7.html",  ket:"Bentuk kata kerja, keigo dasar, dan ungkapan sopan.",  tag:"Menengah" },
+  { no:8,  file:"ujianjfta2test8.html",  ket:"Soal membaca (dokkai) lebih panjang.",                 tag:"Menengah" },
+  { no:9,  file:"ujianjfta2test9.html",  ket:"Simulasi campuran seperti ujian asli.",                tag:"Simulasi", baru:true },
+  { no:10, file:"ujianjfta2test10.html", ket:"Simulasi akhir sebelum ujian.",                        tag:"Simulasi", baru:true }
 ];
 
-const WAKTU = "20:00", JUMLAH = 20, PER_GRUP = 5;
+const WAKTU = "20:00";
+const JUMLAH = 20;
+const PER_GRUP = 5;
 
-function pad(n){ return String(n).padStart(2,"0"); }
+function pad(n){ return String(n).padStart(2, "0"); }
 
+/* ---------------------------------------------------------
+   Template SATU tiket — ubah susunan div tiket di sini
+--------------------------------------------------------- */
+function buatTiket(l){
+  const kelasBadge = l.baru ? "badge new" : "badge";
+  const badge = l.tag ? `<span class="${kelasBadge}">${l.tag}</span>` : "";
+
+  return `
+    <a href="${l.file}" class="ticket">
+
+      <!-- KIRI: kotak nomor kuning -->
+      <div class="ticket-num">
+        <span class="no">${pad(l.no)}</span>
+        <span class="lbl">Latihan</span>
+      </div>
+
+      <!-- KANAN: isi tiket -->
+      <div class="ticket-body">
+        ${badge}
+        <span class="title">Latihan ${l.no} — JFT A2</span>
+        <span class="desc">${l.ket}</span>
+        <span class="meta">PILIHAN GANDA + ESAI · ${WAKTU}</span>
+      </div>
+
+    </a>`;
+}
+
+/* ---------------------------------------------------------
+   Template SATU grup (judul "Latihan 1 – 5" + kumpulan tiket)
+--------------------------------------------------------- */
+function buatGrup(grup){
+  const awal = grup[0].no;
+  const akhir = grup[grup.length - 1].no;
+  const semuaTiket = grup.map(buatTiket).join("");
+
+  return `
+    <h3 class="group-title">Latihan ${awal} – ${akhir}</h3>
+    <div class="tickets">
+      ${semuaTiket}
+    </div>`;
+}
+
+/* ---------------------------------------------------------
+   Render semua latihan ke halaman
+--------------------------------------------------------- */
 function renderLatihan(){
-  const wrap = document.getElementById("ticketGroups");
   let html = "";
   for(let i = 0; i < LATIHAN.length; i += PER_GRUP){
-    const grup = LATIHAN.slice(i, i + PER_GRUP);
-    html += `<h3 class="group-title">Latihan ${grup[0].no} – ${grup[grup.length-1].no}</h3><div class="tickets">`;
-    grup.forEach(l => {
-      html += `
-      <a href="${l.file}" class="ticket">
-        <div class="ticket-num"><span class="no">${pad(l.no)}</span><span class="lbl">Latihan</span></div>
-        <div class="ticket-body">
-          ${l.tag ? `<span class="badge ${l.baru ? "new":""}">${l.tag}</span>` : ""}
-          <span class="title">Latihan ${l.no} — JFT A2</span>
-          <span class="desc">${l.ket}</span>
-          <span class="meta">PILIHAN GANDA + ESAI · ${WAKTU}</span>
-        </div>
-      </a>`;
-    });
-    html += `</div>`;
+    html += buatGrup(LATIHAN.slice(i, i + PER_GRUP));
   }
-  wrap.innerHTML = html;
+  document.getElementById("ticketGroups").innerHTML = html;
   document.getElementById("statTotal").textContent = LATIHAN.length;
 }
 renderLatihan();
 
-/* NAVBAR */
+/* =========================================================
+   NAVBAR
+========================================================= */
 function toggleDropdown(id){
   document.querySelectorAll(".dropdown-menu").forEach(m=>{
     if(m.id!==id){ m.classList.remove("show","align-right"); const p=m.closest(".dropdown"); if(p) p.classList.remove("open"); }
