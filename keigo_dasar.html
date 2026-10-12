@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="ja" translate="no">
+<head>
+<meta charset="UTF-8">
+<meta name="google" content="notranslate">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>敬語（けいご）| Sonkeigo &amp; Kenjōgo Dasar | Tata Bahasa</title>
+
+<style>
+:root{--navy:#001f3f;--navy2:#002a54;--navy3:#022655;--gold:#facc15;--gold2:#ffd700;--text:#001f3f;}
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Segoe UI",Arial,sans-serif;}
+body{background:#ffffff;color:var(--text);}
+
+/* ======================= NAVBAR ======================= */
+#navbar{position:sticky;top:0;z-index:999;background:#001530;border-bottom:2px solid rgba(224,181,42,.3);box-shadow:0 4px 14px rgba(0,0,0,.25);}
+.navbar-inner{display:flex;justify-content:space-between;align-items:center;padding:10px 20px;}
+.nav-left{display:flex;align-items:center;}
+.nav-right{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end;}
+.home-btn{display:flex;align-items:center;gap:8px;background:#e0b52a;color:#001530;text-decoration:none;padding:8px 14px;border-radius:10px;font-weight:bold;}
+.home-btn:hover{opacity:.85;}
+.home-icon{width:24px;height:24px;object-fit:cover;border-radius:4px;}
+.dropdown{position:relative;}
+.dropdown-btn{background:none;border:2px solid #e0b52a;color:#e0b52a;padding:8px 14px;border-radius:8px;font-weight:bold;cursor:pointer;font-family:inherit;font-size:.9rem;}
+.dropdown-btn:hover{background:#e0b52a;color:#001530;}
+.dropdown-menu{display:none;position:absolute;top:45px;left:0;background:#1f4577;border-radius:10px;overflow:hidden;min-width:220px;max-width:90vw;box-shadow:0 8px 20px rgba(0,0,0,.35);}
+.dropdown-menu.align-right{left:auto;right:0;}
+.dropdown-menu a{display:block;padding:12px 15px;color:#ffd700;text-decoration:none;}
+.dropdown-menu a:hover{background:#e0b52a;color:#001530;}
+.show{display:block;}
+
+/* HAMBURGER (MOBILE) */
+.hamburger-btn{display:none;flex-direction:column;justify-content:center;gap:5px;width:38px;height:38px;background:none;border:2px solid #e0b52a;border-radius:8px;cursor:pointer;padding:0;}
+.hamburger-btn span{display:block;width:20px;height:2px;margin:0 auto;background:#e0b52a;border-radius:2px;transition:.25s;}
+.hamburger-btn.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger-btn.open span:nth-child(2){opacity:0;}
+.hamburger-btn.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+@media(max-width:600px){
+  .navbar-inner{flex-wrap:wrap;}
+  .hamburger-btn{display:flex;}
+  .nav-right{display:none;width:100%;flex-direction:column;align-items:stretch;gap:8px;margin-top:12px;}
+  .nav-right.show-mobile{display:flex;}
+  .dropdown{width:100%;}
+  .dropdown-btn{width:100%;text-align:left;font-size:.85rem;padding:10px 14px;}
+  .dropdown-menu{position:static;width:100%;max-width:none;box-shadow:none;margin-top:6px;}
+  .breadcrumb{margin-top:16px;}
+}
+
+/* BREADCRUMB */
+.breadcrumb{margin:20px 0 0 0;padding:0 0 0 20px;font-size:14px;color:#8892a3;text-align:left;}
+.breadcrumb a{color:var(--navy);text-decoration:none;font-weight:600;}
+.breadcrumb a:hover{text-decoration:underline;}
+
+/* HERO */
+.pattern-hero{max-width:900px;margin:20px auto 0;padding:40px 30px;background:linear-gradient(135deg,var(--navy) 0%,#062a52 100%);border-radius:22px;position:relative;overflow:hidden;text-align:center;}
+.pattern-hero::before{content:"敬";position:absolute;font-size:260px;font-weight:900;color:rgba(250,204,21,.06);top:-60px;right:-30px;pointer-events:none;user-select:none;}
+.pattern-hero .no-badge{display:inline-block;background:rgba(250,204,21,.12);border:1px solid rgba(250,204,21,.4);color:var(--gold);font-size:13px;font-weight:bold;letter-spacing:1px;padding:6px 16px;border-radius:999px;margin-bottom:18px;position:relative;}
+.pattern-hero h1{font-size:44px;color:#ffffff;position:relative;margin-bottom:8px;}
+.pattern-hero .romaji{font-size:20px;color:var(--gold2);font-weight:600;position:relative;margin-bottom:14px;}
+.pattern-hero .mean{font-size:18px;color:#c9d6e8;position:relative;}
+
+/* CONTENT */
+.content{max-width:900px;margin:30px auto;padding:0 30px 60px;}
+.section-block{margin-bottom:36px;}
+.section-block h2{display:flex;align-items:center;gap:12px;font-size:22px;color:var(--navy);margin-bottom:14px;}
+.section-block h2 .tag{background:var(--navy);color:var(--gold);font-size:13px;font-weight:bold;padding:5px 12px;border-radius:8px;white-space:nowrap;}
+.section-block p{font-size:16px;line-height:1.9;color:#333;}
+
+.formula-box{background:#f5f8fc;border:2px dashed var(--navy);border-radius:16px;padding:22px 26px;font-size:19px;text-align:center;color:var(--navy);font-weight:600;line-height:1.8;}
+.formula-box small{display:block;font-size:13px;font-weight:400;color:#8892a3;margin-top:6px;}
+.formula-box + .formula-box{margin-top:14px;}
+
+/* TABEL KONJUGASI */
+.table-wrap{overflow-x:auto;border-radius:16px;border:2px solid var(--navy);}
+.konjugasi-table{width:100%;border-collapse:collapse;min-width:620px;font-size:15px;}
+.konjugasi-table thead th{background:var(--navy);color:var(--gold);text-align:left;padding:14px 16px;font-size:14px;white-space:nowrap;}
+.konjugasi-table tbody td{padding:13px 16px;border-bottom:1px solid #e3e9f2;color:#333;vertical-align:middle;}
+.konjugasi-table tbody tr:nth-child(even){background:#f5f8fc;}
+.konjugasi-table tbody tr:hover{background:#fffbe6;}
+.konjugasi-table .kamus{font-weight:bold;font-size:17px;color:var(--navy);}
+.konjugasi-table .yomi-small{display:block;font-size:12px;color:#8892a3;font-weight:400;}
+.konjugasi-table .arrow{color:var(--gold2);font-weight:900;font-size:18px;}
+.konjugasi-table .ukemi{font-weight:bold;font-size:17px;color:#5b8bb0;}
+.konjugasi-table .shieki{font-weight:bold;font-size:17px;color:#c98a4d;}
+.konjugasi-table .group-row td{background:var(--navy2);color:var(--gold);font-weight:bold;font-size:13px;letter-spacing:.5px;padding:10px 16px;}
+
+/* TABEL PERBANDINGAN */
+.compare-wrap{overflow-x:auto;border-radius:16px;border:2px solid var(--navy);}
+.compare-table{width:100%;border-collapse:collapse;min-width:700px;font-size:14px;}
+.compare-table thead th{padding:14px 14px;text-align:left;color:#fff;font-size:13px;white-space:nowrap;}
+.compare-table thead th.th-kamus{background:var(--navy);color:var(--gold);}
+.compare-table thead th.th-shieki{background:#c98a4d;}
+.compare-table thead th.th-ukemi{background:#5b8bb0;}
+.compare-table thead th.th-shiekiukemi{background:#c17b7b;}
+.compare-table thead th small{display:block;font-weight:400;font-size:11px;opacity:.85;margin-top:2px;}
+.compare-table tbody td{padding:13px 14px;border-bottom:1px solid #e3e9f2;color:#333;vertical-align:middle;}
+.compare-table tbody tr:nth-child(even){background:#f5f8fc;}
+.compare-table tbody tr:hover{background:#fffbe6;}
+.compare-table .kamus{font-weight:bold;font-size:16px;color:var(--navy);}
+.compare-table .yomi-small{display:block;font-size:11px;color:#8892a3;font-weight:400;}
+.compare-table .val-shieki{font-weight:bold;font-size:16px;color:#c98a4d;}
+.compare-table .val-ukemi{font-weight:bold;font-size:16px;color:#5b8bb0;}
+.compare-table .val-shiekiukemi{font-weight:bold;font-size:16px;color:#c17b7b;}
+.compare-table .val-none{font-weight:bold;font-size:16px;color:#b8c0cc;}
+.compare-table .arti-small{display:block;font-size:12px;font-weight:400;font-style:italic;color:#8892a3;margin-top:3px;}
+.compare-legend{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0;}
+.compare-legend .chip{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;padding:8px 14px;border-radius:999px;background:#f5f8fc;border:1px solid #e3e9f2;color:#333;}
+.compare-legend .dot{width:12px;height:12px;border-radius:50%;display:inline-block;}
+.compare-legend .dot.shieki{background:#c98a4d;}
+.compare-legend .dot.ukemi{background:#5b8bb0;}
+.compare-legend .dot.shiekiukemi{background:#c17b7b;}
+.example-group-label{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:bold;color:#fff;padding:6px 14px;border-radius:8px;margin-bottom:10px;}
+.example-group-label.shieki{background:#c98a4d;}
+.example-group-label.ukemi{background:#5b8bb0;}
+.example-group-label.shiekiukemi{background:#c17b7b;}
+
+/* CONTOH KALIMAT */
+.example{border:2px solid var(--navy);border-radius:16px;padding:20px 24px;margin-bottom:16px;transition:.25s;}
+.example:hover{background:var(--navy3);color:#fff;transform:translateY(-3px);box-shadow:0 12px 24px rgba(0,31,63,.2);}
+.example .jp{font-size:20px;font-weight:bold;margin-bottom:6px;}
+.example .yomi{font-size:14px;color:#8892a3;margin-bottom:8px;}
+.example:hover .yomi{color:#c9d6e8;}
+.example .id{font-size:15px;color:#333;font-style:italic;}
+.example:hover .id{color:#e6edf7;}
+
+/* CATATAN */
+.note-box{background:#fffbe6;border-left:5px solid var(--gold);border-radius:10px;padding:18px 22px;font-size:15px;line-height:1.8;color:#4a4020;}
+.note-box b{color:var(--navy);}
+.note-box + .note-box{margin-top:14px;}
+
+/* NAVIGASI BAWAH */
+.nav-bottom{display:flex;justify-content:space-between;gap:16px;margin-top:50px;flex-wrap:wrap;}
+.nav-bottom a{flex:1;min-width:200px;text-decoration:none;border:2px solid var(--navy);border-radius:14px;padding:16px 20px;color:var(--navy);font-weight:600;transition:.25s;}
+.nav-bottom a:hover{background:var(--navy);color:var(--gold);}
+.nav-bottom .dir{display:block;font-size:12px;color:#8892a3;margin-bottom:4px;}
+.nav-bottom a:hover .dir{color:#c9d6e8;}
+.nav-bottom .next{text-align:right;}
+
+/* LATIHAN SOAL */
+.quiz-box{border:2px solid var(--navy);border-radius:18px;padding:24px 26px;margin-bottom:22px;background:#fafcff;}
+.quiz-box .qno{display:inline-block;background:var(--navy);color:var(--gold);font-size:13px;font-weight:bold;padding:5px 12px;border-radius:8px;margin-bottom:14px;}
+.quiz-box .qtext{font-size:16px;color:#333;margin-bottom:16px;line-height:1.8;}
+.quiz-box .qtext .kind{display:inline-block;font-size:12px;font-weight:bold;color:#fff;padding:3px 10px;border-radius:999px;margin-left:6px;vertical-align:middle;}
+.quiz-box .qtext .kind.son{background:#5b8bb0;}
+.quiz-box .qtext .kind.ken{background:#c98a4d;}
+.word-bank{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:18px;}
+.word-tile{background:#fff;border:2px solid var(--navy);color:var(--navy);padding:10px 16px;border-radius:10px;font-size:16px;font-weight:600;cursor:pointer;transition:.2s;user-select:none;}
+.word-tile:hover{background:var(--navy);color:var(--gold);transform:translateY(-2px);}
+.word-tile.used{opacity:.3;pointer-events:none;}
+.answer-slot{min-height:52px;border:2px dashed var(--gold2);border-radius:10px;background:#fffbe6;display:flex;align-items:center;flex-wrap:wrap;gap:8px;padding:8px 12px;margin-bottom:16px;}
+.answer-slot .placed{background:var(--gold);color:#001530;padding:8px 14px;border-radius:8px;font-weight:bold;font-size:15px;cursor:pointer;}
+.quiz-actions{display:flex;gap:10px;flex-wrap:wrap;}
+.quiz-btn{border:2px solid var(--navy);background:var(--navy);color:var(--gold);padding:10px 18px;border-radius:10px;font-weight:bold;font-size:14px;cursor:pointer;transition:.2s;}
+.quiz-btn:hover{opacity:.85;}
+.quiz-btn.secondary{background:#fff;color:var(--navy);}
+.quiz-result{margin-top:14px;font-size:15px;font-weight:600;display:none;padding:12px 16px;border-radius:10px;}
+.quiz-result.correct{display:block;background:#e6f7ec;color:#166534;border:1px solid #86efac;}
+.quiz-result.wrong{display:block;background:#fdeaea;color:#991b1b;border:1px solid #fca5a5;}
+
+@media(max-width:600px){
+  .pattern-hero h1{font-size:30px;}
+  .pattern-hero::before{font-size:160px;}
+  .nav-bottom .next{text-align:left;}
+  .konjugasi-table{font-size:13px;}
+}
+footer{text-align:center;padding:30px;color:#666;font-size:14px;}
+</style>
+</head>
+
+<body>
+
+<nav id="navbar">
+<div class="navbar-inner">
+
+<div class="nav-left">
+<a href="index.html" class="home-btn">
+<svg class="home-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+<path d="M12 3L3 10h2v10h6v-6h2v6h6V10h2L12 3Z"/>
+</svg>
+HOME
+</a>
+</div>
+
+<button class="hamburger-btn" id="hamburgerBtn" onclick="toggleMobileMenu()" aria-label="Menu">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+
+<div class="nav-right" id="navRight">
+
+  <div class="dropdown">
+    <button class="dropdown-btn" onclick="toggleDropdown('materi')">MATERI ▼</button>
+    <div class="dropdown-menu" id="materi">
+      <a href="daftarkosakata.html">Kosakata JFT</a>
+      <a href="materitatabahasa.html">Tata Bahasa</a>
+      <a href="kanjidasar.html">Kanji Flash Card</a>
+    </div>
+  </div>
+
+  <div class="dropdown">
+    <button class="dropdown-btn" onclick="toggleDropdown('quiz')">QUIZ JFT ▼</button>
+    <div class="dropdown-menu" id="quiz">
+      <a href="ujianjfta3test1.html">SOAL JFT A — TEST 1</a>
+      <a href="ujianjfta3test2.html">SOAL JFT A — TEST 2</a>
+      <a href="ujianjfta3test3.html">SOAL JFT A — TEST 3</a>
+      <a href="ujianjfta3test4.html">SOAL JFT A — TEST 4</a>
+      <a href="ujianjfta3test5.html">SOAL JFT A — TEST 5</a>
+    </div>
+  </div>
+
+  <div class="dropdown">
+    <button class="dropdown-btn" onclick="toggleDropdown('kanjiquiz')">QUIZ KANJI ▼</button>
+    <div class="dropdown-menu" id="kanjiquiz">
+      <a href="quizkanji1.html">QUIZ KANJI 1</a>
+      <a href="quizkanji2.html">QUIZ KANJI 2</a>
+      <a href="quizkanji3.html">QUIZ KANJI 3</a>
+      <a href="quizkanji4.html">QUIZ KANJI 4</a>
+      <a href="quizkanji5.html">QUIZ KANJI 5</a>
+    </div>
+  </div>
+
+</div>
+
+</div>
+</nav>
+
+<div class="breadcrumb">
+  <a href="materitatabahasa.html">← Kembali ke Materi Tata Bahasa</a>
+</div>
+
+<div class="pattern-hero">
+    <span class="no-badge">POLA · KEIGO DASAR</span>
+    <h1>尊敬語・謙譲語</h1>
+    <div class="romaji">sonkeigo &amp; kenjōgo</div>
+    <div class="mean">meninggikan orang lain／merendahkan diri sendiri</div>
+</div>
+
+<div class="content">
+
+    <div class="section-block">
+        <h2><span class="tag">ARTI</span> Penjelasan</h2>
+        <p>
+            <b>敬語（けいご）</b> adalah bahasa hormat dalam bahasa Jepang. Ada tiga jenis dasar:
+            <b>尊敬語（そんけいご）</b> untuk <b>meninggikan</b> perbuatan orang lain (atasan, guru, tamu),
+            <b>謙譲語（けんじょうご）</b> untuk <b>merendahkan</b> perbuatan diri sendiri (atau pihak sendiri) di hadapan
+            orang yang dihormati, dan <b>丁寧語（ていねいご）</b> yaitu bentuk sopan biasa ～です／～ます.
+            Kuncinya: lihat dulu <b>siapa yang melakukan perbuatan</b>. Kalau pelakunya orang yang dihormati,
+            pakai sonkeigo; kalau pelakunya diri sendiri, pakai kenjōgo.
+        </p>
+    </div>
+
+    <div class="section-block">
+        <h2><span class="tag">POLA</span> Rumus</h2>
+        <div class="formula-box">
+            Sonkeigo（尊敬語）<br>
+            お＋Vます（tanpa ます）＋になる　／　Vれる・Vられる　／　kata kerja khusus
+            <small>Contoh: 読む → お読みになる／読まれる　　食べる → 召し上がる</small>
+        </div>
+        <div class="formula-box">
+            Kenjōgo（謙譲語）<br>
+            お＋Vます（tanpa ます）＋する　／　ご＋kata benda＋する　／　kata kerja khusus
+            <small>Contoh: 持つ → お持ちする　説明 → ご説明する　言う → 申す</small>
+        </div>
+    </div>
+
+    <div class="section-block">
+        <h2><span class="tag">TABEL 1</span> Kata Kerja Khusus (Wajib Hafal)</h2>
+        <p style="margin-bottom:16px;">
+            Beberapa kata kerja yang sangat sering dipakai punya bentuk keigo sendiri dan tidak mengikuti pola
+            umum. Tanda <b>—</b> berarti tidak ada bentuk khusus pada kolom itu.
+        </p>
+
+        <div class="compare-legend">
+            <span class="chip"><span class="dot ukemi"></span> Sonkeigo — pelaku = orang yang dihormati</span>
+            <span class="chip"><span class="dot shieki"></span> Kenjōgo — pelaku = diri sendiri</span>
+        </div>
+
+        <div class="compare-wrap">
+            <table class="compare-table">
+                <thead>
+                    <tr>
+                        <th class="th-kamus">Kata Kerja Biasa<small>bentuk kamus</small></th>
+                        <th class="th-ukemi">Sonkeigo<small>尊敬語</small></th>
+                        <th class="th-shieki">Kenjōgo<small>謙譲語</small></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="kamus">行く</span><span class="yomi-small">いく (pergi)</span></td>
+                        <td><span class="val-ukemi">いらっしゃる</span></td>
+                        <td><span class="val-shieki">まいる</span><span class="arti-small">伺う bila mengunjungi orang yang dihormati</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="kamus">来る</span><span class="yomi-small">くる (datang)</span></td>
+                        <td><span class="val-ukemi">いらっしゃる</span></td>
+                        <td><span class="val-shieki">まいる</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="kamus">いる</span><span class="yomi-small">いる (ada／berada)</span></td>
+                        <td><span class="val-ukemi">いらっしゃる</span></td>
+                        <td><span class="val-shieki">おる</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="kamus">言う</span><span class="yomi-small">いう (berkata)</span></td>
+                        <td><span class="val-ukemi">おっしゃる</span></td>
+                        <td><span class="val-shieki">申す</span><span class="arti-small">申し上げる bila ditujukan kepada orang yang dihormati</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="kamus">食べる・飲む</span><span class="yomi-small">たべる・のむ (makan／minum)</span></td>
+                        <td><span class="val-ukemi">召し上がる</span></td>
+                        <td><span class="val-shieki">いただく</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="kamus">見る</span><span class="yomi-small">みる (melihat)</span></td>
+                        <td><span class="val-ukemi">ご覧になる</span></td>
+                        <td><span class="val-shieki">拝見する</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="kamus">する</span><span class="yomi-small">する (melakukan)</span></td>
+                        <td><span class="val-ukemi">なさる</span></td>
+                        <td><span class="val-shieki">いたす</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="kamus">くれる</span><span class="yomi-small">くれる (memberi kepada saya)</span></td>
+                        <td><span class="val-ukemi">くださる</span></td>
+                        <td><span class="val-none">—</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="kamus">もらう</span><span class="yomi-small">もらう (menerima)</span></td>
+                        <td><span class="val-none">—</span></td>
+                        <td><span class="val-shieki">いただく</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="kamus">知っている</span><span class="yomi-small">しっている (tahu／kenal)</span></td>
+                        <td><span class="val-ukemi">ご存じだ</span></td>
+                        <td><span class="val-shieki">存じる</span><span class="arti-small">存じております／存じません</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="kamus">聞く・訪ねる</span><span class="yomi-small">きく・たずねる (bertanya／berkunjung)</span></td>
+                        <td><span class="val-none">—</span></td>
+                        <td><span class="val-shieki">伺う</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="section-block">
+        <h2><span class="tag">TABEL 2</span> Perubahan: Kata Kerja → Pola Umum Keigo</h2>
+        <p style="margin-bottom:16px;">
+            Untuk kata kerja yang tidak punya bentuk khusus, pakai pola umum. Perhatikan bahwa
+            <b>お～する</b> hanya untuk perbuatan yang ditujukan kepada orang yang dihormati.
+        </p>
+
+        <div class="table-wrap">
+            <table class="konjugasi-table">
+                <thead>
+                    <tr>
+                        <th>Kata Kerja (Kamus)</th>
+                        <th></th>
+                        <th>Bentuk Keigo</th>
+                        <th>Artinya</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="group-row"><td colspan="4">SONKEIGO — お＋Vます＋になる</td></tr>
+                    <tr>
+                        <td><span class="kamus">読む</span><span class="yomi-small">よむ (yomu)</span></td>
+                        <td class="arrow">→</td>
+                        <td><span class="ukemi">お読みになる</span><span class="yomi-small">およみになる (oyomi ni naru)</span></td>
+                        <td>(beliau) membaca</td>
+                    </tr>
+                    <tr>
+                        <td><span class="kamus">帰る</span><span class="yomi-small">かえる (kaeru)</span></td>
+                        <td class="arrow">→</td>
+                        <td><span class="ukemi">お帰りになる</span><span class="yomi-small">おかえりになる (okaeri ni naru)</span></td>
+                        <td>(beliau) pulang</td>
+                    </tr>
+                    <tr>
+                        <td><span class="kamus">書く</span><span class="yomi-small">かく (kaku)</span></td>
+                        <td class="arrow">→</td>
+                        <td><span class="ukemi">お書きになる</span><span class="yomi-small">おかきになる (okaki ni naru)</span></td>
+                        <td>(beliau) menulis</td>
+                    </tr>
+
+                    <tr class="group-row"><td colspan="4">SONKEIGO — Vれる／Vられる</td></tr>
+                    <tr>
+                        <td><span class="kamus">読む</span><span class="yomi-small">よむ (yomu)</span></td>
+                        <td class="arrow">→</td>
+                        <td><span class="ukemi">読まれる</span><span class="yomi-small">よまれる (yomareru)</span></td>
+                        <td>(beliau) membaca</td>
+                    </tr>
+                    <tr>
+                        <td><span class="kamus">来る</span><span class="yomi-small">くる (kuru)</span></td>
+                        <td class="arrow">→</td>
+                        <td><span class="ukemi">来られる</span><span class="yomi-small">こられる (korareru)</span></td>
+                        <td>(beliau) datang</td>
+                    </tr>
+                    <tr>
+                        <td><span class="kamus">する</span><span class="yomi-small">する (suru)</span></td>
+                        <td class="arrow">→</td>
+                        <td><span class="ukemi">される</span><span class="yomi-small">される (sareru)</span></td>
+                        <td>(beliau) melakukan</td>
+                    </tr>
+
+                    <tr class="group-row"><td colspan="4">KENJŌGO — お＋Vます＋する／ご＋N＋する</td></tr>
+                    <tr>
+                        <td><span class="kamus">持つ</span><span class="yomi-small">もつ (motsu)</span></td>
+                        <td class="arrow">→</td>
+                        <td><span class="shieki">お持ちする</span><span class="yomi-small">おもちする (omochi suru)</span></td>
+                        <td>saya membawakan</td>
+                    </tr>
+                    <tr>
+                        <td><span class="kamus">送る</span><span class="yomi-small">おくる (okuru)</span></td>
+                        <td class="arrow">→</td>
+                        <td><span class="shieki">お送りする</span><span class="yomi-small">おくりする (okuri suru)</span></td>
+                        <td>saya mengirimkan</td>
+                    </tr>
+                    <tr>
+                        <td><span class="kamus">説明</span><span class="yomi-small">せつめい (setsumei)</span></td>
+                        <td class="arrow">→</td>
+                        <td><span class="shieki">ご説明する</span><span class="yomi-small">ごせつめいする (go-setsumei suru)</span></td>
+                        <td>saya menjelaskan</td>
+                    </tr>
+                    <tr>
+                        <td><span class="kamus">案内</span><span class="yomi-small">あんない (annai)</span></td>
+                        <td class="arrow">→</td>
+                        <td><span class="shieki">ご案内する</span><span class="yomi-small">ごあんないする (go-annai suru)</span></td>
+                        <td>saya memandu／mengantar</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="note-box" style="margin-top:16px;">
+            <b>Cara cepat mengingat:</b> sonkeigo memakai <b>お～になる</b> (orang lain yang "menjadi" pelaku),
+            kenjōgo memakai <b>お～する</b> (saya yang "melakukan" untuk beliau). Untuk kata benda hasil
+            serapan Cina (漢語) seperti 説明・案内, awalan <b>ご</b> dipakai menggantikan お.
+        </div>
+    </div>
+
+    <div class="section-block">
+        <h2><span class="tag">CONTOH</span> Contoh Kalimat</h2>
+
+        <span class="example-group-label ukemi">Sonkeigo（尊敬語）</span>
+
+        <div class="example">
+            <div class="jp">社長は今、新聞をお読みになっています。</div>
+            <div class="yomi">しゃちょうはいま、しんぶんをおよみになっています。</div>
+            <div class="id">Direktur sekarang sedang membaca koran.</div>
+        </div>
+
+        <div class="example">
+            <div class="jp">先生は何とおっしゃいましたか。</div>
+            <div class="yomi">せんせいはなんとおっしゃいましたか。</div>
+            <div class="id">Apa yang tadi guru katakan?</div>
+        </div>
+
+        <div class="example">
+            <div class="jp">お客様はもうお帰りになりました。</div>
+            <div class="yomi">おきゃくさまはもうおかえりになりました。</div>
+            <div class="id">Tamu sudah pulang.</div>
+        </div>
+
+        <span class="example-group-label shieki" style="margin-top:10px;">Kenjōgo（謙譲語）</span>
+
+        <div class="example">
+            <div class="jp">私が先生の荷物をお持ちします。</div>
+            <div class="yomi">わたしがせんせいのにもつをおもちします。</div>
+            <div class="id">Saya yang akan membawakan barang guru.</div>
+        </div>
+
+        <div class="example">
+            <div class="jp">明日の三時に、会社へまいります。</div>
+            <div class="yomi">あしたのさんじに、かいしゃへまいります。</div>
+            <div class="id">Besok jam tiga saya akan datang ke kantor.</div>
+        </div>
+
+        <div class="example">
+            <div class="jp">私は田中と申します。</div>
+            <div class="yomi">わたしはたなかともうします。</div>
+            <div class="id">Nama saya Tanaka.</div>
+        </div>
+
+    </div>
+
+    <div class="section-block">
+        <h2><span class="tag">PERBANDINGAN</span> Sonkeigo vs Kenjōgo vs Teineigo</h2>
+        <p style="margin-bottom:16px;">
+            Ketiganya sama-sama "sopan", tetapi arahnya berbeda: <b>sonkeigo</b> mengangkat pelaku (orang lain),
+            <b>kenjōgo</b> menurunkan pelaku (diri sendiri), dan <b>teineigo</b> hanya membuat kalimat terdengar
+            sopan kepada lawan bicara tanpa mengangkat atau menurunkan siapa pun.
+        </p>
+
+        <div class="compare-legend">
+            <span class="chip"><span class="dot ukemi"></span> Sonkeigo — pelaku orang yang dihormati</span>
+            <span class="chip"><span class="dot shieki"></span> Kenjōgo — pelaku diri sendiri</span>
+            <span class="chip"><span class="dot shiekiukemi"></span> Teineigo — sopan netral (です／ます)</span>
+        </div>
+
+        <div class="compare-wrap">
+            <table class="compare-table">
+                <thead>
+                    <tr>
+                        <th class="th-kamus">Arti<small>perbuatan</small></th>
+                        <th class="th-ukemi">Sonkeigo<small>pelaku: atasan／tamu</small></th>
+                        <th class="th-shieki">Kenjōgo<small>pelaku: saya</small></th>
+                        <th class="th-shiekiukemi">Teineigo<small>sopan biasa</small></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="kamus">makan</span><span class="yomi-small">食べる</span></td>
+                        <td><span class="val-ukemi">召し上がります</span><span class="arti-small">Bapak／Ibu makan</span></td>
+                        <td><span class="val-shieki">いただきます</span><span class="arti-small">saya makan</span></td>
+                        <td><span class="val-shiekiukemi">食べます</span><span class="arti-small">(siapa pun) makan</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="kamus">berkata</span><span class="yomi-small">言う</span></td>
+                        <td><span class="val-ukemi">おっしゃいます</span><span class="arti-small">Bapak／Ibu berkata</span></td>
+                        <td><span class="val-shieki">申します</span><span class="arti-small">saya berkata</span></td>
+                        <td><span class="val-shiekiukemi">言います</span><span class="arti-small">(siapa pun) berkata</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="kamus">pergi／datang</span><span class="yomi-small">行く・来る</span></td>
+                        <td><span class="val-ukemi">いらっしゃいます</span><span class="arti-small">Bapak／Ibu pergi／datang</span></td>
+                        <td><span class="val-shieki">まいります</span><span class="arti-small">saya pergi／datang</span></td>
+                        <td><span class="val-shiekiukemi">行きます・来ます</span><span class="arti-small">(siapa pun) pergi／datang</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="section-block">
+        <h2><span class="tag">CATATAN</span> Tips &amp; Kesalahan Umum</h2>
+        <div class="note-box">
+            <b>Jangan tertukar:</b> sonkeigo tidak boleh dipakai untuk diri sendiri, dan kenjōgo tidak boleh
+            dipakai untuk orang yang dihormati. Contoh salah: 私は先生とおっしゃいます (✗) → 私は先生と申します (✓)，
+            dan 社長が申しました (✗) → 社長がおっしゃいました (✓).
+        </div>
+        <div class="note-box">
+            <b>Pihak sendiri (内／うち) ikut direndahkan:</b> saat berbicara dengan tamu dari luar perusahaan,
+            atasan di perusahaan sendiri pun diperlakukan sebagai "pihak sendiri". Misalnya,
+            田中部長はただいま席を外しております (✓) — bukan ...外していらっしゃいます.
+            Ini dipakai saat menerima telepon atau tamu.
+        </div>
+    </div>
+
+    <div class="section-block">
+        <h2><span class="tag">LATIHAN</span> Soal Susun Kalimat</h2>
+        <p style="margin-bottom:18px;">
+            Susun potongan kata di bawah ini menjadi kalimat keigo yang benar dengan mengklik kata secara berurutan.
+            Klik kata yang sudah dipasang untuk membatalkannya.
+        </p>
+
+        <!-- SOAL 1 -->
+        <div class="quiz-box" id="quiz1">
+            <span class="qno">SOAL 1</span>
+            <div class="qtext">
+                "Direktur sudah pulang." <span class="kind son">Sonkeigo</span>
+            </div>
+            <div class="answer-slot" id="slot1"></div>
+            <div class="word-bank" id="bank1">
+                <div class="word-tile" data-word="社長は">社長は</div>
+                <div class="word-tile" data-word="もう">もう</div>
+                <div class="word-tile" data-word="お帰りになりました">お帰りになりました</div>
+            </div>
+            <div class="quiz-actions">
+                <button class="quiz-btn" onclick="checkAnswer(1)">Cek Jawaban</button>
+                <button class="quiz-btn secondary" onclick="resetQuiz(1)">Ulangi</button>
+            </div>
+            <div class="quiz-result" id="result1"></div>
+        </div>
+
+        <!-- SOAL 2 -->
+        <div class="quiz-box" id="quiz2">
+            <span class="qno">SOAL 2</span>
+            <div class="qtext">
+                "Saya yang akan membawakan barang guru." <span class="kind ken">Kenjōgo</span>
+            </div>
+            <div class="answer-slot" id="slot2"></div>
+            <div class="word-bank" id="bank2">
+                <div class="word-tile" data-word="私が">私が</div>
+                <div class="word-tile" data-word="先生の荷物を">先生の荷物を</div>
+                <div class="word-tile" data-word="お持ちします">お持ちします</div>
+            </div>
+            <div class="quiz-actions">
+                <button class="quiz-btn" onclick="checkAnswer(2)">Cek Jawaban</button>
+                <button class="quiz-btn secondary" onclick="resetQuiz(2)">Ulangi</button>
+            </div>
+            <div class="quiz-result" id="result2"></div>
+        </div>
+
+        <!-- SOAL 3 -->
+        <div class="quiz-box" id="quiz3">
+            <span class="qno">SOAL 3</span>
+            <div class="qtext">
+                "Nama saya Tanaka." <span class="kind ken">Kenjōgo</span>
+            </div>
+            <div class="answer-slot" id="slot3"></div>
+            <div class="word-bank" id="bank3">
+                <div class="word-tile" data-word="私は">私は</div>
+                <div class="word-tile" data-word="田中と">田中と</div>
+                <div class="word-tile" data-word="申します">申します</div>
+            </div>
+            <div class="quiz-actions">
+                <button class="quiz-btn" onclick="checkAnswer(3)">Cek Jawaban</button>
+                <button class="quiz-btn secondary" onclick="resetQuiz(3)">Ulangi</button>
+            </div>
+            <div class="quiz-result" id="result3"></div>
+        </div>
+
+        <!-- SOAL 4 -->
+        <div class="quiz-box" id="quiz4">
+            <span class="qno">SOAL 4</span>
+            <div class="qtext">
+                "Tamu memakan kue itu." <span class="kind son">Sonkeigo</span>
+            </div>
+            <div class="answer-slot" id="slot4"></div>
+            <div class="word-bank" id="bank4">
+                <div class="word-tile" data-word="お客様は">お客様は</div>
+                <div class="word-tile" data-word="ケーキを">ケーキを</div>
+                <div class="word-tile" data-word="召し上がります">召し上がります</div>
+            </div>
+            <div class="quiz-actions">
+                <button class="quiz-btn" onclick="checkAnswer(4)">Cek Jawaban</button>
+                <button class="quiz-btn secondary" onclick="resetQuiz(4)">Ulangi</button>
+            </div>
+            <div class="quiz-result" id="result4"></div>
+        </div>
+    </div>
+
+</div>
+
+<div class="content" style="padding-top:0;">
+    <div class="nav-bottom">
+        <a href="materitatabahasa.html" class="prev">
+            <span class="dir">← Kembali</span>
+            Daftar Materi Tata Bahasa
+        </a>
+        <a href="latihantatabahasakeigo.html" class="next">
+            <span class="dir">Selanjutnya →</span>
+            Latihan Tata Bahasa Keigo Dasar（35 soal）
+        </a>
+    </div>
+</div>
+
+<footer>
+© Tekipaki Japanese Learning
+</footer>
+
+<script>
+
+//============================
+// LATIHAN SOAL - SUSUN KALIMAT
+//============================
+
+const quizAnswers = {
+    1:["社長は","もう","お帰りになりました"],
+    2:["私が","先生の荷物を","お持ちします"],
+    3:["私は","田中と","申します"],
+    4:["お客様は","ケーキを","召し上がります"]
+};
+
+const quizState = {1:[],2:[],3:[],4:[]};
+
+function shuffleArray(arr){
+    for(let i = arr.length - 1; i > 0; i--){
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+}
+
+function initQuiz(id){
+    const bank = document.getElementById("bank"+id);
+    const tiles = Array.from(bank.querySelectorAll(".word-tile"));
+
+    // acak urutan tile lalu tempel ulang ke dalam bank
+    shuffleArray(tiles).forEach(tile=>{
+        bank.appendChild(tile);
+    });
+
+    tiles.forEach(tile=>{
+        tile.addEventListener("click", ()=>placeWord(id, tile));
+    });
+}
+
+function placeWord(id, tile){
+    if(tile.classList.contains("used")) return;
+
+    tile.classList.add("used");
+    quizState[id].push(tile.dataset.word);
+
+    const slot = document.getElementById("slot"+id);
+    const placed = document.createElement("span");
+    placed.className = "placed";
+    placed.textContent = tile.dataset.word;
+    placed.dataset.word = tile.dataset.word;
+
+    placed.addEventListener("click", ()=>{
+        slot.removeChild(placed);
+        const idx = quizState[id].indexOf(tile.dataset.word);
+        if(idx > -1){
+            quizState[id].splice(idx,1);
+        }
+        tile.classList.remove("used");
+        document.getElementById("result"+id).className = "quiz-result";
+    });
+
+    slot.appendChild(placed);
+    document.getElementById("result"+id).className = "quiz-result";
+}
+
+function checkAnswer(id){
+    const result = document.getElementById("result"+id);
+    const correct = quizAnswers[id].join("") === quizState[id].join("");
+
+    if(quizState[id].length === 0){
+        result.className = "quiz-result wrong";
+        result.textContent = "⚠️ Susun dulu kata-katanya sebelum mengecek jawaban.";
+        return;
+    }
+
+    if(correct){
+        result.className = "quiz-result correct";
+        result.textContent = "✅ Benar! Susunan kalimatmu sudah tepat.";
+    } else {
+        result.className = "quiz-result wrong";
+        result.textContent = "❌ Belum tepat. Jawaban yang benar: " + quizAnswers[id].join(" ");
+    }
+}
+
+function resetQuiz(id){
+    quizState[id] = [];
+    document.getElementById("slot"+id).innerHTML = "";
+    document.querySelectorAll("#bank"+id+" .word-tile").forEach(tile=>{
+        tile.classList.remove("used");
+    });
+    document.getElementById("result"+id).className = "quiz-result";
+}
+
+initQuiz(1);
+initQuiz(2);
+initQuiz(3);
+initQuiz(4);
+
+//============================
+// HAMBURGER (MOBILE MENU)
+//============================
+
+function toggleMobileMenu(){
+    const navRight = document.getElementById('navRight');
+    const btn = document.getElementById('hamburgerBtn');
+    navRight.classList.toggle('show-mobile');
+    btn.classList.toggle('open');
+}
+
+function toggleDropdown(id){
+    document.querySelectorAll('.dropdown-menu').forEach(m=>{
+        if(m.id!==id){
+            m.classList.remove('show');
+            m.classList.remove('align-right');
+            m.closest('.dropdown').classList.remove('open');
+        }
+    });
+    const menu = document.getElementById(id);
+    const wrap = menu.closest('.dropdown');
+    const willShow = !menu.classList.contains('show');
+    menu.classList.toggle('show');
+    wrap.classList.toggle('open');
+    if(willShow && window.innerWidth > 600){
+        menu.classList.remove('align-right');
+        const rect = menu.getBoundingClientRect();
+        if(rect.right > window.innerWidth - 8){ menu.classList.add('align-right'); }
+    }
+}
+
+window.addEventListener('resize', ()=>{
+    document.querySelectorAll('.dropdown-menu.show').forEach(m=>{
+        m.classList.remove('show');
+        m.classList.remove('align-right');
+        m.closest('.dropdown').classList.remove('open');
+    });
+    if(window.innerWidth > 600){
+        document.getElementById('navRight').classList.remove('show-mobile');
+        document.getElementById('hamburgerBtn').classList.remove('open');
+    }
+});
+
+document.addEventListener("click",function(e){
+    if(!e.target.closest(".dropdown")){
+        document.querySelectorAll(".dropdown-menu").forEach(function(menu){
+            menu.classList.remove("show");
+            menu.classList.remove("align-right");
+        });
+        document.querySelectorAll('.dropdown').forEach(d=>d.classList.remove('open'));
+    }
+    if(!e.target.closest("#navRight") && !e.target.closest("#hamburgerBtn")){
+        const navRight = document.getElementById('navRight');
+        const btn = document.getElementById('hamburgerBtn');
+        if(navRight.classList.contains('show-mobile') && window.innerWidth <= 600){
+            navRight.classList.remove('show-mobile');
+            btn.classList.remove('open');
+        }
+    }
+});
+
+</script>
+
+</body>
+</html>
