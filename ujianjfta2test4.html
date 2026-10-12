@@ -209,9 +209,9 @@ footer{text-align:center;color:var(--ink-soft);font-size:.85rem;padding:34px 20p
 <section class="hero">
   <div class="hero-kanji" aria-hidden="true">法</div>
   <div class="hero-inner">
-    <div class="eyebrow"><span class="dot"></span> N4 · TATA BAHASA · KUIS EVALUASI</div>
+    <div class="eyebrow"><span class="dot"></span> N4 · TATA BAHASA &amp; KANJI · KUIS EVALUASI</div>
     <h1>Kuis <span>Evaluasi</span></h1>
-    <p>Uji pemahamanmu tentang pola tata bahasa N4. Kuis ini terdiri dari <b style="color:#fff;">60 soal format JLPT N4 (文法)</b> dengan waktu pengerjaan <b style="color:#fff;">60 menit</b>.</p>
+    <p>Uji pemahamanmu tentang pola tata bahasa dan kanji N4. Kuis ini terdiri dari <b style="color:#fff;">60 soal format JLPT N4 (文法・漢字)</b> dengan waktu pengerjaan <b style="color:#fff;">60 menit</b>.</p>
   </div>
 </section>
 
@@ -221,8 +221,8 @@ footer{text-align:center;color:var(--ink-soft);font-size:.85rem;padding:34px 20p
 
   <div class="section-head">
     <div class="stamp-mini">問</div>
-    <h2>Kuis Evaluasi · Tata Bahasa JLPT N4</h2>
-    <span class="jp">N4文法・評価クイズ</span>
+    <h2>Kuis Evaluasi · Tata Bahasa &amp; Kanji JLPT N4</h2>
+    <span class="jp">N4文法・漢字・評価クイズ</span>
   </div>
 
   <div class="infoNote">
@@ -332,7 +332,6 @@ window.addEventListener("resize", function(){
 var QUIZ = [
   ["来年から 日本で 働く（　）しました。","ために","ことに","ところに","ように",1,"V-る+ことにする = memutuskan (atas kehendak sendiri)."],
   ["あしたは 試験ですから、今晩は 早く 寝（　）。","てみます","ています","てしまいます","ておきます",3,"V-て+おく = melakukan lebih dulu sebagai persiapan."],
-  ["電車の 中に かさを 忘れ（　）。","てしまいました","てみました","ておきました","てあげました",0,"V-て+しまう = terlanjur/tanpa sengaja (ada penyesalan)."],
   ["この 本は 字が 小さくて 読み（　）。","やすいです","そうです","にくいです","すぎます",2,"V-ます+にくい = sulit dilakukan."],
   ["きのう 買った（　）なのに、もう こわれました。","ところ","はず","ばかり","つもり",2,"V-た+ばかり = baru saja melakukan."],
   ["先生は 来週 日本へ（　）。","いらっしゃいます","まいります","いたします","もうします",0,"Untuk guru dipakai sonkeigo: いらっしゃいます."],
@@ -341,45 +340,26 @@ var QUIZ = [
   ["先生は 学生に 本を 読ま（　）。","せました","れました","させました","せられました",0,"Kausatif: 読む → 読ませる (menyuruh membaca)."],
   ["この くすりを 飲め（　）、すぐ 治りますよ。","て","も","ば","と",2,"Bentuk ば untuk kondisi: 飲めば (kalau diminum)."],
   ["ボタンを 押す（　）、ドアが 開きます。","のに","と","より","ので",1,"V-る+と = jika/begitu ～ maka (hasil otomatis)."],
-  ["もし 雨が 降っ（　）、試合は 中止です。","のに","ので","ながら","たら",3,"もし～たら = jika."],
   ["毎朝 6時に 起きる（　）に して います。","こと","もの","ところ","よう",3,"V-る+ようにしている = berusaha membiasakan."],
-  ["先生に 会う（　）、駅へ 行きました。","ことに","ために","ところに","ように",1,"V-る+ために = untuk tujuan ～."],
   ["風邪を ひか（　）、手を 洗って ください。","ないで","ないために","ないように","なくても",2,"V-ない+ように = agar tidak ～."],
-  ["あの 子は 泣き（　）顔を して います。","そうな","ような","らしい","ばかりの",0,"V-ます+そうな = tampak akan ～ (kesan visual)."],
   ["天気予報に よる（　）、明日は 雪だ そうです。","ても","と","ば","のに",1,"～によると～そうです = menurut ～ katanya ～."],
   ["部屋の 電気が ついて いるから、田中さんは まだ いる（　）です。","ところです","ことです","ばかりです","ようです",3,"～ようです = tampaknya (dugaan dari bukti)."],
   ["今 勉強して いる（　）ですから、静かに して ください。","ところ","はず","つもり","ばかり",0,"V-ている+ところ = sedang melakukan."],
-  ["弟は ゲーム（　）して いて、宿題を しません。","しか","だけの","ばかり","ほど",2,"～ばかり = hanya/terus-menerus melakukan ～."],
-  ["頭が 痛い（　）、会社を 休みました。","ながら","ても","ので","のに",2,"ので = karena (alasan)."],
-  ["この 店は 高い（　）、味は あまり よくないです。","けれど","ために","ので","から",0,"けれど = tetapi."],
-  ["田中さんは 漢字が 100個（　）。","書かれます","書かせます","書きます","書けます",3,"Bentuk potensial: 書く → 書ける (bisa menulis)."],
   ["友達が 駅まで 送って（　）。","やりました","くれました","あげました","もらいました",1,"V-て+くれる = orang lain melakukan untuk saya."],
-  ["わたしは 田中さんに 本を 貸して（　）。","あげました","やりました","くれました","もらいました",0,"V-て+あげる = saya melakukan untuk orang lain."],
   ["兄に 自転車を 直して（　）。","あげました","やりました","もらいました","くれました",2,"～に V-て+もらう = menerima bantuan dari ～."],
-  ["先生は 学生に「静かに（　）。」と 言いました。","します","しなさい","しません","しました",1,"V-なさい = perintah halus (guru ke murid)."],
   ["彼は 来る（　）ですが、まだ 来ません。","こと","もの","ところ","はず",3,"V-る+はず = seharusnya ～."],
   ["雨が 降る（　）しれません。かさを 持って 行きましょう。","だけ","かな","でも","かも",3,"～かもしれない = mungkin ～."],
   ["来週の パーティーに 行く（　）です。","ばかり","つもり","ところ","はず",1,"V-る+つもり = berniat ～."],
-  ["手を 洗わない（　）、ご飯を 食べました。","ば","て","で","と",2,"V-ない+で = tanpa melakukan ～."],
   ["わたしが 買い物を して いる（　）、子どもは ずっと 寝て いました。","あいだ","とき","まま","ながら",0,"～あいだ = selama ～ berlangsung."],
   ["窓を 開けた（　）、寝て しまいました。","ながら","まま","あいだ","ところ",1,"V-た+まま = dalam keadaan tetap ～."],
-  ["この 店の ラーメンは 安く（　）、おいしいです。","に","で","と","て",3,"い-adj: く+て untuk menyambung kalimat."],
-  ["駅まで 歩く より、バスに 乗る（　）が 早いです。","ほう","ところ","こと","もの",0,"AよりBのほうが ～ = B lebih ～ daripada A."],
-  ["彼ほど 英語が 上手（　）人は いません。","で","に","な","の",2,"な-adj + kata benda: 上手な人."],
   ["先生は もう お帰りに（　）。","しました","いたしました","なりました","なさいました",2,"お+V+になる = sonkeigo: お帰りになりました."],
   ["今から お客様に ご説明（　）。","いたします","くださいます","いらっしゃいます","なさいます",0,"ご+N+いたします = kenjōgo (merendahkan diri)."],
   ["毎日 練習して いる（　）、まだ 上手に なりません。","ために","ので","から","のに",3,"のに = padahal ～ (hasil di luar harapan)."],
-  ["遅れて（　）、すみません。","あって","しまって","おいて","みて",1,"V-て+しまって = terlanjur (permintaan maaf)."],
   ["山田「週末は 何を しますか。」田中「＿＿＿　＿＿＿　★　＿＿＿　つもりです。」","行く","泳ぎに","天気が よければ","海へ",1,"Susunan benar: 天気が よければ → 海へ → <b>泳ぎに</b> → 行く. ★ = 泳ぎに."],
   ["来月から　＿＿＿　＿＿＿　★　＿＿＿　なりました。","支店で","ことに","大阪の","働く",3,"Susunan benar: 大阪の → 支店で → <b>働く</b> → ことに. ★ = 働く."],
-  ["後ろの 人にも　＿＿＿　＿＿＿　★　＿＿＿　話して ください。","大きな","ように","声で","聞こえる",0,"Susunan benar: 聞こえる → ように → <b>大きな</b> → 声で. ★ = 大きな."],
   ["友達の 話では、＿＿＿　＿＿＿　★　＿＿＿　そうです。","あの 店の","おいしい","安くて","ケーキは",2,"Susunan benar: あの 店の → ケーキは → <b>安くて</b> → おいしい. ★ = 安くて."],
-  ["A「顔色が 悪いですよ。」B「ええ、昨日　＿＿＿　＿＿＿　★　＿＿＿　痛く なりました。」","おなかが","ケーキを","すぎて","食べ",2,"Susunan benar: ケーキを → 食べ → <b>すぎて</b> → おなかが. ★ = すぎて."],
   ["私は　＿＿＿　＿＿＿　★　＿＿＿　困りました。","足を","電車の 中で","隣の 人に","踏まれて",0,"Susunan benar: 電車の 中で → 隣の 人に → <b>足を</b> → 踏まれて. ★ = 足を."],
-  ["私は　＿＿＿　＿＿＿　★　＿＿＿　ました。","引っ越しを","もらい","友達に","手伝って",3,"Susunan benar: 友達に → 引っ越しを → <b>手伝って</b> → もらい. ★ = 手伝って."],
   ["A「この 仕事は 難しいですね。」B「＿＿＿　＿＿＿　★　＿＿＿　ますよ。」","終わり","すぐ","やれば","みんなで",1,"Susunan benar: みんなで → やれば → <b>すぐ</b> → 終わり. ★ = すぐ."],
-  ["A「宿題は？」B「すみません、＿＿＿　＿＿＿　★　＿＿＿　しまいました。」","置いて","家に","きて","宿題を",0,"Susunan benar: 宿題を → 家に → <b>置いて</b> → きて (～てきてしまう). ★ = 置いて."],
-  ["もし 宝くじに　＿＿＿　＿＿＿　★　＿＿＿　たいです。","世界中を","当たったら","旅行","し",2,"Susunan benar: 当たったら → 世界中を → <b>旅行</b> → し. ★ = 旅行."],
   ["（１）","作る つもりです","作って みました","作って しまいます","作る ところです",1,"初めて ケーキを 作って <b>みました</b> = mencoba membuat untuk pertama kali (V-てみる)."],
   ["（２）","やすい","にくい","そうな","すぎた",3,"さとうを 入れ<b>すぎた</b>からです = karena kebanyakan gula (V-すぎる)."],
   ["（３）","くれました","あげました","もらいました","おきました",0,"食べて<b>くれました</b> = (teman) memakannya untuk saya (V-てくれる)."],
@@ -389,17 +369,39 @@ var QUIZ = [
   ["（７）","なさいました","いたしました","くださいました","なりました",3,"変更に<b>なりました</b> = menjadi/berubah (N に なる)."],
   ["（８）","いくつ","いかが","どうして","どの",1,"ご都合は<b>いかが</b>でしょうか = bagaimana jadwal Anda? (sopan)."],
   ["（９）","場合は","うちに","ために","ばかり",0,"都合が悪い<b>場合は</b> = jika tidak sempat."],
-  ["（１０）","なさいます","くださいます","いたします","いらっしゃいます",2,"お送り<b>いたします</b> = kenjōgo (saya akan mengirim)."]
+  ["（１０）","なさいます","くださいます","いたします","いらっしゃいます",2,"お送り<b>いたします</b> = kenjōgo (saya akan mengirim)."],
+  ["駅の <u>窓口</u>で 切符を 買います。","まどぐち","そうこう","まどくち","そうぐち",0,"窓口 = <b>まどぐち</b> (loket)."],
+  ["<u>病院</u>へ 行って、薬を もらいました。","びょいん","びょういん","ぴょういん","びょうえん",1,"病院 = <b>びょういん</b> (rumah sakit). Perhatikan bunyi panjang ょう."],
+  ["あしたの <u>予定</u>を 教えて ください。","よじょう","ようてい","よてい","よでい",2,"予定 = <b>よてい</b> (rencana / jadwal)."],
+  ["<u>荷物</u>が 重いです。","かもつ","にぶつ","にもの","にもつ",3,"荷物 = <b>にもつ</b> (barang bawaan)."],
+  ["駅で 道に <u>迷って</u> しまいました。","まがって","ならって","まよって","まいって",2,"迷う = <b>まよう</b> (tersesat). 曲がる = まがる (berbelok)."],
+  ["<u>最近</u>、とても 忙しいです。","さいこん","さいきん","さっきん","ざいきん",1,"最近 = <b>さいきん</b> (baru-baru ini)."],
+  ["友達に 本を <u>返します</u>。","かします","もどします","おくします","かえします",3,"返す = <b>かえす</b> (mengembalikan). 戻す = もどす, 貸す = かす."],
+  ["ここは <u>危険</u>ですから、入らないで ください。","きけん","きげん","あぶけん","きっけん",0,"危険 = <b>きけん</b> (bahaya)."],
+  ["彼は 日本語が <u>上手</u>です。","じょうづ","じょず","じょうず","じょうす",2,"上手 = <b>じょうず</b> (pandai / mahir)."],
+  ["<u>残業</u>で 帰りが 遅く なりました。","ざんごう","ざんぎょう","さんぎょう","ざんぎょ",1,"残業 = <b>ざんぎょう</b> (lembur)."],
+  ["先生に <u>そうだん</u>します。","想談","相淡","相談","想淡",2,"相談 = <b>そうだん</b> (berkonsultasi)."],
+  ["<u>しゅっぱつ</u>は 9時です。","出発","出登","出築","山発",0,"出発 = <b>しゅっぱつ</b> (keberangkatan)."],
+  ["<u>しんぱい</u>しないで ください。","心酉","新配","信配","心配",3,"心配 = <b>しんぱい</b> (khawatir)."],
+  ["わたしは <u>りょうり</u>が 好きです。","科理","料理","料里","科里",1,"料理 = <b>りょうり</b> (masakan)."],
+  ["旅行の <u>じゅんび</u>は できましたか。","準偏","順備","準備","順偏",2,"準備 = <b>じゅんび</b> (persiapan)."],
+  ["母の 仕事を <u>てつだいます</u>。","手伝います","手任います","手仕います","手代います",0,"手伝う = <b>てつだう</b> (membantu)."],
+  ["子どもたちは <u>ひろば</u>で 遊んで います。","公場","広湯","庁場","広場",3,"広場 = <b>ひろば</b> (lapangan / alun-alun)."],
+  ["友達との <u>やくそく</u>を 忘れました。","約速","約束","納束","納速",1,"約束 = <b>やくそく</b> (janji)."],
+  ["あした <u>かならず</u> 来て ください。","必ず","心ず","必す","必づ",0,"必ず = <b>かならず</b> (pasti)."],
+  ["この 駅は 電車が 少なくて <u>ふべん</u>です。","不使","否便","不便","不更",2,"不便 = <b>ふべん</b> (tidak praktis). Lawan katanya: 便利 (べんり)."]
 ];
 
 /* Bagian soal: 'at' = nomor urut soal (mulai 0) */
 var BLOCKS = [
-  {at:0,  head:["もんだい 1","文法形式の判断","Pilih jawaban yang <b>paling tepat</b> untuk mengisi tanda <b>（　）</b>. (Soal 1–40)"]},
-  {at:40, head:["もんだい 2","文の組み立て","Susun kata menjadi kalimat yang benar, lalu pilih jawaban yang masuk ke tanda <b>★</b>. (Soal 41–50)"]},
-  {at:50, head:["もんだい 3","文章の文法","Baca teks, lalu pilih jawaban yang tepat untuk <b>（１）～（５）</b>. (Soal 51–55)"],
+  {at:0,  head:["もんだい 1","文法形式の判断","Pilih jawaban yang <b>paling tepat</b> untuk mengisi tanda <b>（　）</b>. (Soal 1–25)"]},
+  {at:25, head:["もんだい 2","文の組み立て","Susun kata menjadi kalimat yang benar, lalu pilih jawaban yang masuk ke tanda <b>★</b>. (Soal 26–30)"]},
+  {at:30, head:["もんだい 3","文章の文法","Baca teks, lalu pilih jawaban yang tepat untuk <b>（１）～（５）</b>. (Soal 31–35)"],
    passage:"わたしの しゅみは 料理です。先月、友達の 誕生日に 初めて ケーキを <u>（１）</u>。でも、ケーキは あまり おいしく ありませんでした。さとうを 入れ<u>（２）</u>からです。友達は「おいしいよ」と 言って 全部 食べて <u>（３）</u>。わたしは とても うれしかったです。<u>（４）</u>、これからも 毎週 料理の 練習を する<u>（５）</u>にしました。"},
-  {at:55, passage_only:true, label:"Pilih jawaban yang tepat untuk <b>（６）～（１０）</b>. (Soal 56–60)",
-   passage:"田中さんへ<br>来週の 金曜日の 会議の ことで、ご連絡します。会議は 午前 10時<u>（６）</u>始まる 予定でしたが、社長が 出張の ため、午後 2時に 変更に<u>（７）</u>。お忙しい ところ すみませんが、ご都合は<u>（８）</u>でしょうか。もし 都合が 悪い<u>（９）</u>、ご連絡 ください。会議の 資料は、前の 日までに メールで お送り<u>（１０）</u>。<br>山本"}
+  {at:35, passage_only:true, label:"Pilih jawaban yang tepat untuk <b>（６）～（１０）</b>. (Soal 36–40)",
+   passage:"田中さんへ<br>来週の 金曜日の 会議の ことで、ご連絡します。会議は 午前 10時<u>（６）</u>始まる 予定でしたが、社長が 出張の ため、午後 2時に 変更に<u>（７）</u>。お忙しい ところ すみませんが、ご都合は<u>（８）</u>でしょうか。もし 都合が 悪い<u>（９）</u>、ご連絡 ください。会議の 資料は、前の 日までに メールで お送り<u>（１０）</u>。<br>山本"},
+  {at:40, head:["もんだい 4","漢字読み","Pilih <b>cara baca</b> yang paling tepat untuk kanji yang <u>bergaris bawah</u>. (Soal 41–50)"]},
+  {at:50, head:["もんだい 5","表記","Pilih <b>kanji</b> yang paling tepat untuk kata hiragana yang <u>bergaris bawah</u>. (Soal 51–60)"]}
 ];
 
 var ANSWER_KEY = {};
@@ -533,9 +535,9 @@ function showResult(score, name, usedSec, dateStr){
   document.getElementById("resultScore").textContent = score + " / " + TOTAL;
 
   var msg;
-  if(score === TOTAL){ msg = "🎉 Sempurna, " + name + "! Pemahaman tata bahasa N4 kamu sudah sangat bagus."; }
+  if(score === TOTAL){ msg = "🎉 Sempurna, " + name + "! Pemahaman tata bahasa dan kanji N4 kamu sudah sangat bagus."; }
   else if(score >= TOTAL * 0.6){ msg = "👍 Bagus, " + name + "! Masih ada beberapa yang perlu dipelajari ulang. Cek penjelasan di setiap soal."; }
-  else{ msg = "💪 Yuk, " + name + ", baca ulang materi tata bahasa N4 dan cek penjelasan di setiap soal."; }
+  else{ msg = "💪 Yuk, " + name + ", baca ulang materi tata bahasa dan kanji N4 lalu cek penjelasan di setiap soal."; }
   document.getElementById("resultMsg").textContent = msg;
 
   var card = document.getElementById("resultCard");
