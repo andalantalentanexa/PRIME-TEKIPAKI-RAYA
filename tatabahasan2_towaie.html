@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="ja" translate="no">
+<head>
+<meta charset="UTF-8">
+<meta name="google" content="notranslate">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>〜とはいえ（meskipun begitu） | Tata Bahasa N2</title>
+<style>
+:root{--navy:#001f3f;--navy2:#002a54;--navy3:#022655;--gold:#facc15;--gold2:#ffd700;--text:#001f3f}
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Segoe UI",Arial,sans-serif}
+body{background:#fff;color:var(--text)}
+#navbar{position:sticky;top:0;z-index:999;background:#001530;border-bottom:2px solid rgba(224,181,42,.3);box-shadow:0 4px 14px rgba(0,0,0,.25)}
+.navbar-inner{display:flex;justify-content:space-between;align-items:center;padding:10px 20px}
+.nav-left{display:flex;align-items:center}
+.nav-right{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+.home-btn{display:flex;align-items:center;gap:8px;background:#e0b52a;color:#001530;text-decoration:none;padding:8px 14px;border-radius:10px;font-weight:bold}
+.home-btn:hover{opacity:.85}
+.home-icon{width:24px;height:24px;object-fit:cover;border-radius:4px}
+.dropdown{position:relative}
+.dropdown-btn{background:none;border:2px solid #e0b52a;color:#e0b52a;padding:8px 14px;border-radius:8px;font-weight:bold;cursor:pointer;font-family:inherit;font-size:.9rem}
+.dropdown-btn:hover{background:#e0b52a;color:#001530}
+.dropdown-menu{display:none;position:absolute;top:45px;left:0;background:#1f4577;border-radius:10px;overflow:hidden;min-width:220px;max-width:90vw;box-shadow:0 8px 20px rgba(0,0,0,.35)}
+.dropdown-menu.align-right{left:auto;right:0}
+.dropdown-menu a{display:block;padding:12px 15px;color:#ffd700;text-decoration:none}
+.dropdown-menu a:hover{background:#e0b52a;color:#001530}
+.show{display:block}
+@media(max-width:600px){
+  .navbar-inner{flex-direction:column;align-items:flex-start;gap:8px}
+  .nav-right{width:100%}
+  .dropdown-btn{font-size:.72rem;padding:6px 9px}
+  .breadcrumb{margin-top:16px}
+}
+.breadcrumb{margin:20px 0 0 0;padding:0 0 0 20px;font-size:14px;color:#8892a3;text-align:left}
+.breadcrumb a{color:var(--navy);text-decoration:none;font-weight:600}
+.breadcrumb a:hover{text-decoration:underline}
+.pattern-hero{max-width:900px;margin:20px auto 0;padding:40px 30px;background:linear-gradient(135deg,var(--navy) 0%,#062a52 100%);border-radius:22px;position:relative;overflow:hidden;text-align:center}
+.pattern-hero::before{content:"然";position:absolute;font-size:260px;font-weight:900;color:rgba(250,204,21,.06);top:-60px;right:-30px;pointer-events:none;user-select:none}
+.pattern-hero .no-badge{display:inline-block;background:rgba(250,204,21,.12);border:1px solid rgba(250,204,21,.4);color:var(--gold);font-size:13px;font-weight:bold;letter-spacing:1px;padding:6px 16px;border-radius:999px;margin-bottom:18px;position:relative}
+.pattern-hero h1{font-size:56px;color:#fff;position:relative;margin-bottom:8px}
+.pattern-hero .romaji{font-size:20px;color:var(--gold2);font-weight:600;position:relative;margin-bottom:14px}
+.pattern-hero .mean{font-size:18px;color:#c9d6e8;position:relative}
+.content{max-width:900px;margin:30px auto;padding:0 30px 60px}
+.section-block{margin-bottom:36px}
+.section-block h2{display:flex;align-items:center;gap:12px;font-size:22px;color:var(--navy);margin-bottom:14px}
+.section-block h2 .tag{background:var(--navy);color:var(--gold);font-size:13px;font-weight:bold;padding:5px 12px;border-radius:8px;white-space:nowrap}
+.section-block p{font-size:16px;line-height:1.9;color:#333}
+.formula-box{background:#f5f8fc;border:2px dashed var(--navy);border-radius:16px;padding:22px 26px;font-size:19px;text-align:center;color:var(--navy);font-weight:600;line-height:1.8}
+.formula-box small{display:block;font-size:13px;font-weight:400;color:#8892a3;margin-top:6px}
+.table-wrap{overflow-x:auto;border-radius:16px;border:2px solid var(--navy)}
+.konjugasi-table{width:100%;border-collapse:collapse;min-width:620px;font-size:15px}
+.konjugasi-table thead th{background:var(--navy);color:var(--gold);text-align:left;padding:14px 16px;font-size:14px;white-space:nowrap}
+.konjugasi-table tbody td{padding:13px 16px;border-bottom:1px solid #e3e9f2;color:#333;vertical-align:middle}
+.konjugasi-table tbody tr:nth-child(even){background:#f5f8fc}
+.konjugasi-table tbody tr:hover{background:#fffbe6}
+.konjugasi-table .kamus{font-weight:bold;font-size:17px;color:var(--navy)}
+.konjugasi-table .yomi-small{display:block;font-size:12px;color:#8892a3;font-weight:400}
+.konjugasi-table .arrow{color:var(--gold2);font-weight:900;font-size:18px}
+.konjugasi-table .ukemi{font-weight:bold;font-size:17px;color:#5b8bb0}
+.konjugasi-table .group-row td{background:var(--navy2);color:var(--gold);font-weight:bold;font-size:13px;letter-spacing:.5px;padding:10px 16px}
+.example{border:2px solid var(--navy);border-radius:16px;padding:20px 24px;margin-bottom:16px;transition:.25s}
+.example:hover{background:var(--navy3);color:#fff;transform:translateY(-3px);box-shadow:0 12px 24px rgba(0,31,63,.2)}
+.example .jp{font-size:20px;font-weight:bold;margin-bottom:6px}
+.example .yomi{font-size:14px;color:#8892a3;margin-bottom:8px}
+.example:hover .yomi{color:#c9d6e8}
+.example .id{font-size:15px;color:#333;font-style:italic}
+.example:hover .id{color:#e6edf7}
+.note-box{background:#fffbe6;border-left:5px solid var(--gold);border-radius:10px;padding:18px 22px;font-size:15px;line-height:1.8;color:#4a4020}
+.note-box b{color:var(--navy)}
+.nav-bottom{display:flex;justify-content:space-between;gap:16px;margin-top:50px;flex-wrap:wrap}
+.nav-bottom a{flex:1;min-width:200px;text-decoration:none;border:2px solid var(--navy);border-radius:14px;padding:16px 20px;color:var(--navy);font-weight:600;transition:.25s}
+.nav-bottom a:hover{background:var(--navy);color:var(--gold)}
+.nav-bottom .dir{display:block;font-size:12px;color:#8892a3;margin-bottom:4px}
+.nav-bottom a:hover .dir{color:#c9d6e8}
+.nav-bottom .next{text-align:right}
+.quiz-box{border:2px solid var(--navy);border-radius:18px;padding:24px 26px;margin-bottom:22px;background:#fafcff}
+.quiz-box .qno{display:inline-block;background:var(--navy);color:var(--gold);font-size:13px;font-weight:bold;padding:5px 12px;border-radius:8px;margin-bottom:14px}
+.quiz-box .qtext{font-size:16px;color:#333;margin-bottom:16px;line-height:1.8}
+.word-bank{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin-bottom:18px}
+.word-tile{text-align:center;display:flex;align-items:center;justify-content:center;min-height:48px;background:#fff;border:2px solid var(--navy);color:var(--navy);padding:10px 16px;border-radius:10px;font-size:16px;font-weight:600;cursor:pointer;transition:.2s;user-select:none}
+.word-tile:hover{background:var(--navy);color:var(--gold);transform:translateY(-2px)}
+.word-tile.used{opacity:.3;pointer-events:none}
+.answer-slot{min-height:52px;border:2px dashed var(--gold2);border-radius:10px;background:#fffbe6;display:flex;align-items:center;flex-wrap:wrap;gap:8px;padding:8px 12px;margin-bottom:16px}
+.answer-slot .placed{min-width:150px;text-align:center;background:var(--gold);color:#001530;padding:8px 14px;border-radius:8px;font-weight:bold;font-size:15px;cursor:pointer}
+.quiz-actions{display:flex;gap:10px;flex-wrap:wrap}
+.quiz-btn{border:2px solid var(--navy);background:var(--navy);color:var(--gold);padding:10px 18px;border-radius:10px;font-weight:bold;font-size:14px;cursor:pointer;transition:.2s}
+.quiz-btn:hover{opacity:.85}
+.quiz-btn.secondary{background:#fff;color:var(--navy)}
+.quiz-result{margin-top:14px;font-size:15px;font-weight:600;display:none;padding:12px 16px;border-radius:10px}
+.quiz-result.correct{display:block;background:#e6f7ec;color:#166534;border:1px solid #86efac}
+.quiz-result.wrong{display:block;background:#fdeaea;color:#991b1b;border:1px solid #fca5a5}
+@media(max-width:600px){
+  .pattern-hero h1{font-size:38px}
+  .pattern-hero::before{font-size:160px}
+  .nav-bottom .next{text-align:left}
+  .konjugasi-table{font-size:13px}
+}
+footer{text-align:center;padding:30px;color:#666;font-size:14px}
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+<div class="navbar-inner">
+<div class="nav-left">
+<a href="index.html" class="home-btn">
+<svg class="home-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3L3 10h2v10h6v-6h2v6h6V10h2L12 3Z"/></svg>
+HOME
+</a>
+</div>
+<div class="nav-right">
+  <div class="dropdown">
+    <button class="dropdown-btn" onclick="toggleDropdown('materi')">MATERI ▼</button>
+    <div class="dropdown-menu" id="materi">
+      <a href="daftarkosakata.html">Kosakata JFT</a>
+      <a href="materitatabahasa.html">Tata Bahasa</a>
+      <a href="kanjidasar.html">Kanji Flash Card</a>
+    </div>
+  </div>
+  <div class="dropdown">
+    <button class="dropdown-btn" onclick="toggleDropdown('quiz')">QUIZ JFT ▼</button>
+    <div class="dropdown-menu" id="quiz">
+      <a href="ujianjftb2test1.html">SOAL JFT B — TEST 1</a>
+      <a href="ujianjftb2test2.html">SOAL JFT B — TEST 2</a>
+      <a href="ujianjftb2test3.html">SOAL JFT B — TEST 3</a>
+      <a href="ujianjftb2test4.html">SOAL JFT B — TEST 4</a>
+      <a href="ujianjftb2test5.html">SOAL JFT B — TEST 5</a>
+    </div>
+  </div>
+  <div class="dropdown">
+    <button class="dropdown-btn" onclick="toggleDropdown('kanjiquiz')">QUIZ KANJI ▼</button>
+    <div class="dropdown-menu" id="kanjiquiz">
+      <a href="quizkanji1.html">QUIZ KANJI 1</a>
+      <a href="quizkanji2.html">QUIZ KANJI 2</a>
+      <a href="quizkanji3.html">QUIZ KANJI 3</a>
+      <a href="quizkanji4.html">QUIZ KANJI 4</a>
+      <a href="quizkanji5.html">QUIZ KANJI 5</a>
+    </div>
+  </div>
+</div>
+</div>
+</nav>
+
+<div class="breadcrumb">
+  <a href="tatabahasajlptn2.html">← Kembali ke Daftar Tata Bahasa N2</a>
+</div>
+
+<div class="pattern-hero">
+    <span class="no-badge">POLA · JLPT N2</span>
+    <h1>〜とはいえ</h1>
+    <div class="romaji">~to wa ie</div>
+    <div class="mean">meskipun begitu / walaupun dikatakan... (mengakui satu fakta, tetapi kenyataannya tidak sepenuhnya begitu)</div>
+</div>
+
+<div class="content">
+
+    <div class="section-block">
+        <h2><span class="tag">ARTI</span> Penjelasan</h2>
+        <p>
+            <b>〜とはいえ</b> dipakai ketika pembicara <b>mengakui suatu fakta atau keadaan</b>,
+            lalu menyampaikan hal yang <b>berlawanan atau membatasi</b> fakta itu. Artinya
+            "meskipun ..., namun ...". Bagian depan diakui benar, tetapi bagian belakang
+            menunjukkan bahwa <b>tidak sepenuhnya begitu</b> atau ada hal lain yang perlu diperhatikan.
+            Pola ini cenderung <b>formal／tulis</b>, dan sepadan dengan 〜といっても, 〜とはいうものの,
+            atau 〜けれども.
+        </p>
+    </div>
+
+    <div class="section-block">
+        <h2><span class="tag">POLA</span> Rumus</h2>
+        <div class="formula-box">
+            動詞（普通形）＋とはいえ　（meskipun V）<br>
+            い形容詞（普通形）＋とはいえ　（meskipun ...）<br>
+            な形容詞（語幹／〜だ）＋とはいえ　（meskipun ...）<br>
+            名詞（〜／〜だ）＋とはいえ　（meskipun N）
+            <small>Contoh: 勉強したとはいえ／安いとはいえ／上手とはいえ／春とはいえ</small>
+        </div>
+    </div>
+
+    <div class="section-block">
+        <h2><span class="tag">TABEL</span> Pola Penggunaan 〜とはいえ</h2>
+        <p style="margin-bottom:16px;">
+            Pada kata sifat な dan kata benda, <b>だ boleh dipakai atau dihilangkan</b>
+            (上手とはいえ ／ 上手だとはいえ). Dalam praktik, kata benda biasanya langsung
+            menempel: 春とはいえ.
+        </p>
+
+        <div class="table-wrap">
+            <table class="konjugasi-table">
+                <thead>
+                    <tr>
+                        <th>Kata Dasar</th>
+                        <th></th>
+                        <th>Bentuk 〜とはいえ</th>
+                        <th>Artinya</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="group-row"><td colspan="4">動詞（普通形） ＋ とはいえ</td></tr>
+                    <tr>
+                        <td><span class="kamus">勉強した</span><span class="yomi-small">べんきょうした (benkyou shita)</span></td>
+                        <td class="arrow">→</td>
+                        <td><span class="ukemi">勉強したとはいえ</span><span class="yomi-small">べんきょうしたとはいえ (benkyou shita to wa ie)</span></td>
+                        <td>meskipun sudah belajar</td>
+                    </tr>
+
+                    <tr class="group-row"><td colspan="4">い形容詞 ／ な形容詞 ＋ とはいえ</td></tr>
+                    <tr>
+                        <td><span class="kamus">安い</span><span class="yomi-small">やすい (yasui)</span></td>
+                        <td class="arrow">→</td>
+                        <td><span class="ukemi">安いとはいえ</span><span class="yomi-small">やすいとはいえ (yasui to wa ie)</span></td>
+                        <td>meskipun murah</td>
+                    </tr>
+                    <tr>
+                        <td><span class="kamus">上手だ</span><span class="yomi-small">じょうずだ (jouzu da)</span></td>
+                        <td class="arrow">→</td>
+                        <td><span class="ukemi">上手とはいえ</span><span class="yomi-small">じょうずとはいえ (jouzu to wa ie)</span></td>
+                        <td>meskipun mahir</td>
+                    </tr>
+
+                    <tr class="group-row"><td colspan="4">名詞 ＋ とはいえ</td></tr>
+                    <tr>
+                        <td><span class="kamus">春</span><span class="yomi-small">はる (haru)</span></td>
+                        <td class="arrow">→</td>
+                        <td><span class="ukemi">春とはいえ</span><span class="yomi-small">はるとはいえ (haru to wa ie)</span></td>
+                        <td>meskipun (sudah) musim semi</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="note-box" style="margin-top:16px;">
+            <b>Catatan penting:</b> bagian depan adalah <b>fakta yang diakui pembicara</b>. Bagian belakang
+            adalah <b>hal yang tampak bertentangan atau membatasi</b> fakta itu, jadi dua bagian tidak boleh
+            sejalan arah.
+        </div>
+    </div>
+
+    <div class="section-block">
+        <h2><span class="tag">CONTOH</span> Contoh Kalimat</h2>
+
+        <div class="example">
+            <div class="jp">春とはいえ、まだ朝晩は寒い。</div>
+            <div class="yomi">はる とはいえ、まだ あさばんは さむい。</div>
+            <div class="id">Meskipun sudah musim semi, pagi dan malam masih dingin.</div>
+        </div>
+
+        <div class="example">
+            <div class="jp">安いとはいえ、品質が悪いものは買いたくない。</div>
+            <div class="yomi">やすい とはいえ、ひんしつが わるい ものは かいたくない。</div>
+            <div class="id">Meskipun murah, saya tidak mau membeli barang yang kualitasnya buruk.</div>
+        </div>
+
+        <div class="example">
+            <div class="jp">勉強したとはいえ、まだ自信がない。</div>
+            <div class="yomi">べんきょうした とはいえ、まだ じしんが ない。</div>
+            <div class="id">Meskipun sudah belajar, saya masih belum percaya diri.</div>
+        </div>
+
+        <div class="example">
+            <div class="jp">初心者とはいえ、基本的なルールは守るべきだ。</div>
+            <div class="yomi">しょしんしゃ とはいえ、きほんてきな るーるは まもるべきだ。</div>
+            <div class="id">Meskipun pemula, aturan dasar tetap harus dipatuhi.</div>
+        </div>
+
+        <div class="example">
+            <div class="jp">休みとはいえ、家でも仕事のことを考えてしまう。</div>
+            <div class="yomi">やすみ とはいえ、いえでも しごとの ことを かんがえてしまう。</div>
+            <div class="id">Meskipun sedang libur, di rumah pun saya jadi memikirkan pekerjaan.</div>
+        </div>
+    </div>
+
+    <div class="section-block">
+        <h2><span class="tag">CATATAN</span> Tips & Perbedaan</h2>
+        <div class="note-box">
+            <b>Mengakui, lalu membatasi:</b> pembicara <b>setuju</b> dengan bagian depan, tetapi
+            menambahkan pandangan yang berlawanan di bagian belakang.<br><br>
+            <b>Gaya bahasa:</b> lebih formal daripada 〜けど／〜が, sehingga sering muncul dalam tulisan,
+            pidato, atau artikel.<br><br>
+            <b>Jangan tertukar dengan 〜からといって:</b> 〜からといって <b>menyangkal kesimpulan</b> yang
+            ditarik dari suatu alasan ("bukan berarti hanya karena..."), sedangkan 〜とはいえ
+            <b>mengakui fakta lalu menambahkan hal yang berlawanan</b> ("memang begitu, tetapi...").
+        </div>
+    </div>
+
+    <div class="section-block">
+        <h2><span class="tag">LATIHAN</span> Soal Susun Kalimat</h2>
+        <p style="margin-bottom:18px;">
+            Susun kata-kata acak di bawah ini menjadi kalimat yang benar dengan mengklik kata secara berurutan.
+            Klik kata yang sudah dipasang untuk membatalkannya.
+        </p>
+
+        <div class="quiz-box" id="quiz1">
+            <span class="qno">SOAL 1</span>
+            <div class="qtext">＿＿＿＿＿　＿★＿　＿＿＿＿＿　＿＿＿＿＿。</div>
+            <div class="answer-slot" id="slot1"></div>
+            <div class="word-bank" id="bank1">
+                <div class="word-tile" data-word="春">はる</div>
+                <div class="word-tile" data-word="とはいえ">とはいえ</div>
+                <div class="word-tile" data-word="まだ朝晩は">まだあさばんは</div>
+                <div class="word-tile" data-word="寒い">さむい</div>
+            </div>
+            <div class="quiz-actions">
+                <button class="quiz-btn" onclick="checkAnswer(1)">Cek Jawaban</button>
+                <button class="quiz-btn secondary" onclick="resetQuiz(1)">Ulangi</button>
+            </div>
+            <div class="quiz-result" id="result1"></div>
+        </div>
+
+        <div class="quiz-box" id="quiz2">
+            <span class="qno">SOAL 2</span>
+            <div class="qtext">＿＿＿＿＿　＿★＿　＿＿＿＿＿　＿＿＿＿＿。</div>
+            <div class="answer-slot" id="slot2"></div>
+            <div class="word-bank" id="bank2">
+                <div class="word-tile" data-word="安い">やすい</div>
+                <div class="word-tile" data-word="とはいえ">とはいえ</div>
+                <div class="word-tile" data-word="品質が悪いものは">ひんしつがわるいものは</div>
+                <div class="word-tile" data-word="買いたくない">かいたくない</div>
+            </div>
+            <div class="quiz-actions">
+                <button class="quiz-btn" onclick="checkAnswer(2)">Cek Jawaban</button>
+                <button class="quiz-btn secondary" onclick="resetQuiz(2)">Ulangi</button>
+            </div>
+            <div class="quiz-result" id="result2"></div>
+        </div>
+    </div>
+
+</div>
+
+<div class="content" style="padding-top:0;">
+    <div class="nav-bottom">
+        <a href="tatabahasan2_teirai.html" class="prev">
+            <span class="dir">← Sebelumnya</span>
+            〜て以来（継続）
+        </a>
+        <a href="#" class="next">
+            <span class="dir">Selanjutnya →</span>
+            (isi link pola berikutnya)
+        </a>
+    </div>
+</div>
+
+<footer>
+© Tekipaki Japanese Learning
+</footer>
+
+<script>
+const quizAnswers = {
+    1:["春","とはいえ","まだ朝晩は","寒い"],
+    2:["安い","とはいえ","品質が悪いものは","買いたくない"]
+};
+const quizState = {1:[],2:[]};
+
+function shuffleBank(id){
+    const bank = document.getElementById("bank"+id);
+    const tiles = Array.from(bank.children);
+    const answer = quizAnswers[id].join("");
+    let order, tries = 0;
+    do{
+        order = tiles.slice();
+        for(let i = order.length - 1; i > 0; i--){
+            const j = Math.floor(Math.random() * (i + 1));
+            [order[i], order[j]] = [order[j], order[i]];
+        }
+        tries++;
+    } while(order.map(t=>t.dataset.word).join("") === answer && tries < 10);
+    order.forEach(t=>bank.appendChild(t));
+}
+
+function initQuiz(id){
+    shuffleBank(id);
+    document.getElementById("bank"+id).querySelectorAll(".word-tile").forEach(tile=>{
+        tile.addEventListener("click", ()=>placeWord(id, tile));
+    });
+}
+
+function placeWord(id, tile){
+    if(tile.classList.contains("used")) return;
+    tile.classList.add("used");
+    quizState[id].push(tile.dataset.word);
+
+    const slot = document.getElementById("slot"+id);
+    const placed = document.createElement("span");
+    placed.className = "placed";
+    placed.textContent = tile.dataset.word;
+    placed.dataset.word = tile.dataset.word;
+
+    placed.addEventListener("click", ()=>{
+        slot.removeChild(placed);
+        const idx = quizState[id].indexOf(tile.dataset.word);
+        if(idx > -1){ quizState[id].splice(idx,1); }
+        tile.classList.remove("used");
+        document.getElementById("result"+id).className = "quiz-result";
+    });
+
+    slot.appendChild(placed);
+    document.getElementById("result"+id).className = "quiz-result";
+}
+
+function checkAnswer(id){
+    const result = document.getElementById("result"+id);
+    if(quizState[id].length === 0){
+        result.className = "quiz-result wrong";
+        result.textContent = "⚠️ Susun dulu kata-katanya sebelum mengecek jawaban.";
+        return;
+    }
+    if(quizAnswers[id].join("") === quizState[id].join("")){
+        result.className = "quiz-result correct";
+        result.textContent = "✅ Benar! Susunan kalimatmu sudah tepat.";
+    } else {
+        result.className = "quiz-result wrong";
+        result.textContent = "❌ Belum tepat. Jawaban yang benar: " + quizAnswers[id].join(" ");
+    }
+}
+
+function resetQuiz(id){
+    quizState[id] = [];
+    document.getElementById("slot"+id).innerHTML = "";
+    document.querySelectorAll("#bank"+id+" .word-tile").forEach(t=>t.classList.remove("used"));
+    shuffleBank(id);
+    document.getElementById("result"+id).className = "quiz-result";
+}
+
+initQuiz(1);
+initQuiz(2);
+
+function toggleDropdown(id){
+    document.querySelectorAll('.dropdown-menu').forEach(m=>{
+        if(m.id!==id){
+            m.classList.remove('show');
+            m.classList.remove('align-right');
+            m.closest('.dropdown').classList.remove('open');
+        }
+    });
+    const menu = document.getElementById(id);
+    const wrap = menu.closest('.dropdown');
+    const willShow = !menu.classList.contains('show');
+    menu.classList.toggle('show');
+    wrap.classList.toggle('open');
+    if(willShow){
+        menu.classList.remove('align-right');
+        const rect = menu.getBoundingClientRect();
+        if(rect.right > window.innerWidth - 8){ menu.classList.add('align-right'); }
+    }
+}
+
+window.addEventListener('resize', ()=>{
+    document.querySelectorAll('.dropdown-menu.show').forEach(m=>{
+        m.classList.remove('show');
+        m.classList.remove('align-right');
+        m.closest('.dropdown').classList.remove('open');
+    });
+});
+
+document.addEventListener("click",function(e){
+    if(!e.target.closest(".dropdown")){
+        document.querySelectorAll(".dropdown-menu").forEach(function(menu){
+            menu.classList.remove("show");
+            menu.classList.remove("align-right");
+        });
+        document.querySelectorAll('.dropdown').forEach(d=>d.classList.remove('open'));
+    }
+});
+</script>
+
+</body>
+</html>
