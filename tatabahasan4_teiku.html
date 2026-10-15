@@ -428,7 +428,24 @@ const quizAnswers = {
 };
 const quizState = {1:[],2:[]};
 
+function shuffleBank(id){
+    const bank = document.getElementById("bank"+id);
+    const tiles = Array.from(bank.children);
+    const answer = quizAnswers[id].join("");
+    let order, tries = 0;
+    do{
+        order = tiles.slice();
+        for(let i = order.length - 1; i > 0; i--){
+            const j = Math.floor(Math.random() * (i + 1));
+            [order[i], order[j]] = [order[j], order[i]];
+        }
+        tries++;
+    } while(order.map(t=>t.dataset.word).join("") === answer && tries < 10);
+    order.forEach(t=>bank.appendChild(t));
+}
+
 function initQuiz(id){
+    shuffleBank(id);
     document.getElementById("bank"+id).querySelectorAll(".word-tile").forEach(tile=>{
         tile.addEventListener("click", ()=>placeWord(id, tile));
     });
@@ -477,6 +494,7 @@ function resetQuiz(id){
     quizState[id] = [];
     document.getElementById("slot"+id).innerHTML = "";
     document.querySelectorAll("#bank"+id+" .word-tile").forEach(t=>t.classList.remove("used"));
+    shuffleBank(id);
     document.getElementById("result"+id).className = "quiz-result";
 }
 
