@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="ja" translate="no">
+<head>
+<meta charset="UTF-8">
+<meta name="google" content="notranslate">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>〜それでも（tetap saja / meskipun begitu） | Tata Bahasa N4</title>
+<style>
+:root{--navy:#001f3f;--navy2:#002a54;--navy3:#022655;--gold:#facc15;--gold2:#ffd700;--text:#001f3f;}
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Segoe UI",Arial,sans-serif;}
+body{background:#fff;color:var(--text);}
+
+/* NAVBAR */
+#navbar{position:sticky;top:0;z-index:999;background:#001530;border-bottom:2px solid rgba(224,181,42,.3);box-shadow:0 4px 14px rgba(0,0,0,.25);}
+.navbar-inner{display:flex;justify-content:space-between;align-items:center;padding:10px 20px;}
+.nav-left{display:flex;align-items:center;}
+.nav-right{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end;}
+.home-btn{display:flex;align-items:center;gap:8px;background:#e0b52a;color:#001530;text-decoration:none;padding:8px 14px;border-radius:10px;font-weight:bold;}
+.home-btn:hover{opacity:.85;}
+.home-icon{width:24px;height:24px;}
+.dropdown{position:relative;}
+.dropdown-btn{background:none;border:2px solid #e0b52a;color:#e0b52a;padding:8px 14px;border-radius:8px;font-weight:bold;cursor:pointer;font-family:inherit;font-size:.9rem;}
+.dropdown-btn:hover{background:#e0b52a;color:#001530;}
+.dropdown-menu{display:none;position:absolute;top:45px;left:0;background:#1f4577;border-radius:10px;overflow:hidden;min-width:220px;max-width:90vw;box-shadow:0 8px 20px rgba(0,0,0,.35);}
+.dropdown-menu.align-right{left:auto;right:0;}
+.dropdown-menu a{display:block;padding:12px 15px;color:#ffd700;text-decoration:none;}
+.dropdown-menu a:hover{background:#e0b52a;color:#001530;}
+.show{display:block;}
+.burger-btn{display:none;align-items:center;justify-content:center;background:none;border:2px solid #e0b52a;color:#e0b52a;padding:7px 10px;border-radius:8px;cursor:pointer;}
+.burger-btn svg{width:22px;height:22px;display:block;}
+.mobile-menu{display:none;flex-direction:column;background:#001530;border-top:1px solid rgba(224,181,42,.3);}
+.mobile-menu.show{display:flex;}
+.mobile-acc-btn{width:100%;text-align:left;background:transparent;border:none;color:#e0b52a;font-weight:700;font-size:14px;font-family:inherit;padding:15px 18px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(224,181,42,.2);}
+.mobile-acc-btn::after{content:'+';font-size:18px;line-height:1;}
+.mobile-acc-btn.open::after{content:'\2212';}
+.mobile-acc-panel{display:none;flex-direction:column;background:#1f4577;}
+.mobile-acc-panel.show{display:flex;}
+.mobile-acc-panel a{padding:13px 32px;color:#ffd700;text-decoration:none;font-size:13px;border-bottom:1px solid rgba(255,255,255,.1);}
+.mobile-acc-panel a:hover{background:#e0b52a;color:#001530;}
+@media(min-width:761px){.mobile-menu{display:none !important;}}
+@media(max-width:760px){
+  .navbar-inner{flex-wrap:nowrap;padding:10px 14px;}
+  .nav-right{display:none;}
+  .burger-btn{display:flex;}
+  .breadcrumb{margin-top:16px;}
+}
+
+/* BREADCRUMB */
+.breadcrumb{margin:20px 0 0;padding:0 0 0 20px;font-size:14px;color:#8892a3;}
+.breadcrumb a{color:var(--navy);text-decoration:none;font-weight:600;}
+.breadcrumb a:hover{text-decoration:underline;}
+
+/* HERO */
+.pattern-hero{max-width:900px;margin:20px auto 0;padding:40px 30px;background:linear-gradient(135deg,var(--navy) 0%,#062a52 100%);border-radius:22px;position:relative;overflow:hidden;text-align:center;}
+.pattern-hero::before{content:"然";position:absolute;font-size:260px;font-weight:900;color:rgba(250,204,21,.06);top:-60px;right:-30px;pointer-events:none;user-select:none;}
+.no-badge{display:inline-block;background:rgba(250,204,21,.12);border:1px solid rgba(250,204,21,.4);color:var(--gold);font-size:13px;font-weight:bold;letter-spacing:1px;padding:6px 16px;border-radius:999px;margin-bottom:18px;position:relative;}
+.pattern-hero h1{font-size:44px;color:#fff;position:relative;margin-bottom:8px;}
+.pattern-hero .romaji{font-size:20px;color:var(--gold2);font-weight:600;position:relative;margin-bottom:14px;}
+.pattern-hero .mean{font-size:18px;color:#c9d6e8;position:relative;}
+
+/* CONTENT */
+.content{max-width:900px;margin:30px auto;padding:0 30px 60px;}
+.section-block{margin-bottom:36px;}
+.section-block h2{display:flex;align-items:center;gap:12px;font-size:22px;color:var(--navy);margin-bottom:14px;}
+.tag{background:var(--navy);color:var(--gold);font-size:13px;font-weight:bold;padding:5px 12px;border-radius:8px;white-space:nowrap;}
+.section-block p{font-size:16px;line-height:1.9;color:#333;}
+.formula-box{background:#f5f8fc;border:2px dashed var(--navy);border-radius:16px;padding:22px 26px;font-size:19px;text-align:center;color:var(--navy);font-weight:600;line-height:1.8;}
+.formula-box small{display:block;font-size:13px;font-weight:400;color:#8892a3;margin-top:6px;}
+
+/* TABEL */
+.table-wrap{overflow-x:auto;border-radius:16px;border:2px solid var(--navy);}
+.konjugasi-table{width:100%;border-collapse:collapse;min-width:620px;font-size:15px;}
+.konjugasi-table thead th{background:var(--navy);color:var(--gold);text-align:left;padding:14px 16px;font-size:14px;white-space:nowrap;}
+.konjugasi-table tbody td{padding:13px 16px;border-bottom:1px solid #e3e9f2;color:#333;vertical-align:middle;}
+.konjugasi-table tbody tr:nth-child(even){background:#f5f8fc;}
+.konjugasi-table tbody tr:hover{background:#fffbe6;}
+.kamus{font-weight:bold;font-size:17px;color:var(--navy);}
+.yomi-small{display:block;font-size:12px;color:#8892a3;font-weight:400;}
+.ukemi{font-weight:bold;font-size:16px;color:#5b8bb0;}
+
+/* PERBANDINGAN */
+.compare-wrap{overflow-x:auto;border-radius:16px;border:2px solid var(--navy);}
+.compare-table{width:100%;border-collapse:collapse;min-width:640px;font-size:14px;}
+.compare-table thead th{padding:14px;text-align:left;color:#fff;font-size:13px;}
+.compare-table thead th small{display:block;font-weight:400;font-size:11px;opacity:.85;margin-top:2px;}
+.compare-table thead th.h0{background:var(--navy);color:var(--gold);}
+.compare-table thead th.h1{background:#c98a4d;}
+.compare-table thead th.h2{background:#5b8bb0;}
+.compare-table tbody td{padding:13px 14px;border-bottom:1px solid #e3e9f2;color:#333;vertical-align:top;}
+.compare-table tbody tr:nth-child(even){background:#f5f8fc;}
+.v1{font-weight:bold;font-size:16px;color:#c98a4d;}
+.v2{font-weight:bold;font-size:16px;color:#5b8bb0;}
+
+/* CONTOH */
+.example{border:2px solid var(--navy);border-radius:16px;padding:20px 24px;margin-bottom:16px;transition:.25s;}
+.example:hover{background:var(--navy3);color:#fff;transform:translateY(-3px);box-shadow:0 12px 24px rgba(0,31,63,.2);}
+.example .jp{font-size:20px;font-weight:bold;margin-bottom:6px;}
+.example .yomi{font-size:14px;color:#8892a3;margin-bottom:8px;}
+.example:hover .yomi{color:#c9d6e8;}
+.example .id{font-size:15px;color:#333;font-style:italic;}
+.example:hover .id{color:#e6edf7;}
+
+.note-box{background:#fffbe6;border-left:5px solid var(--gold);border-radius:10px;padding:18px 22px;font-size:15px;line-height:1.8;color:#4a4020;}
+.note-box b{color:var(--navy);}
+
+/* NAV BAWAH */
+.nav-bottom{display:flex;justify-content:space-between;gap:16px;margin-top:50px;flex-wrap:wrap;}
+.nav-bottom a{flex:1;min-width:200px;text-decoration:none;border:2px solid var(--navy);border-radius:14px;padding:16px 20px;color:var(--navy);font-weight:600;transition:.25s;}
+.nav-bottom a:hover{background:var(--navy);color:var(--gold);}
+.nav-bottom .dir{display:block;font-size:12px;color:#8892a3;margin-bottom:4px;}
+.nav-bottom a:hover .dir{color:#c9d6e8;}
+.nav-bottom .next{text-align:right;}
+
+/* LATIHAN */
+.quiz-box{border:2px solid var(--navy);border-radius:18px;padding:24px 26px;margin-bottom:22px;background:#fafcff;}
+.qno{display:inline-block;background:var(--navy);color:var(--gold);font-size:13px;font-weight:bold;padding:5px 12px;border-radius:8px;margin-bottom:14px;}
+.qtext{font-size:16px;color:#333;margin-bottom:16px;line-height:1.8;}
+.word-bank{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:18px;}
+.word-tile{background:#fff;border:2px solid var(--navy);color:var(--navy);padding:10px 16px;border-radius:10px;font-size:16px;font-weight:600;cursor:pointer;transition:.2s;user-select:none;}
+.word-tile:hover{background:var(--navy);color:var(--gold);transform:translateY(-2px);}
+.word-tile.used{opacity:.3;pointer-events:none;}
+.answer-slot{min-height:52px;border:2px dashed var(--gold2);border-radius:10px;background:#fffbe6;display:flex;align-items:center;flex-wrap:wrap;gap:8px;padding:8px 12px;margin-bottom:16px;}
+.placed{background:var(--gold);color:#001530;padding:8px 14px;border-radius:8px;font-weight:bold;font-size:15px;cursor:pointer;}
+.quiz-actions{display:flex;gap:10px;flex-wrap:wrap;}
+.quiz-btn{border:2px solid var(--navy);background:var(--navy);color:var(--gold);padding:10px 18px;border-radius:10px;font-weight:bold;font-size:14px;cursor:pointer;transition:.2s;}
+.quiz-btn:hover{opacity:.85;}
+.quiz-btn.secondary{background:#fff;color:var(--navy);}
+.quiz-result{margin-top:14px;font-size:15px;font-weight:600;display:none;padding:12px 16px;border-radius:10px;}
+.quiz-result.correct{display:block;background:#e6f7ec;color:#166534;border:1px solid #86efac;}
+.quiz-result.wrong{display:block;background:#fdeaea;color:#991b1b;border:1px solid #fca5a5;}
+
+@media(max-width:600px){
+  .pattern-hero h1{font-size:30px;}
+  .pattern-hero::before{font-size:160px;}
+  .nav-bottom .next{text-align:left;}
+  .konjugasi-table{font-size:13px;}
+}
+footer{text-align:center;padding:30px;color:#666;font-size:14px;}
+</style>
+</head>
+
+<body>
+
+<nav id="navbar">
+<div class="navbar-inner">
+<div class="nav-left">
+<a href="index.html" class="home-btn">
+<svg class="home-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3L3 10h2v10h6v-6h2v6h6V10h2L12 3Z"/></svg>
+HOME
+</a>
+</div>
+
+<div class="nav-right">
+  <div class="dropdown">
+    <button class="dropdown-btn" onclick="toggleDropdown('materi')">MATERI ▼</button>
+    <div class="dropdown-menu" id="materi">
+      <a href="daftarkosakata.html">Kosakata JFT</a>
+      <a href="materitatabahasa_n4.html">Tata Bahasa</a>
+      <a href="kanjidasar.html">Kanji Flash Card</a>
+    </div>
+  </div>
+  <div class="dropdown">
+    <button class="dropdown-btn" onclick="toggleDropdown('quiz')">QUIZ JFT ▼</button>
+    <div class="dropdown-menu" id="quiz">
+      <a href="ujianjfta2test1.html">SOAL JFT A — TEST 1</a>
+      <a href="ujianjfta2test2.html">SOAL JFT A — TEST 2</a>
+      <a href="ujianjfta2test3.html">SOAL JFT A — TEST 3</a>
+      <a href="ujianjfta2test4.html">SOAL JFT A — TEST 4</a>
+      <a href="ujianjfta2test5.html">SOAL JFT A — TEST 5</a>
+    </div>
+  </div>
+  <div class="dropdown">
+    <button class="dropdown-btn" onclick="toggleDropdown('kanjiquiz')">QUIZ KANJI ▼</button>
+    <div class="dropdown-menu" id="kanjiquiz">
+      <a href="quizkanji1.html">QUIZ KANJI 1</a>
+      <a href="quizkanji2.html">QUIZ KANJI 2</a>
+      <a href="quizkanji3.html">QUIZ KANJI 3</a>
+      <a href="quizkanji4.html">QUIZ KANJI 4</a>
+      <a href="quizkanji5.html">QUIZ KANJI 5</a>
+    </div>
+  </div>
+</div>
+
+<button class="burger-btn" onclick="toggleMobileMenu()" aria-label="Buka menu">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round">
+    <line x1="3" y1="6" x2="21" y2="6"/>
+    <line x1="3" y1="12" x2="21" y2="12"/>
+    <line x1="3" y1="18" x2="21" y2="18"/>
+  </svg>
+</button>
+</div>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-acc-btn" onclick="toggleMobileAccordion(this)">MATERI</button>
+  <div class="mobile-acc-panel">
+    <a href="daftarkosakata.html">Kosakata JFT</a>
+    <a href="materitatabahasa_n4.html">Tata Bahasa</a>
+    <a href="kanjidasar.html">Kanji Flash Card</a>
+  </div>
+  <button class="mobile-acc-btn" onclick="toggleMobileAccordion(this)">QUIZ JFT</button>
+  <div class="mobile-acc-panel">
+    <a href="ujianjfta2test1.html">SOAL JFT A — TEST 1</a>
+    <a href="ujianjfta2test2.html">SOAL JFT A — TEST 2</a>
+    <a href="ujianjfta2test3.html">SOAL JFT A — TEST 3</a>
+    <a href="ujianjfta2test4.html">SOAL JFT A — TEST 4</a>
+    <a href="ujianjfta2test5.html">SOAL JFT A — TEST 5</a>
+  </div>
+  <button class="mobile-acc-btn" onclick="toggleMobileAccordion(this)">QUIZ KANJI</button>
+  <div class="mobile-acc-panel">
+    <a href="quizkanji1.html">QUIZ KANJI 1</a>
+    <a href="quizkanji2.html">QUIZ KANJI 2</a>
+    <a href="quizkanji3.html">QUIZ KANJI 3</a>
+    <a href="quizkanji4.html">QUIZ KANJI 4</a>
+    <a href="quizkanji5.html">QUIZ KANJI 5</a>
+  </div>
+</div>
+</nav>
+
+<div class="breadcrumb">
+  <a href="tatabahasajlptn4.html">← Kembali ke Daftar Tata Bahasa N4</a>
+</div>
+
+<div class="pattern-hero">
+    <span class="no-badge">POLA 59 · JLPT N4</span>
+    <h1>〜それでも</h1>
+    <div class="romaji">~sore demo</div>
+    <div class="mean">tetap saja / meskipun begitu (hasil yang berlawanan dengan dugaan)</div>
+</div>
+
+<div class="content">
+
+    <div class="section-block">
+        <h2><span class="tag">ARTI</span> Penjelasan</h2>
+        <p>
+            <b>それでも</b> adalah kata sambung yang berarti <b>"tetap saja"</b>, <b>"meskipun begitu"</b>
+            atau <b>"walaupun demikian"</b>. Dipakai di awal kalimat kedua untuk menyatakan bahwa
+            <b>meskipun keadaan di kalimat pertama sulit atau tidak mendukung, hasilnya tetap berlawanan
+            dengan dugaan</b>. Biasanya kalimat kedua menunjukkan <b>tekad</b>, <b>kenyataan yang bertahan</b>,
+            atau <b>tindakan yang tetap dilakukan</b>.
+        </p>
+    </div>
+
+    <div class="section-block">
+        <h2><span class="tag">POLA</span> Rumus</h2>
+        <div class="formula-box">
+            Kalimat A。 それでも、 Kalimat B。
+            <small>"A. Meskipun begitu, tetap B."</small>
+            <br>
+            Contoh: 雨が降っています。それでも、散歩に行きます。
+            <small>Kalimat A boleh berbentuk sopan (〜ます／です) maupun biasa (〜る／〜だ)</small>
+        </div>
+    </div>
+
+    <div class="section-block">
+        <h2><span class="tag">TABEL</span> Pasangan Kalimat</h2>
+        <p style="margin-bottom:16px;">Kalimat pertama berisi kendala, lalu それでも diikuti hasil yang tidak terduga.</p>
+
+        <div class="table-wrap">
+            <table class="konjugasi-table">
+                <thead>
+                    <tr><th>Kalimat A (kendala)</th><th>Penghubung</th><th>Kalimat B (tetap...)</th><th>Artinya</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="kamus">雨が降っています。</span><span class="yomi-small">ame ga futte imasu</span></td>
+                        <td><span class="ukemi">それでも、</span></td>
+                        <td><span class="ukemi">散歩に行きます。</span><span class="yomi-small">sanpo ni ikimasu</span></td>
+                        <td>Hujan, tetap saja pergi jalan-jalan</td>
+                    </tr>
+                    <tr>
+                        <td><span class="kamus">仕事は大変です。</span><span class="yomi-small">shigoto wa taihen desu</span></td>
+                        <td><span class="ukemi">それでも、</span></td>
+                        <td><span class="ukemi">続けたいです。</span><span class="yomi-small">tsuzuketai desu</span></td>
+                        <td>Pekerjaan berat, tetap ingin lanjut</td>
+                    </tr>
+                    <tr>
+                        <td><span class="kamus">薬を飲みました。</span><span class="yomi-small">kusuri o nomimashita</span></td>
+                        <td><span class="ukemi">それでも、</span></td>
+                        <td><span class="ukemi">熱が下がりません。</span><span class="yomi-small">netsu ga sagarimasen</span></td>
+                        <td>Sudah minum obat, tetap saja demam tidak turun</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="note-box" style="margin-top:16px;">
+            <b>Cara cepat mengingat:</b> それ (itu, keadaan tadi) + でも (meskipun) = "meskipun keadaannya
+            begitu". Kalimat setelahnya selalu menunjukkan hasil yang <b>melawan</b> keadaan itu.
+        </div>
+    </div>
+
+    <div class="section-block">
+        <h2><span class="tag">CONTOH</span> Contoh Kalimat</h2>
+
+        <div class="example">
+            <div class="jp">雨が降っています。それでも、散歩に行きます。</div>
+            <div class="yomi">あめが ふっています。それでも、さんぽに いきます。</div>
+            <div class="id">Sedang hujan. Meskipun begitu, saya tetap pergi jalan-jalan.</div>
+        </div>
+
+        <div class="example">
+            <div class="jp">一生懸命勉強しました。それでも、試験に落ちました。</div>
+            <div class="yomi">いっしょうけんめい べんきょうしました。それでも、しけんに おちました。</div>
+            <div class="id">Saya sudah belajar sekuat tenaga. Meskipun begitu, saya tetap gagal ujian.</div>
+        </div>
+
+        <div class="example">
+            <div class="jp">日本語は難しいです。それでも、勉強を続けます。</div>
+            <div class="yomi">にほんごは むずかしいです。それでも、べんきょうを つづけます。</div>
+            <div class="id">Bahasa Jepang itu sulit. Meskipun begitu, saya akan terus belajar.</div>
+        </div>
+
+        <div class="example">
+            <div class="jp">彼は疲れていました。それでも、最後まで働きました。</div>
+            <div class="yomi">かれは つかれていました。それでも、さいごまで はたらきました。</div>
+            <div class="id">Dia kelelahan. Meskipun begitu, dia bekerja sampai akhir.</div>
+        </div>
+    </div>
+
+    <div class="section-block">
+        <h2><span class="tag">PERBANDINGAN</span> それでも vs でも vs しかし</h2>
+        <p style="margin-bottom:16px;">Ketiganya terdengar seperti "tetapi", tetapi nuansanya berbeda.</p>
+        <div class="compare-wrap">
+            <table class="compare-table">
+                <thead>
+                    <tr>
+                        <th class="h0">Pola<small>arti</small></th>
+                        <th class="h1">Nuansa<small>kapan dipakai</small></th>
+                        <th class="h2">Contoh<small>kalimat</small></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="kamus">それでも</span><span class="yomi-small">tetap saja</span></td>
+                        <td><span class="v1">Hasil melawan keadaan</span><br>menunjukkan tekad atau kenyataan yang bertahan</td>
+                        <td><span class="v2">疲れました。それでも、行きます。</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="kamus">でも</span><span class="yomi-small">tapi</span></td>
+                        <td><span class="v1">Lisan, santai</span><br>sekadar kontras biasa</td>
+                        <td><span class="v2">行きたいです。でも、時間がありません。</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="kamus">しかし</span><span class="yomi-small">namun</span></td>
+                        <td><span class="v1">Formal, tertulis</span><br>kontras dalam laporan atau esai</td>
+                        <td><span class="v2">計画は良い。しかし、予算が足りない。</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="section-block">
+        <h2><span class="tag">CATATAN</span> Tips &amp; Perbedaan</h2>
+        <div class="note-box">
+            <b>Kalimat B bertentangan dengan A:</b> kalau hasilnya wajar mengikuti A, pakai <b>だから</b>
+            ("karena itu"), bukan それでも.<br>
+            <b>Awal kalimat:</b> それでも berdiri di awal kalimat kedua. Bisa diikuti koma.<br>
+            <b>Hati-hati:</b> それでも (<b>soredemo</b>, "tetap saja") berbeda dengan それとも
+            (<b>soretomo</b>, "atau"). Bunyi dan tulisannya mirip, tetapi artinya berbeda.
+        </div>
+    </div>
+
+    <div class="section-block">
+        <h2><span class="tag">LATIHAN</span> Soal Susun Kalimat</h2>
+        <p style="margin-bottom:18px;">
+            Susun kata-kata di bawah ini menjadi kalimat yang benar dengan mengklik kata secara berurutan.
+            Klik kata yang sudah dipasang untuk membatalkannya.
+        </p>
+
+        <div class="quiz-box" id="quiz1">
+            <span class="qno">SOAL 1</span>
+            <div class="qtext">雨が降っています。＿＿＿＿＿　＿★＿。</div>
+            <div class="answer-slot" id="slot1"></div>
+            <div class="word-bank" id="bank1">
+                <div class="word-tile" data-word="それでも">それでも</div>
+                <div class="word-tile" data-word="散歩に行きます">さんぽにいきます</div>
+            </div>
+            <div class="quiz-actions">
+                <button class="quiz-btn" onclick="checkAnswer(1)">Cek Jawaban</button>
+                <button class="quiz-btn secondary" onclick="resetQuiz(1)">Ulangi</button>
+            </div>
+            <div class="quiz-result" id="result1"></div>
+        </div>
+
+        <div class="quiz-box" id="quiz2">
+            <span class="qno">SOAL 2</span>
+            <div class="qtext">一生懸命勉強しました。＿＿＿＿＿　＿★＿。</div>
+            <div class="answer-slot" id="slot2"></div>
+            <div class="word-bank" id="bank2">
+                <div class="word-tile" data-word="それでも">それでも</div>
+                <div class="word-tile" data-word="試験に落ちました">しけんにおちました</div>
+            </div>
+            <div class="quiz-actions">
+                <button class="quiz-btn" onclick="checkAnswer(2)">Cek Jawaban</button>
+                <button class="quiz-btn secondary" onclick="resetQuiz(2)">Ulangi</button>
+            </div>
+            <div class="quiz-result" id="result2"></div>
+        </div>
+    </div>
+
+</div>
+
+<div class="content" style="padding-top:0;">
+    <div class="nav-bottom">
+        <a href="tatabahasajlptn4.html" class="prev">
+            <span class="dir">← Kembali</span>
+            Daftar Tata Bahasa N4
+        </a>
+        <a href="tatabahasan4_pola60.html" class="next">
+            <span class="dir">Selanjutnya →</span>
+            POLA 60
+        </a>
+    </div>
+</div>
+
+<footer>© Tekipaki Japanese Learning</footer>
+
+<script>
+const quizAnswers = {1:["それでも","散歩に行きます"], 2:["それでも","試験に落ちました"]};
+const quizState = {1:[], 2:[]};
+
+function initQuiz(id){
+    document.getElementById("bank"+id).querySelectorAll(".word-tile").forEach(tile=>{
+        tile.addEventListener("click", ()=>placeWord(id, tile));
+    });
+}
+
+function placeWord(id, tile){
+    if(tile.classList.contains("used")) return;
+    tile.classList.add("used");
+    quizState[id].push(tile.dataset.word);
+
+    const slot = document.getElementById("slot"+id);
+    const placed = document.createElement("span");
+    placed.className = "placed";
+    placed.textContent = tile.dataset.word;
+
+    placed.addEventListener("click", ()=>{
+        slot.removeChild(placed);
+        const idx = quizState[id].indexOf(tile.dataset.word);
+        if(idx > -1) quizState[id].splice(idx,1);
+        tile.classList.remove("used");
+        document.getElementById("result"+id).className = "quiz-result";
+    });
+
+    slot.appendChild(placed);
+    document.getElementById("result"+id).className = "quiz-result";
+}
+
+function checkAnswer(id){
+    const result = document.getElementById("result"+id);
+    if(quizState[id].length === 0){
+        result.className = "quiz-result wrong";
+        result.textContent = "⚠️ Susun dulu kata-katanya sebelum mengecek jawaban.";
+        return;
+    }
+    if(quizAnswers[id].join("") === quizState[id].join("")){
+        result.className = "quiz-result correct";
+        result.textContent = "✅ Benar! Susunan kalimatmu sudah tepat.";
+    } else {
+        result.className = "quiz-result wrong";
+        result.textContent = "❌ Belum tepat. Jawaban yang benar: " + quizAnswers[id].join(" ");
+    }
+}
+
+function resetQuiz(id){
+    quizState[id] = [];
+    document.getElementById("slot"+id).innerHTML = "";
+    document.querySelectorAll("#bank"+id+" .word-tile").forEach(t=>t.classList.remove("used"));
+    document.getElementById("result"+id).className = "quiz-result";
+}
+
+initQuiz(1);
+initQuiz(2);
+
+function toggleMobileMenu(){
+    document.getElementById("mobileMenu").classList.toggle("show");
+}
+
+function toggleMobileAccordion(btn){
+    const panel = btn.nextElementSibling;
+    const isOpen = btn.classList.contains("open");
+    document.querySelectorAll(".mobile-acc-btn").forEach(b=>{
+        if(b !== btn){
+            b.classList.remove("open");
+            b.nextElementSibling.classList.remove("show");
+        }
+    });
+    btn.classList.toggle("open", !isOpen);
+    panel.classList.toggle("show", !isOpen);
+}
+
+function toggleDropdown(id){
+    document.querySelectorAll('.dropdown-menu').forEach(m=>{
+        if(m.id!==id){ m.classList.remove('show'); m.classList.remove('align-right'); }
+    });
+    const menu = document.getElementById(id);
+    const willShow = !menu.classList.contains('show');
+    menu.classList.toggle('show');
+    if(willShow){
+        menu.classList.remove('align-right');
+        const rect = menu.getBoundingClientRect();
+        if(rect.right > window.innerWidth - 8) menu.classList.add('align-right');
+    }
+}
+
+window.addEventListener('resize', ()=>{
+    document.querySelectorAll('.dropdown-menu.show').forEach(m=>{
+        m.classList.remove('show'); m.classList.remove('align-right');
+    });
+    if(window.innerWidth > 760){
+        document.getElementById("mobileMenu").classList.remove("show");
+        document.querySelectorAll(".mobile-acc-btn").forEach(b=>b.classList.remove("open"));
+        document.querySelectorAll(".mobile-acc-panel").forEach(p=>p.classList.remove("show"));
+    }
+});
+
+document.addEventListener("click", function(e){
+    if(!e.target.closest(".dropdown")){
+        document.querySelectorAll(".dropdown-menu").forEach(m=>{
+            m.classList.remove("show"); m.classList.remove("align-right");
+        });
+    }
+});
+</script>
+
+</body>
+</html>
