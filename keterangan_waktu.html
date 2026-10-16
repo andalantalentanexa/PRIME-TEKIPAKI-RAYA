@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kata Waktu: Gozen, Gogo, Ototoi, Asatte | PRIME TEKIPAKI RAYA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FFFFFF; --bg-alt:#F5F7FA; --ink:#12182A; --ink-soft:#5B6478;
+    --red:#1B3160; --red-deep:#0F1F42; --sakura:#3E6FB5; --sakura-soft:#DCE6F5;
+    --line:rgba(18,24,42,0.14); --line-strong:rgba(18,24,42,0.28); --on-red:#F4F6FA;
+    box-sizing:border-box;
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#10141F; --bg-alt:#161B29; --ink:#ECEEF4; --ink-soft:#A6ADBE;
+      --red:#5578B8; --red-deep:#3A5A96; --sakura:#8FB0E6; --sakura-soft:#1E2B45;
+      --line:rgba(236,238,244,0.14); --line-strong:rgba(236,238,244,0.28);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#10141F; --bg-alt:#161B29; --ink:#ECEEF4; --ink-soft:#A6ADBE;
+    --red:#5578B8; --red-deep:#3A5A96; --sakura:#8FB0E6; --sakura-soft:#1E2B45;
+    --line:rgba(236,238,244,0.14); --line-strong:rgba(236,238,244,0.28);
+  }
+  html{scroll-behavior:smooth; scroll-padding-top:calc(76px + env(safe-area-inset-top,0px));}
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--bg); color:var(--ink); font-family:'Noto Sans JP',-apple-system,BlinkMacSystemFont,sans-serif; -webkit-font-smoothing:antialiased; overflow-x:hidden;}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 28px;}
+  h1,h2,h3{font-family:'Shippori Mincho',serif; font-weight:700; margin:0; line-height:1.3;}
+  a{color:inherit;}
+
+  /* Header */
+  header{position:sticky; top:0; z-index:50; padding-top:env(safe-area-inset-top,0px); background:color-mix(in srgb,var(--bg) 88%,transparent); backdrop-filter:blur(10px); border-bottom:1px solid var(--line);}
+  .nav{width:100%; padding:16px 24px; display:flex; align-items:center; justify-content:space-between; gap:24px;}
+  .nav-right{display:flex; align-items:center; gap:16px;}
+  .brand{display:flex; align-items:center; gap:12px; text-decoration:none;}
+  .brand-mark{width:38px; height:38px; border-radius:50%; background:radial-gradient(circle at 34% 30%,var(--red) 0%,var(--red-deep) 72%); flex-shrink:0;}
+  .brand-name{font-family:'Shippori Mincho',serif; font-weight:700; font-size:1.28rem; letter-spacing:.03em;}
+  .brand-sub{display:block; font-size:.66rem; color:var(--ink-soft); letter-spacing:.14em; margin-top:1px;}
+  .menu-dd{position:relative;}
+  .menu-btn,.lang-btn{display:flex; align-items:center; gap:8px; background:none; border:1px solid var(--line-strong); color:var(--ink); padding:10px 16px; border-radius:3px; font-size:.9rem; font-weight:600; cursor:pointer; font-family:inherit;}
+  .menu-btn:hover,.lang-btn:hover{border-color:var(--red);}
+  .menu-btn:focus-visible,.lang-btn:focus-visible,.cta-btn:focus-visible,nav.links a:focus-visible{outline:2px solid var(--sakura); outline-offset:2px;}
+  .chev{width:9px; height:9px; border-right:2px solid currentColor; border-bottom:2px solid currentColor; transform:rotate(45deg) translateY(-2px); transition:transform .2s ease;}
+  .menu-dd.open .chev{transform:rotate(-135deg) translateY(1px);}
+  nav.links{position:absolute; top:calc(100% + 10px); right:0; z-index:60; display:flex; flex-direction:column; min-width:220px; background:var(--bg); border:1px solid var(--line); border-radius:6px; padding:8px; box-shadow:0 14px 34px rgba(18,24,42,0.16); opacity:0; visibility:hidden; transform:translateY(-6px); transition:opacity .18s ease,transform .18s ease,visibility .18s;}
+  .menu-dd.open nav.links{opacity:1; visibility:visible; transform:translateY(0);}
+  nav.links a{text-decoration:none; font-size:.93rem; padding:11px 14px; border-radius:4px;}
+  nav.links a:hover{background:var(--bg-alt);}
+  .cta-btn{background:var(--red); color:var(--on-red); text-decoration:none; padding:11px 22px; border-radius:3px; font-size:.9rem; font-weight:600; white-space:nowrap; transition:background .2s ease;}
+  .cta-btn:hover{background:var(--red-deep);}
+  .cta-ghost{border:1px solid var(--line-strong); color:var(--ink); text-decoration:none; padding:10px 21px; border-radius:3px; font-size:.9rem; font-weight:600;}
+
+  /* Hero */
+  .hero{position:relative; padding:96px 0 90px; overflow:hidden; background:linear-gradient(180deg,var(--bg-alt),var(--bg));}
+  .hero-orb{position:absolute; right:-140px; top:-120px; width:560px; height:560px; border-radius:50%; background:radial-gradient(circle at 38% 32%,var(--sakura) 0%,var(--sakura-soft) 62%,transparent 75%); opacity:.9;}
+  .petal{position:absolute; width:14px; height:18px; background:var(--sakura); border-radius:0 60% 0 60%; opacity:.55; animation:drift 14s linear infinite;}
+  @media (prefers-reduced-motion: reduce){.petal{animation:none;} html{scroll-behavior:auto;}}
+  @keyframes drift{0%{transform:translateY(-40px) rotate(0deg); opacity:0;} 10%{opacity:.55;} 100%{transform:translateY(620px) rotate(200deg); opacity:0;}}
+  .hero-inner{position:relative; z-index:2; display:grid; grid-template-columns:1.15fr .85fr; gap:56px; align-items:end;}
+  .hero-eyebrow{color:var(--red); font-weight:600; font-size:.92rem; letter-spacing:.06em; margin-bottom:18px;}
+  .hero h1{font-size:clamp(2.2rem,4.4vw,3.4rem); max-width:16ch;}
+  .hero p.lead{margin:22px 0 30px; max-width:48ch; color:var(--ink-soft); font-size:1.05rem; line-height:1.75;}
+  .hero-cta{display:flex; gap:14px; flex-wrap:wrap;}
+  .hero-side{border-left:1px solid var(--line); padding-left:28px; display:flex; gap:28px;}
+  .hero-side .kanji{font-family:'Shippori Mincho',serif; font-size:2.6rem; line-height:1.2; writing-mode:vertical-rl;}
+  .hero-side p{color:var(--ink-soft); line-height:1.9; font-size:.95rem; margin:0;}
+
+  /* Sections */
+  section{padding:96px 0;}
+  .alt{background:var(--bg-alt);}
+  .section-head{display:grid; grid-template-columns:220px 1fr; gap:40px; margin-bottom:52px; align-items:start; border-top:1px solid var(--line); padding-top:26px;}
+  .section-head .tag{font-size:.8rem; letter-spacing:.1em; color:var(--red); font-weight:600;}
+  .section-head h2{font-size:clamp(1.7rem,3vw,2.3rem);}
+  .section-head .desc{color:var(--ink-soft); max-width:58ch; line-height:1.8; margin-top:14px;}
+
+  /* Jam */
+  .clocks{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:28px; margin-bottom:48px;}
+  .clock{margin:0; text-align:center; color:var(--ink);}
+  .clock .face svg{width:100%; max-width:210px; height:auto; display:block; margin:0 auto;}
+  .clock figcaption{display:flex; flex-direction:column; align-items:center; gap:2px; margin-top:14px; font-size:.88rem; color:var(--ink-soft);}
+  .clock .badge{background:var(--red); color:var(--on-red); font-size:.72rem; font-weight:600; letter-spacing:.06em; padding:3px 12px; border-radius:20px; margin-bottom:6px;}
+  .clock[data-tone="noon"] .badge{background:var(--sakura); color:var(--bg);}
+  .clock .jp{font-size:1.25rem; color:var(--ink);}
+
+  /* Tabel */
+  .pair{display:grid; grid-template-columns:1fr 1fr; gap:24px; align-items:start; margin-bottom:40px;}
+  .tbl-wrap{border:1px solid var(--line-strong); border-radius:4px; overflow-x:auto; background:var(--bg);}
+  .tbl{width:100%; border-collapse:collapse;}
+  .tbl thead th{background:var(--red); color:var(--on-red); font-family:'Shippori Mincho',serif; font-size:1.1rem; text-align:left; padding:14px 18px; white-space:nowrap;}
+  .tbl tbody th{width:34%; text-align:left; vertical-align:top; background:var(--bg-alt); font-weight:600; font-size:.9rem; padding:14px 18px; border-top:1px solid var(--line-strong); border-right:1px solid var(--line-strong);}
+  .tbl td{vertical-align:top; padding:14px 18px; font-size:.93rem; line-height:1.7; border-top:1px solid var(--line-strong);}
+  .tl{min-width:760px;}
+  .tl thead th{text-align:center; font-size:.95rem; line-height:1.4;}
+  .tl thead th small{display:block; font-family:'Noto Sans JP',sans-serif; font-weight:500; font-size:.72rem; opacity:.8;}
+  .tl tbody th{width:90px; vertical-align:middle;}
+  .tl td{text-align:center; vertical-align:middle; border-left:1px solid var(--line);}
+  .tl td b{display:block; font-family:'Shippori Mincho',serif; font-size:1.25rem;}
+  .tl td i{display:block; font-style:normal; color:var(--red); font-size:.85rem; margin-top:2px;}
+  .tl td span{display:block; color:var(--ink-soft); font-size:.78rem; margin-top:2px;}
+  .tl .now{background:var(--sakura-soft);}
+  .tl thead th.now{background:var(--sakura); color:var(--bg);}
+  .jp{font-family:'Shippori Mincho',serif; font-weight:700; font-size:1.1rem;}
+  .yomi{color:var(--red); font-size:.82rem;}
+  .note{margin-top:32px; padding:22px 26px; border-left:3px solid var(--sakura); background:var(--sakura-soft); color:var(--ink); line-height:1.8; font-size:.95rem; max-width:80ch;}
+  .scroll-hint{display:none; color:var(--ink-soft); font-size:.8rem; margin:0 0 10px;}
+
+  /* Contoh kalimat */
+  .facts{margin:0; padding:0; list-style:none; border-top:1px solid var(--line);}
+  .facts li{display:grid; grid-template-columns:1.2fr 1fr; gap:20px; padding:16px 0; border-bottom:1px solid var(--line); font-size:.93rem; line-height:1.7;}
+  .facts li .jp{display:block;}
+  .facts li div:last-child{color:var(--ink-soft);}
+
+  /* Kontak */
+  .contact-panel{background:var(--ink); color:var(--bg); border-radius:4px; padding:56px; display:grid; grid-template-columns:1.2fr .8fr; gap:48px; align-items:center;}
+  .contact-panel h2{font-size:clamp(1.5rem,3vw,2rem); max-width:18ch;}
+  .contact-panel p{opacity:.72; line-height:1.8; margin:16px 0 26px; max-width:44ch;}
+  .contact-panel .cta-btn{background:var(--sakura); color:var(--bg);}
+  .contact-details div{border-top:1px solid rgba(128,128,128,.4); padding-top:14px; margin-bottom:18px;}
+  .contact-details span{display:block; opacity:.6; font-size:.78rem; margin-bottom:4px;}
+  .contact-details strong{font-weight:600;}
+  footer{padding:40px 0; border-top:1px solid var(--line); color:var(--ink-soft); font-size:.85rem;}
+  .footer-bottom{display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;}
+
+  @media (max-width:860px){
+    .hero-inner,.contact-panel{grid-template-columns:1fr;}
+    .hero-side{border-left:none; border-top:1px solid var(--line); padding:24px 0 0;}
+    .section-head{grid-template-columns:1fr; gap:14px;}
+    .pair{grid-template-columns:1fr; gap:24px;}
+    .tbl tbody th{width:38%; padding:12px 14px;}
+    .tbl td{padding:12px 14px;}
+    .scroll-hint{display:block;}
+    .facts li{grid-template-columns:1fr; gap:4px;}
+    .contact-panel{padding:36px 26px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a href="index.html" class="brand">
+      <span class="brand-mark"></span>
+      <span>
+        <span class="brand-name">PRIME TEKIPAKI RAYA</span>
+        <span class="brand-sub">プレム　テキパキ　ラヤ</span>
+      </span>
+    </a>
+    <div class="nav-right">
+      <button id="langToggle" class="lang-btn" type="button" aria-label="Ganti bahasa / 言語を切り替える"><span>🌐</span><span id="langLabel">日本語</span></button>
+      <div class="menu-dd" id="menuDd">
+        <button class="menu-btn" id="menuToggle" aria-haspopup="true" aria-expanded="false"><span data-jp="メニュー">Menu</span> <span class="chev"></span></button>
+        <nav class="links" id="navLinks">
+          <a href="index.html" data-jp="ホーム">Beranda</a>
+          <a href="#gozengogo" data-jp="午前と午後">Gozen &amp; Gogo</a>
+          <a href="#katawaktu" data-jp="時を表す言葉">Kata Waktu</a>
+          <a href="#maeato" data-jp="〜前・〜後">Sebelum &amp; Sesudah</a>
+          <a href="#kontak" data-jp="お問い合わせ">Kontak</a>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-orb" aria-hidden="true"></div>
+    <div class="petal" style="left:8%; animation-delay:0s;" aria-hidden="true"></div>
+    <div class="petal" style="left:30%; animation-delay:4s;" aria-hidden="true"></div>
+    <div class="petal" style="left:62%; animation-delay:7s;" aria-hidden="true"></div>
+    <div class="wrap hero-inner">
+      <div>
+        <div class="hero-eyebrow" data-jp="日本語の基本">Kosakata Dasar Bahasa Jepang</div>
+        <h1 data-jp="時間の言葉を覚えよう">Mengenal Kata Waktu</h1>
+        <p class="lead" data-jp="午前・午後から、一昨日・明後日・再来週まで。日常生活と試験によく出る時間の言葉をまとめました。">Dari gozen dan gogo sampai ototoi, asatte, dan saraishū. Kata waktu yang sering muncul di kehidupan sehari-hari dan di ujian JFT.</p>
+        <div class="hero-cta">
+          <a href="#gozengogo" class="cta-btn" data-jp="午前・午後を見る">Mulai dari Gozen &amp; Gogo</a>
+          <a href="#katawaktu" class="cta-ghost" data-jp="表を見る">Langsung ke Tabel</a>
+        </div>
+      </div>
+      <div class="hero-side">
+        <span class="kanji" aria-hidden="true">昨今明</span>
+        <p data-jp="「昨日・今日・明日」のように、時間の言葉は日・週・月・年で同じルールで変化します。">Seperti 昨日・今日・明日, kata waktu mengikuti pola yang sama untuk hari, minggu, bulan, dan tahun. Hafalkan polanya, bukan satu per satu.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Gozen & Gogo ===== -->
+  <section id="gozengogo">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="tag" data-jp="午前と午後">GOZEN &amp; GOGO</div>
+        <div>
+          <h2 data-jp="午前と午後の使い方">Cara memakai Gozen dan Gogo</h2>
+          <div class="desc" data-jp="午前は正午まで、午後は正午から夜までです。時刻の前に置きます。">Gozen berarti sebelum tengah hari (AM) dan gogo sesudahnya (PM). Keduanya diletakkan di depan jam, kebalikan dari bahasa Indonesia yang menaruh "pagi" atau "sore" di belakang.</div>
+        </div>
+      </div>
+
+      <div class="clocks">
+        <figure class="clock" data-h="9" data-m="0" data-tone="am">
+          <div class="face"></div>
+          <figcaption><span class="badge">午前 · AM</span><b class="jp">午前九時</b><span class="yomi">ごぜん くじ</span><span>Jam 9 pagi</span></figcaption>
+        </figure>
+        <figure class="clock" data-h="12" data-m="0" data-tone="noon">
+          <div class="face"></div>
+          <figcaption><span class="badge">正午 · TENGAH HARI</span><b class="jp">正午</b><span class="yomi">しょうご</span><span>Tepat jam 12 siang</span></figcaption>
+        </figure>
+        <figure class="clock" data-h="3" data-m="0" data-tone="pm">
+          <div class="face"></div>
+          <figcaption><span class="badge">午後 · PM</span><b class="jp">午後三時</b><span class="yomi">ごご さんじ</span><span>Jam 3 sore</span></figcaption>
+        </figure>
+      </div>
+
+      <div class="pair">
+        <div class="tbl-wrap"><table class="tbl"><thead><tr><th colspan="2">午前 · Gozen</th></tr></thead><tbody>
+<tr><th scope="row">Bacaan</th><td>ごぜん (gozen)</td></tr>
+<tr><th scope="row">Arti</th><td>Sebelum tengah hari, AM</td></tr>
+<tr><th scope="row">Rentang</th><td>00:00 sampai 12:00 (tengah malam sampai siang)</td></tr>
+<tr><th scope="row">Pola</th><td><span class="jp">午前＋jam</span><br>午前九時 (ごぜん くじ) = jam 9 pagi</td></tr>
+<tr><th scope="row">Contoh</th><td><span class="jp">午前八時に会社へ行きます。</span><br><span class="yomi">ごぜん はちじに かいしゃへ いきます。</span><br>Saya berangkat ke kantor jam 8 pagi.</td></tr>
+</tbody></table></div>
+
+        <div class="tbl-wrap"><table class="tbl"><thead><tr><th colspan="2">午後 · Gogo</th></tr></thead><tbody>
+<tr><th scope="row">Bacaan</th><td>ごご (gogo)</td></tr>
+<tr><th scope="row">Arti</th><td>Sesudah tengah hari, PM</td></tr>
+<tr><th scope="row">Rentang</th><td>12:00 sampai 24:00 (siang sampai tengah malam)</td></tr>
+<tr><th scope="row">Pola</th><td><span class="jp">午後＋jam</span><br>午後三時 (ごご さんじ) = jam 3 sore</td></tr>
+<tr><th scope="row">Contoh</th><td><span class="jp">午後六時に仕事が終わります。</span><br><span class="yomi">ごご ろくじに しごとが おわります。</span><br>Pekerjaan selesai jam 6 sore.</td></tr>
+</tbody></table></div>
+      </div>
+
+      <div class="note" data-jp="メモ：12時ちょうどは「正午（しょうご）」と言います。午前0時は「真夜中」ともいいます。24時間制（15時など）でも言えます。">Catatan: tepat jam 12 siang disebut <b>正午 (shōgo)</b>, sedangkan tengah malam bisa disebut <b>午前0時</b> atau <b>真夜中 (mayonaka)</b>. Selain gozen/gogo, orang Jepang juga memakai jam 24 (15時 = jam 3 sore), terutama di jadwal kerja dan transportasi.</div>
+    </div>
+  </section>
+
+  <!-- ===== Tabel kata waktu ===== -->
+  <section class="alt" id="katawaktu">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="tag" data-jp="時を表す言葉">KATA WAKTU</div>
+        <div>
+          <h2 data-jp="昨日・今日・明日の表">Tabel hari, minggu, bulan, dan tahun</h2>
+          <div class="desc" data-jp="「先々」「再」がつくと、もう一つ前・もう一つ先になります。">Awalan <b>先々 (sensen)</b> berarti "satu lagi sebelumnya", dan <b>再 (sa)</b> berarti "satu lagi sesudahnya".</div>
+        </div>
+      </div>
+
+      <p class="scroll-hint">Geser tabel ke samping untuk melihat semua kolom →</p>
+      <div class="tbl-wrap"><table class="tbl tl">
+        <thead><tr>
+          <th></th>
+          <th>2 yang lalu<small>kemarin lusa dst.</small></th>
+          <th>Yang lalu<small>lalu</small></th>
+          <th class="now">Sekarang<small>ini</small></th>
+          <th>Yang depan<small>depan</small></th>
+          <th>2 yang depan<small>lusa dst.</small></th>
+        </tr></thead>
+        <tbody>
+<tr><th scope="row">Hari<br>日</th>
+  <td><b>一昨日</b><i>おととい</i><span>ototoi · kemarin lusa</span></td>
+  <td><b>昨日</b><i>きのう</i><span>kinō · kemarin</span></td>
+  <td class="now"><b>今日</b><i>きょう</i><span>kyō · hari ini</span></td>
+  <td><b>明日</b><i>あした</i><span>ashita · besok</span></td>
+  <td><b>明後日</b><i>あさって</i><span>asatte · lusa</span></td></tr>
+<tr><th scope="row">Minggu<br>週</th>
+  <td><b>先々週</b><i>せんせんしゅう</i><span>sensenshū · 2 minggu lalu</span></td>
+  <td><b>先週</b><i>せんしゅう</i><span>senshū · minggu lalu</span></td>
+  <td class="now"><b>今週</b><i>こんしゅう</i><span>konshū · minggu ini</span></td>
+  <td><b>来週</b><i>らいしゅう</i><span>raishū · minggu depan</span></td>
+  <td><b>再来週</b><i>さらいしゅう</i><span>saraishū · 2 minggu lagi</span></td></tr>
+<tr><th scope="row">Bulan<br>月</th>
+  <td><b>先々月</b><i>せんせんげつ</i><span>sensengetsu · 2 bulan lalu</span></td>
+  <td><b>先月</b><i>せんげつ</i><span>sengetsu · bulan lalu</span></td>
+  <td class="now"><b>今月</b><i>こんげつ</i><span>kongetsu · bulan ini</span></td>
+  <td><b>来月</b><i>らいげつ</i><span>raigetsu · bulan depan</span></td>
+  <td><b>再来月</b><i>さらいげつ</i><span>saraigetsu · 2 bulan lagi</span></td></tr>
+<tr><th scope="row">Tahun<br>年</th>
+  <td><b>一昨年</b><i>おととし</i><span>ototoshi · 2 tahun lalu</span></td>
+  <td><b>去年</b><i>きょねん</i><span>kyonen · tahun lalu</span></td>
+  <td class="now"><b>今年</b><i>ことし</i><span>kotoshi · tahun ini</span></td>
+  <td><b>来年</b><i>らいねん</i><span>rainen · tahun depan</span></td>
+  <td><b>再来年</b><i>さらいねん</i><span>sarainen · 2 tahun lagi</span></td></tr>
+        </tbody>
+      </table></div>
+
+      <div class="note" data-jp="覚え方：「一昨日」は「おととい」、「一昨年」は「おととし」と読みます。特別な読み方なので、そのまま覚えましょう。「去年」は話し言葉、「昨年」は改まった言い方です。">Hafalan: 一昨日 dibaca <b>ototoi</b> dan 一昨年 dibaca <b>ototoshi</b>, bukan "ichi-saku-jitsu". Bacaan khusus ini harus dihafal langsung. Untuk "tahun lalu", 去年 (kyonen) dipakai sehari-hari, sedangkan 昨年 (sakunen) lebih formal.</div>
+    </div>
+  </section>
+
+  <!-- ===== ~前 / ~後 ===== -->
+  <section id="maeato">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="tag" data-jp="〜前・〜後">MAE &amp; GO</div>
+        <div>
+          <h2 data-jp="「2年前」「3日後」の言い方">Mengatakan "2 tahun lalu" dan "3 hari lagi"</h2>
+          <div class="desc" data-jp="数字と期間のあとに「前」または「後」をつけます。">Tambahkan <b>前 (mae)</b> untuk "yang lalu" dan <b>後 (go)</b> untuk "yang akan datang" setelah angka dan satuan waktu.</div>
+        </div>
+      </div>
+
+      <div class="tbl-wrap"><table class="tbl"><thead><tr><th>Satuan</th><th>〜前 · yang lalu</th><th>〜後 · lagi / setelah</th></tr></thead><tbody>
+<tr><th scope="row">Hari (〜日)</th><td><span class="jp">二日前</span> <span class="yomi">ふつかまえ</span><br>2 hari lalu<br><span class="jp">三日前</span> <span class="yomi">みっかまえ</span><br>3 hari lalu</td><td><span class="jp">二日後</span> <span class="yomi">ふつかご</span><br>2 hari lagi<br><span class="jp">三日後</span> <span class="yomi">みっかご</span><br>3 hari lagi</td></tr>
+<tr><th scope="row">Minggu (〜週間)</th><td><span class="jp">一週間前</span> <span class="yomi">いっしゅうかんまえ</span><br>1 minggu lalu<br><span class="jp">二週間前</span> <span class="yomi">にしゅうかんまえ</span><br>2 minggu lalu</td><td><span class="jp">一週間後</span> <span class="yomi">いっしゅうかんご</span><br>1 minggu lagi<br><span class="jp">二週間後</span> <span class="yomi">にしゅうかんご</span><br>2 minggu lagi</td></tr>
+<tr><th scope="row">Bulan (〜か月)</th><td><span class="jp">一か月前</span> <span class="yomi">いっかげつまえ</span><br>1 bulan lalu<br><span class="jp">三か月前</span> <span class="yomi">さんかげつまえ</span><br>3 bulan lalu</td><td><span class="jp">一か月後</span> <span class="yomi">いっかげつご</span><br>1 bulan lagi<br><span class="jp">三か月後</span> <span class="yomi">さんかげつご</span><br>3 bulan lagi</td></tr>
+<tr><th scope="row">Tahun (〜年)</th><td><span class="jp">一年前</span> <span class="yomi">いちねんまえ</span><br>1 tahun lalu<br><span class="jp">二年前</span> <span class="yomi">にねんまえ</span><br>2 tahun lalu</td><td><span class="jp">一年後</span> <span class="yomi">いちねんご</span><br>1 tahun lagi<br><span class="jp">二年後</span> <span class="yomi">にねんご</span><br>2 tahun lagi</td></tr>
+</tbody></table></div>
+
+      <div class="note" data-jp="注意：「前」は「〜まえ」、「後」は「〜ご」と読みます。「あと」と読むと意味が少し変わります。">Perhatikan: 前 dibaca <b>mae</b> dan 後 dibaca <b>go</b> pada pola ini. Kata dasar 日 (hari) pada 2 sampai 10 hari memakai bacaan khusus seperti ふつか dan みっか.</div>
+
+      <div class="section-head" style="margin-top:72px;">
+        <div class="tag" data-jp="例文">CONTOH</div>
+        <div><h2 data-jp="例文で確認">Contoh kalimat</h2></div>
+      </div>
+      <ul class="facts">
+        <li><div><span class="jp">昨日、友達に会いました。</span><span class="yomi">きのう、ともだちに あいました。</span></div><div>Kemarin saya bertemu teman.</div></li>
+        <li><div><span class="jp">一昨日は休みでした。</span><span class="yomi">おとといは やすみでした。</span></div><div>Kemarin lusa saya libur.</div></li>
+        <li><div><span class="jp">明後日、日本へ行きます。</span><span class="yomi">あさって、にほんへ いきます。</span></div><div>Lusa saya berangkat ke Jepang.</div></li>
+        <li><div><span class="jp">再来週、試験があります。</span><span class="yomi">さらいしゅう、しけんが あります。</span></div><div>Minggu setelah minggu depan ada ujian.</div></li>
+        <li><div><span class="jp">午前九時から午後五時まで働きます。</span><span class="yomi">ごぜん くじから ごご ごじまで はたらきます。</span></div><div>Saya bekerja dari jam 9 pagi sampai jam 5 sore.</div></li>
+        <li><div><span class="jp">二年前に日本へ来ました。</span><span class="yomi">にねんまえに にほんへ きました。</span></div><div>Saya datang ke Jepang 2 tahun lalu.</div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="alt" id="kontak">
+    <div class="wrap">
+      <div class="contact-panel">
+        <div>
+          <h2 data-jp="日本語の勉強を始めませんか？">Siap belajar bahasa Jepang lebih jauh?</h2>
+          <p data-jp="基本の言葉から試験対策まで、私たちの研修プログラムでサポートします。">Dari kosakata dasar sampai persiapan ujian, program pelatihan kami siap membantu. Silakan konsultasi kapan saja.</p>
+          <a href="formulir.html" class="cta-btn" data-jp="登録フォームに記入">Isi Formulir Pendaftaran</a>
+        </div>
+        <div class="contact-details">
+          <div><span data-jp="電話・WhatsApp">Telepon / WhatsApp</span><strong>+62 821 3080 7776</strong></div>
+          <div><span data-jp="メール">Email</span><strong>info@tekipaki.co.id</strong></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer-bottom">
+    <span data-jp="© 2026 PRIME TEKIPAKI RAYA. 無断複写・転載を禁じます。">© 2026 PRIME TEKIPAKI RAYA. Seluruh hak cipta dilindungi.</span>
+    <a href="index.html" style="text-decoration:none;" data-jp="ホームへ戻る">Kembali ke Beranda</a>
+  </div>
+</footer>
+
+<script>
+  // Gambar jam analog
+  document.querySelectorAll('.clock').forEach(c => {
+    const h = +c.dataset.h, m = +c.dataset.m, tone = c.dataset.tone;
+    const fill = tone === 'am' ? 'var(--sakura-soft)' : 'var(--bg-alt)';
+    const pt = (deg, r) => { const a = deg * Math.PI / 180; return [100 + Math.sin(a) * r, 100 - Math.cos(a) * r]; };
+    let s = '<svg viewBox="0 0 200 200" role="img" aria-label="Jam ' + h + ':' + String(m).padStart(2,'0') + '">';
+    s += '<circle cx="100" cy="100" r="96" fill="' + fill + '" stroke="currentColor" stroke-width="4"/>';
+    for(let i = 0; i < 12; i++){
+      const big = i % 3 === 0, p1 = pt(i * 30, big ? 76 : 83), p2 = pt(i * 30, 91);
+      s += '<line x1="' + p1[0] + '" y1="' + p1[1] + '" x2="' + p2[0] + '" y2="' + p2[1] + '" stroke="currentColor" stroke-width="' + (big ? 4 : 2) + '" stroke-linecap="round"/>';
+    }
+    [[12,0],[3,90],[6,180],[9,270]].forEach(n => {
+      const p = pt(n[1], 60);
+      s += '<text x="' + p[0] + '" y="' + (p[1] + 7) + '" text-anchor="middle" font-family="Shippori Mincho,serif" font-weight="700" font-size="22" fill="currentColor">' + n[0] + '</text>';
+    });
+    const ha = (h % 12) * 30 + m / 2, ma = m * 6, hp = pt(ha, 44), mp = pt(ma, 68);
+    s += '<line x1="100" y1="100" x2="' + hp[0] + '" y2="' + hp[1] + '" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>';
+    s += '<line x1="100" y1="100" x2="' + mp[0] + '" y2="' + mp[1] + '" stroke="var(--sakura)" stroke-width="4.5" stroke-linecap="round"/>';
+    s += '<circle cx="100" cy="100" r="6" fill="var(--sakura)"/></svg>';
+    c.querySelector('.face').innerHTML = s;
+  });
+
+  // Bahasa ID <-> 日本語
+  const langLabel = document.getElementById('langLabel');
+  const i18n = document.querySelectorAll('[data-jp]');
+  i18n.forEach(el => { el.dataset.id = el.innerHTML; });
+  function applyLang(l){
+    document.documentElement.setAttribute('lang', l === 'jp' ? 'ja' : 'id');
+    i18n.forEach(el => { el.innerHTML = l === 'jp' ? el.dataset.jp : el.dataset.id; });
+    langLabel.textContent = l === 'jp' ? 'Indonesia' : '日本語';
+    try{ localStorage.setItem('tekipaki-lang', l); }catch(e){}
+  }
+  let lang = 'id';
+  try{ lang = localStorage.getItem('tekipaki-lang') || 'id'; }catch(e){}
+  applyLang(lang);
+  document.getElementById('langToggle').addEventListener('click', () => {
+    lang = lang === 'jp' ? 'id' : 'jp'; applyLang(lang);
+  });
+
+  // Menu dropdown
+  const dd = document.getElementById('menuDd'), mt = document.getElementById('menuToggle');
+  const closeMenu = () => { dd.classList.remove('open'); mt.setAttribute('aria-expanded','false'); };
+  mt.addEventListener('click', e => { e.stopPropagation(); mt.setAttribute('aria-expanded', dd.classList.toggle('open') ? 'true':'false'); });
+  document.querySelectorAll('#navLinks a').forEach(a => a.addEventListener('click', closeMenu));
+  document.addEventListener('click', e => { if(!dd.contains(e.target)) closeMenu(); });
+  document.addEventListener('keydown', e => { if(e.key === 'Escape') closeMenu(); });
+</script>
+</body>
+</html>
