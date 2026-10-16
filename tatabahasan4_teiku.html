@@ -4,636 +4,573 @@
 <meta charset="UTF-8">
 <meta name="google" content="notranslate">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tekipaki Learning — Belajar Bahasa Jepang dengan Tenang</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
-
+<title>〜ていく（terus berlanjut / pergi） | Tata Bahasa N4</title>
 <style>
-:root{
-  --paper:#FFFFFF;
-  --paper-deep:#F5F7FA;
-  --ink:#12182A;
-  --ink-soft:#5B6478;
-  --line:rgba(18,24,42,0.14);
-  --line-strong:rgba(18,24,42,0.28);
-  --white:#ffffff;
-  --accent:#4a4a3c;
-  --navy:#0a1f3d;
-  --navy2:#001530;
-  --gold:#e0b52a;
-  --gold-soft:#f2e2b0;
-  --hero-pink:#F7E3E8;
-  --hero-pink-deep:#F1CFD9;
-}
-*{ margin:0; padding:0; box-sizing:border-box; }
-html{ scroll-behavior:smooth; }
-body{
-  font-family:"Noto Sans JP","Hiragino Sans","Segoe UI",sans-serif;
-  font-weight:400; background:var(--paper); color:var(--ink);
-  line-height:1.6; -webkit-font-smoothing:antialiased;
-}
-h1,h2,h3{ font-family:"Shippori Mincho",serif; font-weight:700; letter-spacing:.02em; }
-a{ color:inherit; }
-img{ max-width:100%; display:block; }
-.wrap{ max-width:1180px; margin:0 auto; padding-left:32px; padding-right:32px; }
+:root{--navy:#001f3f;--navy2:#002a54;--navy3:#022655;--gold:#facc15;--gold2:#ffd700;--text:#001f3f;}
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Segoe UI",Arial,sans-serif;}
+body{background:#fff;color:var(--text);}
 
 /* NAVBAR */
-#navbar{
-  position:sticky; top:0; z-index:9999; width:100%;
-  background:rgba(255,255,255,.88); backdrop-filter:blur(10px);
-  border-bottom:1px solid var(--line); box-shadow:none;
-}
-.navbar-inner{
-  width:100%; min-height:64px; padding:8px 24px;
-  display:flex; align-items:center; justify-content:space-between; gap:20px;
-}
-.nav-left{ display:flex; align-items:center; flex-shrink:0; }
-.nav-right{ display:flex; align-items:center; justify-content:flex-end; gap:8px; flex-wrap:wrap; }
-.home-btn{
-  display:flex; align-items:center; justify-content:center; gap:8px;
-  background:var(--navy); color:#fff; text-decoration:none;
-  padding:10px 18px; border-radius:3px; font-weight:600; white-space:nowrap;
-  transition:background .2s ease;
-}
-.home-btn:hover{ background:var(--navy2); opacity:1; }
-.home-icon{ width:20px; height:20px; flex:none; }
-.dropdown{ position:relative; flex-shrink:0; z-index:1; }
-.dropdown.open{ z-index:20; }
-.dropdown-btn{
-  display:flex; align-items:center; justify-content:center;
-  background:none; border:1px solid var(--line-strong); color:var(--ink);
-  padding:9px 15px; border-radius:3px; font-family:inherit; font-weight:600;
-  cursor:pointer; white-space:nowrap;
-  transition:border-color .2s ease, color .2s ease;
-}
-.dropdown-btn:hover,
-.dropdown.open .dropdown-btn{ border-color:var(--navy); color:var(--navy); background:none; }
-.nav-link{ text-decoration:none; flex-shrink:0; font-size:13.3333px; line-height:normal; }
-.nav-link:hover{ border-color:var(--navy); color:var(--navy); }
-.dropdown-menu{
-  display:none; position:absolute; top:calc(100% + 7px); left:0;
-  width:max-content; min-width:220px; max-width:calc(100vw - 20px);
-  background:var(--paper); border:1px solid var(--line); border-radius:6px;
-  overflow:hidden; box-shadow:0 14px 34px rgba(18,24,42,.16);
-}
-.dropdown-menu.show{ display:block; }
-.dropdown-menu.align-right{ left:auto; right:0; }
-.dropdown-menu a{ display:block; padding:12px 15px; color:var(--ink); text-decoration:none; white-space:nowrap; }
-.dropdown-menu a:hover{ background:var(--paper-deep); color:var(--navy); }
-.burger-btn{
-  display:none; align-items:center; justify-content:center; flex-shrink:0;
-  background:transparent; border:1px solid var(--line-strong); color:var(--ink);
-  padding:9px 12px; border-radius:3px; cursor:pointer;
-}
-.burger-btn svg{ width:20px; height:20px; display:block; }
-.mobile-menu{ display:none; flex-direction:column; background:var(--paper); border-top:1px solid var(--line); }
-.mobile-menu.show{ display:flex; }
-.mobile-link{
-  display:block; padding:15px 18px; color:var(--ink); text-decoration:none;
-  font-weight:700; font-size:14px; border-bottom:1px solid var(--line);
-}
-.mobile-link:hover{ background:var(--paper-deep); }
-.mobile-acc-btn{
-  width:100%; text-align:left; background:transparent; border:none; color:var(--navy);
-  font-weight:700; font-size:14px; font-family:inherit; padding:15px 18px; cursor:pointer;
-  display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--line);
-}
-.mobile-acc-btn::after{ content:'+'; font-size:18px; line-height:1; }
-.mobile-acc-btn.open::after{ content:'\2212'; }
-.mobile-acc-panel{ display:none; flex-direction:column; background:var(--paper-deep); }
-.mobile-acc-panel.show{ display:flex; }
-.mobile-acc-panel a{
-  padding:13px 32px; color:var(--ink); text-decoration:none; font-size:13px;
-  border-bottom:1px solid var(--line);
-}
-.mobile-acc-panel a:hover{ background:var(--paper); color:var(--navy); }
-@media(min-width:761px){ .mobile-menu{ display:none !important; } }
-@media(max-width:1000px){
-  .navbar-inner{ padding:10px 12px; gap:10px; }
-  .dropdown-btn{ font-size:.72rem; padding:6px 9px; }
-  .home-btn{ padding:8px 10px; font-size:.72rem; }
-}
+#navbar{position:sticky;top:0;z-index:999;background:#001530;border-bottom:2px solid rgba(224,181,42,.3);box-shadow:0 4px 14px rgba(0,0,0,.25);}
+.navbar-inner{display:flex;justify-content:space-between;align-items:center;padding:10px 20px;}
+.nav-left{display:flex;align-items:center;}
+.nav-right{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end;}
+.home-btn{display:flex;align-items:center;gap:8px;background:#e0b52a;color:#001530;text-decoration:none;padding:8px 14px;border-radius:10px;font-weight:bold;}
+.home-btn:hover{opacity:.85;}
+.home-icon{width:24px;height:24px;}
+.dropdown{position:relative;}
+.dropdown-btn{background:none;border:2px solid #e0b52a;color:#e0b52a;padding:8px 14px;border-radius:8px;font-weight:bold;cursor:pointer;font-family:inherit;font-size:.9rem;}
+.dropdown-btn:hover{background:#e0b52a;color:#001530;}
+.dropdown-menu{display:none;position:absolute;top:45px;left:0;background:#1f4577;border-radius:10px;overflow:hidden;min-width:220px;max-width:90vw;box-shadow:0 8px 20px rgba(0,0,0,.35);}
+.dropdown-menu.align-right{left:auto;right:0;}
+.dropdown-menu a{display:block;padding:12px 15px;color:#ffd700;text-decoration:none;}
+.dropdown-menu a:hover{background:#e0b52a;color:#001530;}
+.show{display:block;}
+.burger-btn{display:none;align-items:center;justify-content:center;background:none;border:2px solid #e0b52a;color:#e0b52a;padding:7px 10px;border-radius:8px;cursor:pointer;}
+.burger-btn svg{width:22px;height:22px;display:block;}
+.mobile-menu{display:none;flex-direction:column;background:#001530;border-top:1px solid rgba(224,181,42,.3);}
+.mobile-menu.show{display:flex;}
+.mobile-link{display:block;padding:15px 18px;color:#ffd700;text-decoration:none;font-weight:700;font-size:14px;border-bottom:1px solid rgba(224,181,42,.2);}
+.mobile-link:hover{background:#e0b52a;color:#001530;}
+.mobile-acc-btn{width:100%;text-align:left;background:transparent;border:none;color:#e0b52a;font-weight:700;font-size:14px;font-family:inherit;padding:15px 18px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(224,181,42,.2);}
+.mobile-acc-btn::after{content:'+';font-size:18px;line-height:1;}
+.mobile-acc-btn.open::after{content:'\2212';}
+.mobile-acc-panel{display:none;flex-direction:column;background:#1f4577;}
+.mobile-acc-panel.show{display:flex;}
+.mobile-acc-panel a{padding:13px 32px;color:#ffd700;text-decoration:none;font-size:13px;border-bottom:1px solid rgba(255,255,255,.1);}
+.mobile-acc-panel a:hover{background:#e0b52a;color:#001530;}
+@media(min-width:761px){.mobile-menu{display:none !important;}}
 @media(max-width:760px){
-  .navbar-inner{ flex-wrap:nowrap; padding:10px 14px; gap:10px; }
-  .nav-left{ flex:1; min-width:0; }
-  .home-btn{ width:auto; }
-  .nav-right{ display:none; }
-  .burger-btn{ display:flex; }
+  .navbar-inner{flex-wrap:nowrap;padding:10px 14px;}
+  .nav-right{display:none;}
+  .burger-btn{display:flex;}
+  .breadcrumb{margin-top:16px;}
 }
+
+/* BREADCRUMB */
+.breadcrumb{margin:20px 0 0;padding:0 0 0 20px;font-size:14px;color:#8892a3;}
+.breadcrumb a{color:var(--navy);text-decoration:none;font-weight:600;}
+.breadcrumb a:hover{text-decoration:underline;}
 
 /* HERO */
-.hero{
-  position:relative; min-height:520px; display:flex; align-items:center; overflow:hidden;
-  background:linear-gradient(180deg,var(--paper-deep),var(--paper));
-}
-.hero-orb{
-  position:absolute; right:-140px; top:-120px; width:560px; height:560px; border-radius:50%;
-  background:radial-gradient(circle at 38% 32%, #e8b4c2 0%, #f7dee4 62%, transparent 75%); opacity:.9;
-}
-.petal{
-  position:absolute; width:14px; height:18px; background:#e8b4c2;
-  border-radius:0 60% 0 60%; opacity:.65; animation:drift 14s linear infinite;
-}
-@media(prefers-reduced-motion:reduce){ .petal{ animation:none; } }
-@keyframes drift{
-  0%{ transform:translateY(-40px) rotate(0deg); opacity:0; }
-  10%{ opacity:.6; }
-  100%{ transform:translateY(560px) rotate(200deg); opacity:0; }
-}
-.hero-copy{ position:relative; z-index:2; padding:56px 32px 56px 72px; color:var(--ink); }
-.hero-copy-inner{ max-width:1180px; margin:0 auto; }
-.hero-eyebrow{ font-size:.72rem; letter-spacing:.18em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:16px; }
-.hero h1{ font-size:clamp(1.7rem,3.4vw,2.5rem); color:var(--ink); font-weight:500; max-width:560px; margin-bottom:20px; }
-.hero-links{ display:flex; gap:28px; flex-wrap:wrap; }
-.text-link{ font-size:.86rem; text-decoration:none; color:var(--ink); border-bottom:1px solid rgba(43,42,38,.4); padding-bottom:3px; }
-.text-link:hover{ border-color:var(--ink); }
-.text-link.dark{ color:var(--ink); border-color:rgba(43,42,38,.4); }
-.text-link.dark:hover{ border-color:var(--ink); }
+.pattern-hero{max-width:900px;margin:20px auto 0;padding:40px 30px;background:linear-gradient(135deg,var(--navy) 0%,#062a52 100%);border-radius:22px;position:relative;overflow:hidden;text-align:center;}
+.pattern-hero::before{content:"行";position:absolute;font-size:260px;font-weight:900;color:rgba(250,204,21,.06);top:-60px;right:-30px;pointer-events:none;user-select:none;}
+.no-badge{display:inline-block;background:rgba(250,204,21,.12);border:1px solid rgba(250,204,21,.4);color:var(--gold);font-size:13px;font-weight:bold;letter-spacing:1px;padding:6px 16px;border-radius:999px;margin-bottom:18px;position:relative;}
+.pattern-hero h1{font-size:44px;color:#fff;position:relative;margin-bottom:8px;}
+.pattern-hero .romaji{font-size:20px;color:var(--gold2);font-weight:600;position:relative;margin-bottom:14px;}
+.pattern-hero .mean{font-size:18px;color:#c9d6e8;position:relative;}
 
-/* SECTION */
-.section{ padding:96px 0; }
-.section.border-top{ border-top:1px solid var(--line); }
-.section-label{ font-size:.72rem; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:18px; }
+/* CONTENT */
+.content{max-width:900px;margin:30px auto;padding:0 30px 60px;}
+.section-block{margin-bottom:36px;}
+.section-block h2{display:flex;align-items:center;gap:12px;font-size:22px;color:var(--navy);margin-bottom:14px;}
+.tag{background:var(--navy);color:var(--gold);font-size:13px;font-weight:bold;padding:5px 12px;border-radius:8px;white-space:nowrap;}
+.section-block p{font-size:16px;line-height:1.9;color:#333;}
+.formula-box{background:#f5f8fc;border:2px dashed var(--navy);border-radius:16px;padding:22px 26px;font-size:19px;text-align:center;color:var(--navy);font-weight:600;line-height:1.8;}
+.formula-box small{display:block;font-size:13px;font-weight:400;color:#8892a3;margin-top:6px;}
 
-/* TENTANG */
-.about{ display:grid; grid-template-columns:.85fr 1.15fr; gap:64px; }
-.about h2{ font-size:1.7rem; max-width:320px; line-height:1.45; }
-.about-body p{ color:var(--ink-soft); font-size:.98rem; line-height:1.9; margin-bottom:20px; max-width:560px; }
-.about-body p:last-child{ margin-bottom:0; }
-.about-list{ display:flex; flex-direction:column; margin-top:36px; }
-.about-list li{
-  list-style:none; display:flex; gap:18px; padding:20px 0;
-  border-top:1px solid var(--line); font-size:.9rem; color:var(--ink-soft);
-}
-.about-list li:last-child{ border-bottom:1px solid var(--line); }
-.about-list .ai-title{ color:var(--ink); flex:none; width:170px; font-weight:400; }
+/* TABEL */
+.table-wrap{overflow-x:auto;border-radius:16px;border:2px solid var(--navy);}
+.konjugasi-table{width:100%;border-collapse:collapse;min-width:620px;font-size:15px;}
+.konjugasi-table thead th{background:var(--navy);color:var(--gold);text-align:left;padding:14px 16px;font-size:14px;white-space:nowrap;}
+.konjugasi-table tbody td{padding:13px 16px;border-bottom:1px solid #e3e9f2;color:#333;vertical-align:middle;}
+.konjugasi-table tbody tr:nth-child(even){background:#f5f8fc;}
+.konjugasi-table tbody tr:hover{background:#fffbe6;}
+.kamus{font-weight:bold;font-size:17px;color:var(--navy);}
+.yomi-small{display:block;font-size:12px;color:#8892a3;font-weight:400;}
+.arrow{color:var(--gold2);font-weight:900;font-size:18px;}
+.ukemi{font-weight:bold;font-size:17px;color:#5b8bb0;}
+.group-row td{background:var(--navy2);color:var(--gold);font-weight:bold;font-size:13px;letter-spacing:.5px;padding:10px 16px;}
 
-/* PROGRAM */
-.prog-head{ display:flex; justify-content:space-between; align-items:flex-end; gap:24px; margin-bottom:44px; flex-wrap:wrap; }
-.prog-head h2{ font-size:1.7rem; }
-.prog-head p{ color:var(--ink-soft); font-size:.9rem; max-width:340px; }
-.prog-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); }
-.prog-item{
-  background:var(--paper); padding:38px 30px; text-decoration:none; color:var(--ink);
-  display:flex; flex-direction:column; gap:14px; min-height:210px; transition:background .25s;
-}
-.prog-item:hover{ background:var(--white); }
-.prog-item .pi-no{ font-size:.72rem; color:var(--ink-soft); letter-spacing:.08em; }
-.prog-item h3{ font-size:1.05rem; font-weight:500; }
-.prog-item p{ font-size:.85rem; color:var(--ink-soft); line-height:1.7; }
-.prog-item .pi-go{ margin-top:auto; font-size:.8rem; color:var(--ink-soft); border-top:1px solid var(--line); padding-top:12px; }
+/* CONTOH */
+.example{border:2px solid var(--navy);border-radius:16px;padding:20px 24px;margin-bottom:16px;transition:.25s;}
+.example:hover{background:var(--navy3);color:#fff;transform:translateY(-3px);box-shadow:0 12px 24px rgba(0,31,63,.2);}
+.example .jp{font-size:20px;font-weight:bold;margin-bottom:6px;}
+.example .yomi{font-size:14px;color:#8892a3;margin-bottom:8px;}
+.example:hover .yomi{color:#c9d6e8;}
+.example .id{font-size:15px;color:#333;font-style:italic;}
+.example:hover .id{color:#e6edf7;}
+.example-group-label{display:inline-block;font-size:14px;font-weight:bold;color:#fff;padding:6px 14px;border-radius:8px;margin-bottom:10px;}
+.example-group-label.a{background:#c98a4d;}
+.example-group-label.b{background:#5b8bb0;}
+.example-group-label.c{background:#c17b7b;}
 
-/* GALERI */
-.gallery-head{ display:flex; justify-content:space-between; align-items:flex-end; gap:24px; margin-bottom:36px; flex-wrap:wrap; }
-.gallery-head h2{ font-size:1.7rem; }
-.gallery-head p{ color:var(--ink-soft); font-size:.9rem; max-width:340px; }
-.slideshow{ position:relative; width:100%; aspect-ratio:16/7.2; overflow:hidden; background:var(--paper-deep); }
-.slide{ position:absolute; inset:0; opacity:0; transition:opacity 1.2s ease; }
-.slide.active{ opacity:1; }
-.slide img{ width:100%; height:100%; object-fit:cover; }
-.slide-info{ display:flex; justify-content:space-between; align-items:center; margin-top:18px; flex-wrap:wrap; gap:14px; }
-.slide-caption-text{ font-size:.88rem; color:var(--ink-soft); }
-.slide-caption-text .sc-jp{ color:var(--ink); margin-right:10px; }
-.slide-controls{ display:flex; align-items:center; gap:18px; }
-.slide-dashes{ display:flex; gap:6px; }
-.slide-dash{ width:22px; height:2px; background:var(--line); border:none; cursor:pointer; padding:0; transition:.2s; }
-.slide-dash.active{ background:var(--ink); }
-.slide-nav{ background:none; border:none; cursor:pointer; font-size:.95rem; color:var(--ink-soft); letter-spacing:.05em; }
-.slide-nav:hover{ color:var(--ink); }
-@media(prefers-reduced-motion:reduce){ .slide{ transition:none; } }
+/* PERBANDINGAN */
+.compare-wrap{overflow-x:auto;border-radius:16px;border:2px solid var(--navy);}
+.compare-table{width:100%;border-collapse:collapse;min-width:640px;font-size:14px;}
+.compare-table thead th{padding:14px;text-align:left;color:#fff;font-size:13px;}
+.compare-table thead th small{display:block;font-weight:400;font-size:11px;opacity:.85;margin-top:2px;}
+.compare-table thead th.h0{background:var(--navy);color:var(--gold);}
+.compare-table thead th.h1{background:#c98a4d;}
+.compare-table thead th.h2{background:#5b8bb0;}
+.compare-table tbody td{padding:13px 14px;border-bottom:1px solid #e3e9f2;color:#333;vertical-align:middle;}
+.compare-table tbody tr:nth-child(even){background:#f5f8fc;}
+.compare-table .v1{font-weight:bold;font-size:16px;color:#c98a4d;}
+.compare-table .v2{font-weight:bold;font-size:16px;color:#5b8bb0;}
 
-/* CTA */
-.cta{ padding:110px 0; text-align:center; border-top:1px solid var(--line); }
-.cta h2{ font-size:1.8rem; margin-bottom:16px; }
-.cta p{ color:var(--ink-soft); font-size:.95rem; max-width:440px; margin:0 auto 32px; }
+.note-box{background:#fffbe6;border-left:5px solid var(--gold);border-radius:10px;padding:18px 22px;font-size:15px;line-height:1.8;color:#4a4020;}
+.note-box b{color:var(--navy);}
 
-/* FOOTER */
-footer{ border-top:1px solid var(--line); padding:44px 0; }
-.footer-inner{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px; font-size:.78rem; color:var(--ink-soft); }
+/* NAV BAWAH */
+.nav-bottom{display:flex;justify-content:space-between;gap:16px;margin-top:50px;flex-wrap:wrap;}
+.nav-bottom a{flex:1;min-width:200px;text-decoration:none;border:2px solid var(--navy);border-radius:14px;padding:16px 20px;color:var(--navy);font-weight:600;transition:.25s;}
+.nav-bottom a:hover{background:var(--navy);color:var(--gold);}
+.nav-bottom .dir{display:block;font-size:12px;color:#8892a3;margin-bottom:4px;}
+.nav-bottom a:hover .dir{color:#c9d6e8;}
+.nav-bottom .next{text-align:right;}
 
-/* RESPONSIVE */
-@media(max-width:900px){
-  .about{ grid-template-columns:1fr; gap:36px; }
-  .prog-grid{ grid-template-columns:1fr 1fr; }
-}
+/* LATIHAN */
+.quiz-box{border:2px solid var(--navy);border-radius:18px;padding:24px 26px;margin-bottom:22px;background:#fafcff;}
+.qno{display:inline-block;background:var(--navy);color:var(--gold);font-size:13px;font-weight:bold;padding:5px 12px;border-radius:8px;margin-bottom:14px;}
+.qtext{font-size:16px;color:#333;margin-bottom:16px;line-height:1.8;}
+.word-bank{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:18px;}
+.word-tile{background:#fff;border:2px solid var(--navy);color:var(--navy);padding:10px 16px;border-radius:10px;font-size:16px;font-weight:600;cursor:pointer;transition:.2s;user-select:none;}
+.word-tile:hover{background:var(--navy);color:var(--gold);transform:translateY(-2px);}
+.word-tile.used{opacity:.3;pointer-events:none;}
+.answer-slot{min-height:52px;border:2px dashed var(--gold2);border-radius:10px;background:#fffbe6;display:flex;align-items:center;flex-wrap:wrap;gap:8px;padding:8px 12px;margin-bottom:16px;}
+.placed{background:var(--gold);color:#001530;padding:8px 14px;border-radius:8px;font-weight:bold;font-size:15px;cursor:pointer;}
+.quiz-actions{display:flex;gap:10px;flex-wrap:wrap;}
+.quiz-btn{border:2px solid var(--navy);background:var(--navy);color:var(--gold);padding:10px 18px;border-radius:10px;font-weight:bold;font-size:14px;cursor:pointer;transition:.2s;}
+.quiz-btn:hover{opacity:.85;}
+.quiz-btn.secondary{background:#fff;color:var(--navy);}
+.quiz-result{margin-top:14px;font-size:15px;font-weight:600;display:none;padding:12px 16px;border-radius:10px;}
+.quiz-result.correct{display:block;background:#e6f7ec;color:#166534;border:1px solid #86efac;}
+.quiz-result.wrong{display:block;background:#fdeaea;color:#991b1b;border:1px solid #fca5a5;}
+
 @media(max-width:600px){
-  .wrap{ padding-left:20px; padding-right:20px; }
-  .navbar-inner{ padding:16px 20px; }
-  .hero{ min-height:420px; }
-  .hero-copy{ padding:32px 20px; }
-  .section{ padding:64px 0; }
-  .prog-grid{ grid-template-columns:1fr; }
-  .about-list .ai-title{ width:120px; }
-  .slideshow{ aspect-ratio:4/5; }
+  .pattern-hero h1{font-size:30px;}
+  .pattern-hero::before{font-size:160px;}
+  .nav-bottom .next{text-align:left;}
+  .konjugasi-table{font-size:13px;}
 }
+footer{text-align:center;padding:30px;color:#666;font-size:14px;}
 </style>
 </head>
-<body translate="no">
 
-<!-- NAVBAR -->
+<body>
+
 <nav id="navbar">
-
-  <div class="navbar-inner">
-
-    <div class="nav-left">
-      <a href="index.html" class="home-btn">
-        <svg class="home-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 3L3 10h2v10h6v-6h2v6h6V10h2L12 3Z"/>
-        </svg>
-        HOME
-      </a>
-    </div>
-
-    <div class="nav-right">
-
-      <div class="dropdown">
-        <button class="dropdown-btn" onclick="toggleDropdown('learningDropdown')">TEKIPAKI LEARNING ▼</button>
-        <div class="dropdown-menu" id="learningDropdown">
-          <a href="guru.html">GURU</a>
-          <a href="elearning.html">SISWA</a>
-        </div>
-      </div>
-
-      <div class="dropdown">
-        <button class="dropdown-btn" onclick="toggleDropdown('materiDropdown')">MATERI ▼</button>
-        <div class="dropdown-menu" id="materiDropdown">
-          <a href="daftarkosakata.html">Kosakata JFT</a>
-          <a href="materitatabahasa.html">Tata Bahasa</a>
-          <a href="materikanji.html">Materi Kanji JLPT</a>
-          <a href="kanjidasar.html">Kanji Flash Card</a>
-          <a href="materikosakata.html">Materi Kosakata JLPT</a>
-        </div>
-      </div>
-
-      <!-- JFT: link langsung, tanpa dropdown -->
-      <a href="jfta2.html" class="dropdown-btn nav-link">JFT</a>
-
-      <div class="dropdown">
-        <button class="dropdown-btn" onclick="toggleDropdown('formulirDropdown')">FORMULIR ▼</button>
-        <div class="dropdown-menu" id="formulirDropdown">
-          <a href="formulir.html">Formulir Pendaftaran</a>
-        </div>
-      </div>
-
-    </div>
-
-    <button class="burger-btn" onclick="toggleMobileMenu()" aria-label="Buka menu">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round">
-        <line x1="3" y1="6" x2="21" y2="6"/>
-        <line x1="3" y1="12" x2="21" y2="12"/>
-        <line x1="3" y1="18" x2="21" y2="18"/>
-      </svg>
-    </button>
-
-  </div>
-
-  <!-- MOBILE MENU -->
-  <div class="mobile-menu" id="mobileMenu">
-
-    <a class="mobile-link" href="index.html">HOME</a>
-
-    <button class="mobile-acc-btn" onclick="toggleMobileAccordion(this)">TEKIPAKI LEARNING</button>
-    <div class="mobile-acc-panel">
-      <a href="guru.html">GURU</a>
-      <a href="elearning.html">SISWA</a>
-    </div>
-
-    <button class="mobile-acc-btn" onclick="toggleMobileAccordion(this)">MATERI</button>
-    <div class="mobile-acc-panel">
+<div class="navbar-inner">
+<div class="nav-left">
+<a href="index.html" class="home-btn">
+<svg class="home-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3L3 10h2v10h6v-6h2v6h6V10h2L12 3Z"/></svg>
+HOME
+</a>
+</div>
+<div class="nav-right">
+  <div class="dropdown">
+    <button class="dropdown-btn" onclick="toggleDropdown('materi')">MATERI ▼</button>
+    <div class="dropdown-menu" id="materi">
       <a href="daftarkosakata.html">Kosakata JFT</a>
-      <a href="materitatabahasa.html">Tata Bahasa</a>
-      <a href="materikanji.html">Materi Kanji JLPT</a>
+      <a href="materitatabahasa_n4.html">Tata Bahasa</a>
       <a href="kanjidasar.html">Kanji Flash Card</a>
-      <a href="materikosakata.html">Materi Kosakata JLPT</a>
     </div>
-
-    <!-- JFT: link langsung -->
-    <a class="mobile-link" href="jfta2.html">JFT</a>
-
-    <button class="mobile-acc-btn" onclick="toggleMobileAccordion(this)">FORMULIR</button>
-    <div class="mobile-acc-panel">
-      <a href="formulir.html">Formulir Pendaftaran</a>
+  </div>
+  <div class="dropdown">
+    <button class="dropdown-btn" onclick="toggleDropdown('quiz')">QUIZ JFT ▼</button>
+    <div class="dropdown-menu" id="quiz">
+      <a href="ujianjfta2test1.html">SOAL JFT A — TEST 1</a>
+      <a href="ujianjfta2test2.html">SOAL JFT A — TEST 2</a>
+      <a href="ujianjfta2test3.html">SOAL JFT A — TEST 3</a>
+      <a href="ujianjfta2test4.html">SOAL JFT A — TEST 4</a>
+      <a href="ujianjfta2test5.html">SOAL JFT A — TEST 5</a>
     </div>
+  </div>
+  <div class="dropdown">
+    <button class="dropdown-btn" onclick="toggleDropdown('kanjiquiz')">QUIZ KANJI ▼</button>
+    <div class="dropdown-menu" id="kanjiquiz">
+      <a href="quizkanji1.html">QUIZ KANJI 1</a>
+      <a href="quizkanji2.html">QUIZ KANJI 2</a>
+      <a href="quizkanji3.html">QUIZ KANJI 3</a>
+      <a href="quizkanji4.html">QUIZ KANJI 4</a>
+      <a href="quizkanji5.html">QUIZ KANJI 5</a>
+    </div>
+  </div>
+</div>
 
+<button class="burger-btn" onclick="toggleMobileMenu()" aria-label="Buka menu">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round">
+    <line x1="3" y1="6" x2="21" y2="6"/>
+    <line x1="3" y1="12" x2="21" y2="12"/>
+    <line x1="3" y1="18" x2="21" y2="18"/>
+  </svg>
+</button>
+
+</div>
+
+<div class="mobile-menu" id="mobileMenu">
+
+  <button class="mobile-acc-btn" onclick="toggleMobileAccordion(this)">MATERI</button>
+  <div class="mobile-acc-panel">
+    <a href="daftarkosakata.html">Kosakata JFT</a>
+    <a href="materitatabahasa_n4.html">Tata Bahasa</a>
+    <a href="kanjidasar.html">Kanji Flash Card</a>
   </div>
 
+  <button class="mobile-acc-btn" onclick="toggleMobileAccordion(this)">QUIZ JFT</button>
+  <div class="mobile-acc-panel">
+    <a href="ujianjfta2test1.html">SOAL JFT A — TEST 1</a>
+    <a href="ujianjfta2test2.html">SOAL JFT A — TEST 2</a>
+    <a href="ujianjfta2test3.html">SOAL JFT A — TEST 3</a>
+    <a href="ujianjfta2test4.html">SOAL JFT A — TEST 4</a>
+    <a href="ujianjfta2test5.html">SOAL JFT A — TEST 5</a>
+  </div>
+
+  <button class="mobile-acc-btn" onclick="toggleMobileAccordion(this)">QUIZ KANJI</button>
+  <div class="mobile-acc-panel">
+    <a href="quizkanji1.html">QUIZ KANJI 1</a>
+    <a href="quizkanji2.html">QUIZ KANJI 2</a>
+    <a href="quizkanji3.html">QUIZ KANJI 3</a>
+    <a href="quizkanji4.html">QUIZ KANJI 4</a>
+    <a href="quizkanji5.html">QUIZ KANJI 5</a>
+  </div>
+
+</div>
 </nav>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-orb" aria-hidden="true"></div>
-  <div class="petal" style="left:8%; animation-delay:0s;" aria-hidden="true"></div>
-  <div class="petal" style="left:20%; animation-delay:3s;" aria-hidden="true"></div>
-  <div class="petal" style="left:34%; animation-delay:7s;" aria-hidden="true"></div>
-  <div class="petal" style="left:55%; animation-delay:5s;" aria-hidden="true"></div>
-  <div class="petal" style="left:68%; animation-delay:1.5s;" aria-hidden="true"></div>
-  <div class="petal" style="left:82%; animation-delay:9s;" aria-hidden="true"></div>
-
-  <div class="hero-copy">
-    <div class="hero-copy-inner">
-      <div class="hero-eyebrow">Tekipaki Learning</div>
-      <h1>Belajar bahasa Jepang dengan tenang, langkah demi langkah, sampai siap ujian.</h1>
-      <div class="hero-links">
-        <a href="#program" class="text-link">Lihat Materi</a>
-        <a href="ujianjfta2test1.html" class="text-link">Simulasi Ujian JFT A2</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TENTANG -->
-<div class="section" id="tentang">
-  <div class="wrap about">
-
-    <div>
-      <div class="section-label">Tentang Kami</div>
-      <h2>Bekal bahasa untuk hidup dan bekerja di Jepang.</h2>
-    </div>
-
-    <div class="about-body">
-      <p>
-        Tekipaki Learning disusun untuk calon pekerja dan peserta magang Indonesia
-        yang mempersiapkan diri berangkat ke Jepang. Materinya bertahap — dari
-        kosakata dan tata bahasa dasar, sampai simulasi ujian dengan format yang
-        mendekati ujian JFT A2 sesungguhnya.
-      </p>
-      <p>
-        Selain persiapan ujian, tersedia juga materi keseharian: cara berkomunikasi
-        di dunia kerja, aturan memilah sampah, hingga dokumen seperti Zairyu Card
-        dan layanan Shiyakusho — supaya belajar bahasa berjalan bersama kesiapan
-        hidup di sana.
-      </p>
-
-      <ul class="about-list">
-        <li><span class="ai-title">Belajar bertahap</span><span>Kosakata, tata bahasa, dan kanji disusun dari dasar sampai siap ujian.</span></li>
-        <li><span class="ai-title">Simulasi nyata</span><span>Format dan waktu pengerjaan dibuat mendekati ujian JFT A2 asli.</span></li>
-        <li><span class="ai-title">Bekal di Jepang</span><span>Komunikasi kerja, aturan sampah, hingga dokumen kependudukan.</span></li>
-      </ul>
-    </div>
-
-  </div>
+<div class="breadcrumb">
+  <a href="tatabahasajlptn4.html">← Kembali ke Daftar Tata Bahasa N4</a>
 </div>
 
-<!-- PROGRAM -->
-<div class="section border-top" id="program">
-  <div class="wrap">
-
-    <div class="prog-head">
-      <h2>Mulai dari sini</h2>
-      <p>Enam pintu masuk yang paling sering dipakai untuk memulai belajar.</p>
-    </div>
-
-    <div class="prog-grid">
-
-      <a href="daftarkosakata.html" class="prog-item">
-        <span class="pi-no">01</span>
-        <h3>Kosa Kata JFT</h3>
-        <p>Kosakata inti yang paling sering muncul di ujian, dikelompokkan per tema.</p>
-        <span class="pi-go">Buka daftar</span>
-      </a>
-
-      <a href="materitatabahasa.html" class="prog-item">
-        <span class="pi-no">02</span>
-        <h3>Tata Bahasa</h3>
-        <p>Pola kalimat dan partikel dasar level A2 dengan contoh percakapan sehari-hari.</p>
-        <span class="pi-go">Pelajari</span>
-      </a>
-
-      <a href="kanjidasar.html" class="prog-item">
-        <span class="pi-no">03</span>
-        <h3>Kanji Flash Card</h3>
-        <p>Kartu hafalan kanji dasar lengkap dengan cara baca dan artinya.</p>
-        <span class="pi-go">Mulai hafalan</span>
-      </a>
-
-      <a href="ujianjfta2test1.html" class="prog-item">
-        <span class="pi-no">04</span>
-        <h3>Simulasi Ujian JFT A2</h3>
-        <p>20 soal pilihan ganda, timer 20 menit, dan pembahasan lengkap di akhir.</p>
-        <span class="pi-go">Mulai test</span>
-      </a>
-
-      <a href="kaiwa.html" class="prog-item">
-        <span class="pi-no">05</span>
-        <h3>Latihan Percakapan</h3>
-        <p>Latihan percakapan bahasa Jepang untuk situasi sehari-hari dan dunia kerja.</p>
-        <span class="pi-go">Mulai percakapan</span>
-      </a>
-
-      <a href="materikomunikasi.html" class="prog-item">
-        <span class="pi-no">06</span>
-        <h3>Komunikasi di Dunia Kerja</h3>
-        <p>Kosakata dan ungkapan yang sering digunakan di lingkungan kerja Jepang.</p>
-        <span class="pi-go">Buka daftar</span>
-      </a>
-
-    </div>
-
-  </div>
+<div class="pattern-hero">
+    <span class="no-badge">POLA · JLPT N4</span>
+    <h1>〜ていく</h1>
+    <div class="romaji">~te iku</div>
+    <div class="mean">pergi lalu… / terus berlanjut ke depan (menjauh dari saat ini)</div>
 </div>
 
-<!-- GALERI -->
-<div class="section border-top" id="galeri">
-  <div class="wrap">
+<div class="content">
 
-    <div class="gallery-head">
-      <h2>Galeri Kegiatan</h2>
-      <p>Beberapa momen kelas dan sesi belajar Tekipaki Learning.</p>
+    <div class="section-block">
+        <h2><span class="tag">ARTI</span> Penjelasan</h2>
+        <p>
+            <b>〜ていく</b> (bentuk て + いく) punya tiga pemakaian utama. Intinya, gerakan atau perubahan
+            <b>bergerak menjauh</b> dari tempat atau waktu si pembicara:
+            (1) <b>berangkat dengan membawa/melakukan sesuatu</b>, (2) <b>perubahan yang terus berlanjut
+            ke masa depan</b>, dan (3) <b>tindakan yang akan terus dilakukan mulai sekarang</b>.
+        </p>
     </div>
 
-    <div class="slideshow" id="slideshow">
-      <!-- GANTI src setiap slide dengan foto asli kegiatan Tekipaki Learning -->
-      <div class="slide active" data-jp="教室にて" data-title="Sesi Kelas Tatap Muka">
-        <img src="images/kelas tatap muka.jpeg" alt="Sesi kelas belajar bahasa Jepang">
-      </div>
-      <div class="slide" data-jp="会話練習" data-title="Latihan Percakapan Kaiwa">
-        <img src="images/kelas kaiwa.jpeg" alt="Latihan percakapan bahasa Jepang">
-      </div>
-      <div class="slide" data-jp="模擬試験" data-title="Simulasi Ujian JFT A2">
-        <img src="images/simulasi jft.jpeg" alt="Simulasi ujian JFT A2">
-      </div>
-      <div class="slide" data-jp="漢字練習" data-title="Latihan Kanji Dasar">
-        <img src="images/kelas kanji.jpeg" alt="Latihan kanji dasar">
-      </div>
+    <div class="section-block">
+        <h2><span class="tag">POLA</span> Rumus</h2>
+        <div class="formula-box">
+            Kata kerja (bentuk て) + いく／いきます／いかない
+            <small>Positif: 〜ていきます　／　Negatif: 〜ていきません・〜ていかない</small>
+            <br>
+            Contoh: 持っていく／減っていく／頑張っていく
+            <small>持つ→持っていく／食べる→食べていく／する→していく／来る→来ていく</small>
+        </div>
     </div>
 
-    <div class="slide-info">
-      <div class="slide-caption-text" id="slideCaption">
-        <span class="sc-jp">教室にて</span><span>Sesi Kelas Tatap Muka</span>
-      </div>
-      <div class="slide-controls">
-        <button class="slide-nav" onclick="changeSlide(-1)" aria-label="Sebelumnya">Sebelumnya</button>
-        <div class="slide-dashes" id="slideDashes"></div>
-        <button class="slide-nav" onclick="changeSlide(1)" aria-label="Berikutnya">Berikutnya</button>
-      </div>
+    <div class="section-block">
+        <h2><span class="tag">TABEL</span> Perubahan: Bentuk Kamus → Bentuk +ていく</h2>
+        <p style="margin-bottom:16px;">Ubah kata kerja ke bentuk て seperti biasa, lalu tambahkan いく.</p>
+
+        <div class="table-wrap">
+            <table class="konjugasi-table">
+                <thead>
+                    <tr><th>Bentuk Kamus</th><th></th><th>Bentuk +ていく</th><th>Artinya</th></tr>
+                </thead>
+                <tbody>
+                    <tr class="group-row"><td colspan="4">GRUP 1 — GODAN</td></tr>
+                    <tr>
+                        <td><span class="kamus">持つ</span><span class="yomi-small">もつ (motsu)</span></td>
+                        <td class="arrow">→</td>
+                        <td><span class="ukemi">持っていく</span><span class="yomi-small">もっていく (motte iku)</span></td>
+                        <td>membawa (pergi)</td>
+                    </tr>
+                    <tr>
+                        <td><span class="kamus">減る</span><span class="yomi-small">へる (heru)</span></td>
+                        <td class="arrow">→</td>
+                        <td><span class="ukemi">減っていく</span><span class="yomi-small">へっていく (hette iku)</span></td>
+                        <td>terus berkurang</td>
+                    </tr>
+                    <tr>
+                        <td><span class="kamus">頑張る</span><span class="yomi-small">がんばる (ganbaru)</span></td>
+                        <td class="arrow">→</td>
+                        <td><span class="ukemi">頑張っていく</span><span class="yomi-small">がんばっていく (ganbatte iku)</span></td>
+                        <td>akan terus berusaha</td>
+                    </tr>
+
+                    <tr class="group-row"><td colspan="4">GRUP 2 — ICHIDAN</td></tr>
+                    <tr>
+                        <td><span class="kamus">食べる</span><span class="yomi-small">たべる (taberu)</span></td>
+                        <td class="arrow">→</td>
+                        <td><span class="ukemi">食べていく</span><span class="yomi-small">たべていく (tabete iku)</span></td>
+                        <td>makan dulu (baru pergi)</td>
+                    </tr>
+                    <tr>
+                        <td><span class="kamus">増える</span><span class="yomi-small">ふえる (fueru)</span></td>
+                        <td class="arrow">→</td>
+                        <td><span class="ukemi">増えていく</span><span class="yomi-small">ふえていく (fuete iku)</span></td>
+                        <td>terus bertambah</td>
+                    </tr>
+
+                    <tr class="group-row"><td colspan="4">GRUP 3 — TIDAK BERATURAN</td></tr>
+                    <tr>
+                        <td><span class="kamus">する</span><span class="yomi-small">suru</span></td>
+                        <td class="arrow">→</td>
+                        <td><span class="ukemi">していく</span><span class="yomi-small">shite iku</span></td>
+                        <td>melakukan (lalu pergi)</td>
+                    </tr>
+                    <tr>
+                        <td><span class="kamus">来る</span><span class="yomi-small">くる (kuru)</span></td>
+                        <td class="arrow">→</td>
+                        <td><span class="ukemi">来ていく</span><span class="yomi-small">きていく (kite iku)</span></td>
+                        <td>datang lalu pergi</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="note-box" style="margin-top:16px;">
+            <b>Cara cepat mengingat:</b> 持つ → 持って → 持っていく. Bentuk sopannya
+            <b>〜ていきます</b>, bentuk lampaunya <b>〜ていきました</b>.
+        </div>
     </div>
 
-  </div>
+    <div class="section-block">
+        <h2><span class="tag">CONTOH</span> Contoh Kalimat</h2>
+
+        <span class="example-group-label a">① Berangkat sambil membawa/melakukan sesuatu</span>
+        <div class="example">
+            <div class="jp">お弁当を持っていきます。</div>
+            <div class="yomi">おべんとうを もっていきます。</div>
+            <div class="id">Saya membawa bekal (pergi).</div>
+        </div>
+        <div class="example">
+            <div class="jp">朝ごはんを食べていきます。</div>
+            <div class="yomi">あさごはんを たべていきます。</div>
+            <div class="id">Saya sarapan dulu baru berangkat.</div>
+        </div>
+
+        <span class="example-group-label b">② Perubahan yang terus berlanjut</span>
+        <div class="example">
+            <div class="jp">日本の人口は、これから減っていくでしょう。</div>
+            <div class="yomi">にほんの じんこうは、これから へっていくでしょう。</div>
+            <div class="id">Jumlah penduduk Jepang mungkin akan terus berkurang mulai sekarang.</div>
+        </div>
+        <div class="example">
+            <div class="jp">これから寒くなっていきます。</div>
+            <div class="yomi">これから さむくなっていきます。</div>
+            <div class="id">Mulai sekarang cuacanya akan semakin dingin.</div>
+        </div>
+
+        <span class="example-group-label c">③ Tindakan yang akan terus dilakukan</span>
+        <div class="example">
+            <div class="jp">日本で、これからも頑張っていきます。</div>
+            <div class="yomi">にほんで、これからも がんばっていきます。</div>
+            <div class="id">Di Jepang pun saya akan terus berusaha mulai sekarang.</div>
+        </div>
+    </div>
+
+    <div class="section-block">
+        <h2><span class="tag">PERBANDINGAN</span> ていく vs てくる</h2>
+        <p style="margin-bottom:16px;">
+            Kedua pola ini berpasangan. <b>ていく</b> bergerak <b>menjauh</b> (ke depan), sedangkan
+            <b>てくる</b> bergerak <b>mendekat</b> (dari masa lalu sampai sekarang).
+        </p>
+        <div class="compare-wrap">
+            <table class="compare-table">
+                <thead>
+                    <tr>
+                        <th class="h0">Kata Kerja<small>arti dasar</small></th>
+                        <th class="h1">＋ていく<small>menjauh / ke depan</small></th>
+                        <th class="h2">＋てくる<small>mendekat / sampai sekarang</small></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="kamus">持つ</span><span class="yomi-small">もつ (membawa)</span></td>
+                        <td><span class="v1">持っていく</span><br>membawa pergi</td>
+                        <td><span class="v2">持ってくる</span><br>membawa kemari</td>
+                    </tr>
+                    <tr>
+                        <td><span class="kamus">増える</span><span class="yomi-small">ふえる (bertambah)</span></td>
+                        <td><span class="v1">増えていく</span><br>akan terus bertambah</td>
+                        <td><span class="v2">増えてきた</span><br>sudah bertambah sampai sekarang</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="section-block">
+        <h2><span class="tag">CATATAN</span> Tips &amp; Perbedaan</h2>
+        <div class="note-box">
+            <b>Hati-hati:</b> 〜ていく (huruf <b>い</b>く, “pergi”) berbeda dengan 〜ている (sedang/keadaan).
+            Perhatikan hurufnya: <b>ていく</b> vs <b>ている</b>.<br>
+            <b>Arah waktu:</b> pakai ていく untuk <b>masa depan</b> (これから…ていく), dan てくる untuk
+            perubahan dari <b>masa lalu sampai sekarang</b> (今まで…てきた).<br>
+            <b>Kanji:</b> dalam pola ini いく biasanya ditulis hiragana, bukan 行く.
+        </div>
+    </div>
+
+    <div class="section-block">
+        <h2><span class="tag">LATIHAN</span> Soal Susun Kalimat</h2>
+        <p style="margin-bottom:18px;">
+            Susun kata-kata di bawah ini menjadi kalimat yang benar dengan mengklik kata secara berurutan.
+            Klik kata yang sudah dipasang untuk membatalkannya.
+        </p>
+
+        <div class="quiz-box" id="quiz1">
+            <span class="qno">SOAL 1</span>
+            <div class="qtext">私は　これから　日本語を　＿＿＿＿＿　＿★＿。</div>
+            <div class="answer-slot" id="slot1"></div>
+            <div class="word-bank" id="bank1">
+                <div class="word-tile" data-word="勉強して">べんきょうして</div>
+                <div class="word-tile" data-word="いきます">いきます</div>
+            </div>
+            <div class="quiz-actions">
+                <button class="quiz-btn" onclick="checkAnswer(1)">Cek Jawaban</button>
+                <button class="quiz-btn secondary" onclick="resetQuiz(1)">Ulangi</button>
+            </div>
+            <div class="quiz-result" id="result1"></div>
+        </div>
+
+        <div class="quiz-box" id="quiz2">
+            <span class="qno">SOAL 2</span>
+            <div class="qtext">日本は　人口が　＿＿＿＿＿　＿★＿。</div>
+            <div class="answer-slot" id="slot2"></div>
+            <div class="word-bank" id="bank2">
+                <div class="word-tile" data-word="減って">へって</div>
+                <div class="word-tile" data-word="いきます">いきます</div>
+            </div>
+            <div class="quiz-actions">
+                <button class="quiz-btn" onclick="checkAnswer(2)">Cek Jawaban</button>
+                <button class="quiz-btn secondary" onclick="resetQuiz(2)">Ulangi</button>
+            </div>
+            <div class="quiz-result" id="result2"></div>
+        </div>
+    </div>
+
 </div>
 
-<!-- CTA -->
-<div class="cta">
-  <div class="wrap">
-    <h2>Siap mulai belajar hari ini?</h2>
-    <p>Coba simulasi ujian pertama untuk melihat sejauh mana kesiapanmu.</p>
-    <a href="ujianjfta2test1.html" class="text-link dark">Mulai Simulasi Ujian</a>
-  </div>
+<div class="content" style="padding-top:0;">
+    <div class="nav-bottom">
+        <a href="tatabahasan4_tekureru.html" class="prev">
+            <span class="dir">← Sebelumnya</span>
+            〜てくれる（memberi kebaikan pada saya）
+        </a>
+        <a href="tatabahasan4_tekuru.html" class="next">
+            <span class="dir">Selanjutnya →</span>
+            〜てくる（mendekat / sampai sekarang）
+        </a>
+    </div>
 </div>
 
-<!-- FOOTER -->
-<footer>
-  <div class="wrap footer-inner">
-    <span>© Tekipaki Japanese Learning</span>
-    <span>Belajar bahasa Jepang untuk kerja &amp; magang</span>
-  </div>
-</footer>
+<footer>© Tekipaki Japanese Learning</footer>
 
 <script>
-function toggleDropdown(id){
-  document.querySelectorAll(".dropdown-menu").forEach(menu => {
-    if(menu.id !== id){
-      menu.classList.remove("show");
-      menu.classList.remove("align-right");
-      const parent = menu.closest(".dropdown");
-      if(parent){ parent.classList.remove("open"); }
-    }
-  });
+const quizAnswers = {1:["勉強して","いきます"], 2:["減って","いきます"]};
+const quizState = {1:[], 2:[]};
 
-  const menu = document.getElementById(id);
-  if(!menu){ return; }
-
-  const parent = menu.closest(".dropdown");
-  const isOpen = menu.classList.contains("show");
-
-  if(isOpen){
-    menu.classList.remove("show");
-    menu.classList.remove("align-right");
-    if(parent){ parent.classList.remove("open"); }
-    return;
-  }
-
-  menu.classList.add("show");
-  if(parent){ parent.classList.add("open"); }
-
-  menu.classList.remove("align-right");
-  const rect = menu.getBoundingClientRect();
-  if(rect.right > window.innerWidth - 10){ menu.classList.add("align-right"); }
-  if(rect.left < 10){ menu.classList.remove("align-right"); }
+function initQuiz(id){
+    document.getElementById("bank"+id).querySelectorAll(".word-tile").forEach(tile=>{
+        tile.addEventListener("click", ()=>placeWord(id, tile));
+    });
 }
 
-document.addEventListener("click",function(e){
-  if(!e.target.closest(".dropdown")){
-    document.querySelectorAll(".dropdown-menu").forEach(menu => {
-      menu.classList.remove("show");
-      menu.classList.remove("align-right");
+function placeWord(id, tile){
+    if(tile.classList.contains("used")) return;
+    tile.classList.add("used");
+    quizState[id].push(tile.dataset.word);
+
+    const slot = document.getElementById("slot"+id);
+    const placed = document.createElement("span");
+    placed.className = "placed";
+    placed.textContent = tile.dataset.word;
+
+    placed.addEventListener("click", ()=>{
+        slot.removeChild(placed);
+        const idx = quizState[id].indexOf(tile.dataset.word);
+        if(idx > -1) quizState[id].splice(idx,1);
+        tile.classList.remove("used");
+        document.getElementById("result"+id).className = "quiz-result";
     });
-    document.querySelectorAll(".dropdown").forEach(dropdown => dropdown.classList.remove("open"));
-  }
-});
+
+    slot.appendChild(placed);
+    document.getElementById("result"+id).className = "quiz-result";
+}
+
+function checkAnswer(id){
+    const result = document.getElementById("result"+id);
+    if(quizState[id].length === 0){
+        result.className = "quiz-result wrong";
+        result.textContent = "⚠️ Susun dulu kata-katanya sebelum mengecek jawaban.";
+        return;
+    }
+    if(quizAnswers[id].join("") === quizState[id].join("")){
+        result.className = "quiz-result correct";
+        result.textContent = "✅ Benar! Susunan kalimatmu sudah tepat.";
+    } else {
+        result.className = "quiz-result wrong";
+        result.textContent = "❌ Belum tepat. Jawaban yang benar: " + quizAnswers[id].join(" ");
+    }
+}
+
+function resetQuiz(id){
+    quizState[id] = [];
+    document.getElementById("slot"+id).innerHTML = "";
+    document.querySelectorAll("#bank"+id+" .word-tile").forEach(t=>t.classList.remove("used"));
+    document.getElementById("result"+id).className = "quiz-result";
+}
+
+initQuiz(1);
+initQuiz(2);
 
 function toggleMobileMenu(){
-  const menu = document.getElementById("mobileMenu");
-  if(!menu) return;
-  menu.classList.toggle("show");
+    document.getElementById("mobileMenu").classList.toggle("show");
 }
 
 function toggleMobileAccordion(btn){
-  const panel = btn.nextElementSibling;
-  const isOpen = btn.classList.contains("open");
-
-  document.querySelectorAll(".mobile-acc-btn").forEach(b => {
-    if(b !== btn){
-      b.classList.remove("open");
-      if(b.nextElementSibling) b.nextElementSibling.classList.remove("show");
-    }
-  });
-
-  btn.classList.toggle("open", !isOpen);
-  if(panel) panel.classList.toggle("show", !isOpen);
+    const panel = btn.nextElementSibling;
+    const isOpen = btn.classList.contains("open");
+    document.querySelectorAll(".mobile-acc-btn").forEach(b=>{
+        if(b !== btn){
+            b.classList.remove("open");
+            b.nextElementSibling.classList.remove("show");
+        }
+    });
+    btn.classList.toggle("open", !isOpen);
+    panel.classList.toggle("show", !isOpen);
 }
 
-window.addEventListener("resize",function(){
-  document.querySelectorAll(".dropdown-menu").forEach(menu => {
-    menu.classList.remove("show");
-    menu.classList.remove("align-right");
-  });
-  document.querySelectorAll(".dropdown").forEach(dropdown => dropdown.classList.remove("open"));
-
-  if(window.innerWidth > 900){
-    const mobileMenu = document.getElementById("mobileMenu");
-    if(mobileMenu) mobileMenu.classList.remove("show");
-    document.querySelectorAll(".mobile-acc-btn").forEach(b => b.classList.remove("open"));
-    document.querySelectorAll(".mobile-acc-panel").forEach(p => p.classList.remove("show"));
-  }
+window.addEventListener("resize", ()=>{
+    if(window.innerWidth > 760){
+        document.getElementById("mobileMenu").classList.remove("show");
+        document.querySelectorAll(".mobile-acc-btn").forEach(b=>b.classList.remove("open"));
+        document.querySelectorAll(".mobile-acc-panel").forEach(p=>p.classList.remove("show"));
+    }
 });
 
-/* SLIDESHOW OTOMATIS */
-(function(){
-
-  const slides = document.querySelectorAll("#slideshow .slide");
-  const dashWrap = document.getElementById("slideDashes");
-  const captionEl = document.getElementById("slideCaption");
-  let current = 0;
-  let timer = null;
-  const AUTOPLAY_MS = 4500;
-  const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  slides.forEach((_, i) => {
-    const dash = document.createElement("button");
-    dash.className = "slide-dash" + (i === 0 ? " active" : "");
-    dash.setAttribute("aria-label", "Ke slide " + (i + 1));
-    dash.addEventListener("click", () => goToSlide(i));
-    dashWrap.appendChild(dash);
-  });
-
-  const dashes = document.querySelectorAll(".slide-dash");
-
-  function render(){
-    slides.forEach((s, i) => s.classList.toggle("active", i === current));
-    dashes.forEach((d, i) => d.classList.toggle("active", i === current));
-    const active = slides[current];
-    captionEl.innerHTML = '<span class="sc-jp">' + active.dataset.jp + '</span><span>' + active.dataset.title + '</span>';
-  }
-
-  function goToSlide(i){
-    current = (i + slides.length) % slides.length;
-    render();
-    restartTimer();
-  }
-
-  window.changeSlide = function(dir){ goToSlide(current + dir); };
-
-  function startTimer(){
-    if(prefersReduced) return;
-    stopTimer();
-    timer = setInterval(() => {
-      current = (current + 1) % slides.length;
-      render();
-    }, AUTOPLAY_MS);
-  }
-
-  function stopTimer(){ if(timer){ clearInterval(timer); timer = null; } }
-  function restartTimer(){ stopTimer(); startTimer(); }
-
-  const wrap = document.getElementById("slideshow");
-
-  if (window.matchMedia("(hover: hover)").matches) {
-    wrap.addEventListener("mouseenter", stopTimer);
-    wrap.addEventListener("mouseleave", startTimer);
-  }
-
-  document.addEventListener("visibilitychange", function () {
-    if (document.visibilityState === "visible") {
-      restartTimer();
+function toggleDropdown(id){
+    document.querySelectorAll('.dropdown-menu').forEach(m=>{
+        if(m.id!==id){ m.classList.remove('show'); m.classList.remove('align-right'); }
+    });
+    const menu = document.getElementById(id);
+    const willShow = !menu.classList.contains('show');
+    menu.classList.toggle('show');
+    if(willShow){
+        menu.classList.remove('align-right');
+        const rect = menu.getBoundingClientRect();
+        if(rect.right > window.innerWidth - 8) menu.classList.add('align-right');
     }
-  });
+}
 
-  render();
-  startTimer();
+window.addEventListener('resize', ()=>{
+    document.querySelectorAll('.dropdown-menu.show').forEach(m=>{
+        m.classList.remove('show'); m.classList.remove('align-right');
+    });
+});
 
-})();
+document.addEventListener("click", function(e){
+    if(!e.target.closest(".dropdown")){
+        document.querySelectorAll(".dropdown-menu").forEach(m=>{
+            m.classList.remove("show"); m.classList.remove("align-right");
+        });
+    }
+});
 </script>
 
 </body>
