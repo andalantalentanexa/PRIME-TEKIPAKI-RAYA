@@ -61,8 +61,9 @@ nav.links a:hover{background:var(--bg-alt);}
 .slot.tall{aspect-ratio:4/3;}
 .slot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;}
 .slot input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer;z-index:3;}
-.hint{position:absolute;top:12px;right:12px;z-index:2;background:rgba(0,0,0,.55);color:#fff;font-size:.72rem;padding:5px 10px;border-radius:20px;opacity:0;transition:opacity .2s;pointer-events:none;}
-.slot:hover .hint,.slot:focus-within .hint{opacity:1;}
+.slot.has-img{aspect-ratio:auto;display:block;background:var(--bg-alt);}
+.slot.has-img::before{display:none;}
+.slot.has-img img{position:static;display:block;width:100%;height:auto;max-height:80vh;object-fit:contain;}
 .cap{margin:10px 0 0;font-size:.8rem;color:var(--soft);line-height:1.5;}
 .cap [contenteditable]{border-bottom:1px dashed var(--line-s);outline:none;}
 
@@ -107,6 +108,12 @@ td{color:var(--soft);}
 .cd span{display:block;opacity:.6;font-size:.78rem;margin-bottom:4px;}
 footer{padding:36px 0;border-top:1px solid var(--line);color:var(--soft);font-size:.85rem;}
 .fb{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+.totop{position:fixed;right:max(20px,env(safe-area-inset-right,0px));bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:70;width:48px;height:48px;border-radius:50%;border:none;background:var(--navy);color:var(--on);display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 8px 22px rgba(18,24,42,.28);opacity:0;visibility:hidden;transform:translateY(12px);transition:opacity .25s,transform .25s,visibility .25s,background .2s;}
+.totop.show{opacity:1;visibility:visible;transform:none;}
+.totop:hover{background:var(--navy-d);}
+.totop:focus-visible{outline:2px solid var(--acc);outline-offset:3px;}
+.totop svg{width:22px;height:22px;}
+@media(prefers-reduced-motion:reduce){.totop{transition:none}}
 @media(max-width:760px){.dd-grid,.contact{grid-template-columns:1fr;}.contact{padding:34px 24px;}.hero{padding:64px 0 54px;}}
 </style>
 </head>
@@ -159,7 +166,7 @@ footer{padding:36px 0;border-top:1px solid var(--line);color:var(--soft);font-si
 
 <div class="narrow" style="margin-top:-20px;position:relative;z-index:3">
   <figure style="margin:0">
-    <div class="slot" data-key="hero" data-label="Foto utama: suasana jalan atau stasiun di Jepang"><img src="images/maner-hero.jpeg" alt="Suasana Jepang" onerror="this.remove()"><span class="hint">Klik untuk unggah foto</span><input type="file" accept="image/*" aria-label="Unggah foto utama"></div>
+    <div class="slot" data-key="hero" data-label="Foto utama: suasana jalan atau stasiun di Jepang"><img src="images/maner-hero.jpeg" alt="Suasana Jepang" onerror="this.remove()"><input type="file" accept="image/*" aria-label="Unggah foto utama"></div>
     <figcaption class="cap">Foto: <span contenteditable="true" spellcheck="false">isi nama fotografer / sumber</span></figcaption>
   </figure>
 </div>
@@ -180,7 +187,7 @@ footer{padding:36px 0;border-top:1px solid var(--line);color:var(--soft);font-si
     <h2>Salam dan membungkuk (お辞儀)</h2>
     <p>Membungkuk adalah "jabat tangan" orang Jepang. Dalam salam, perkenalan, minta maaf, bahkan berterima kasih, tubuh ikut bicara. Semakin dalam bungkukan, semakin tinggi rasa hormatnya.</p>
     <figure>
-      <div class="slot tall" data-key="salam" data-label="Foto: orang sedang membungkuk (ojigi)"><img src="images/ojigi.jpeg" alt="Ojigi" onerror="this.remove()"><span class="hint">Klik untuk unggah foto</span><input type="file" accept="image/*" aria-label="Unggah foto salam"></div>
+      <div class="slot tall" data-key="salam" data-label="Foto: orang sedang membungkuk (ojigi)"><img src="images/ojigi.jpeg" alt="Ojigi" onerror="this.remove()"><input type="file" accept="image/*" aria-label="Unggah foto salam"></div>
       <figcaption class="cap">Foto: <span contenteditable="true" spellcheck="false">istockphoto</span></figcaption>
     </figure>
     <div class="tbl-wrap"><table>
@@ -209,7 +216,7 @@ footer{padding:36px 0;border-top:1px solid var(--line);color:var(--soft);font-si
     <h2>Di rumah dan tempat umum</h2>
     <p>Rumah Jepang punya batas yang jelas antara "luar yang kotor" dan "dalam yang bersih". Batas itu bernama <span class="jp">玄関</span> <span class="yomi">(genkan)</span>, area kecil di pintu masuk yang lantainya lebih rendah.</p>
     <figure>
-      <div class="slot" data-key="genkan" data-label="Foto: genkan (pintu masuk rumah Jepang)"><img src="images/genkan.jpeg" alt="Genkan" onerror="this.remove()"><span class="hint">Klik untuk unggah foto</span><input type="file" accept="image/*" aria-label="Unggah foto genkan"></div>
+      <div class="slot" data-key="genkan" data-label="Foto: genkan (pintu masuk rumah Jepang)"><img src="images/genkan.jpeg" alt="Genkan" onerror="this.remove()"><input type="file" accept="image/*" aria-label="Unggah foto genkan"></div>
       <figcaption class="cap">Foto: <span contenteditable="true" spellcheck="false">isi sumber foto</span></figcaption>
     </figure>
     <ol class="steps">
@@ -230,7 +237,7 @@ footer{padding:36px 0;border-top:1px solid var(--line);color:var(--soft);font-si
     <h2>Etika makan</h2>
     <p>Makan di Jepang punya ritual pembuka dan penutup. Sebelum makan ucapkan <span class="jp">いただきます</span> <span class="yomi">(itadakimasu)</span>, yang berarti "saya menerima makanan ini dengan syukur". Setelah selesai ucapkan <span class="jp">ごちそうさまでした</span> <span class="yomi">(gochisōsama deshita)</span>, tanda terima kasih untuk hidangan dan orang yang menyiapkannya.</p>
     <figure>
-      <div class="slot" data-key="makan" data-label="Foto: set makan Jepang dengan sumpit"><img src="images/makan.jpeg" alt="Makan di Jepang" onerror="this.remove()"><span class="hint">Klik untuk unggah foto</span><input type="file" accept="image/*" aria-label="Unggah foto makan"></div>
+      <div class="slot" data-key="makan" data-label="Foto: set makan Jepang dengan sumpit"><img src="images/makan.jpeg" alt="Makan di Jepang" onerror="this.remove()"><input type="file" accept="image/*" aria-label="Unggah foto makan"></div>
       <figcaption class="cap">Foto: <span contenteditable="true" spellcheck="false">isi sumber foto</span></figcaption>
     </figure>
     <h3>Pantangan memakai sumpit (箸)</h3>
@@ -251,7 +258,7 @@ footer{padding:36px 0;border-top:1px solid var(--line);color:var(--soft);font-si
     <h2>Naik kereta dan transportasi umum</h2>
     <p>Kereta adalah panggung maner paling terlihat di Jepang. Di jam sibuk ribuan orang berbagi ruang sempit, namun suasana tetap tenang karena semua orang menahan diri.</p>
     <figure>
-      <div class="slot" data-key="kereta" data-label="Foto: antrean di peron stasiun"><img src="images/kereta.jpeg" alt="Antre di stasiun" onerror="this.remove()"><span class="hint">Klik untuk unggah foto</span><input type="file" accept="image/*" aria-label="Unggah foto kereta"></div>
+      <div class="slot" data-key="kereta" data-label="Foto: antrean di peron stasiun"><img src="images/kereta.jpeg" alt="Antre di stasiun" onerror="this.remove()"><input type="file" accept="image/*" aria-label="Unggah foto kereta"></div>
       <figcaption class="cap">Foto: <span contenteditable="true" spellcheck="false">isi sumber foto</span></figcaption>
     </figure>
     <ol class="steps">
@@ -268,7 +275,7 @@ footer{padding:36px 0;border-top:1px solid var(--line);color:var(--soft);font-si
     <h2>Maner di dunia kerja</h2>
     <p>Di tempat kerja, maner adalah bagian dari penilaian. Tepat waktu, komunikasi yang rapi, dan sikap hormat terhadap senior sering lebih dahulu dilihat daripada kemampuan teknis.</p>
     <figure>
-      <div class="slot" data-key="kerja" data-label="Foto: pertukaran kartu nama atau suasana kantor"><img src="images/kerja.jpeg" alt="Dunia kerja" onerror="this.remove()"><span class="hint">Klik untuk unggah foto</span><input type="file" accept="image/*" aria-label="Unggah foto kerja"></div>
+      <div class="slot" data-key="kerja" data-label="Foto: pertukaran kartu nama atau suasana kantor"><img src="images/kerja.jpeg" alt="Dunia kerja" onerror="this.remove()"><input type="file" accept="image/*" aria-label="Unggah foto kerja"></div>
       <figcaption class="cap">Foto: <span contenteditable="true" spellcheck="false">isi sumber foto</span></figcaption>
     </figure>
     <h3>Ho-Ren-Sō (報連相)</h3>
@@ -276,7 +283,7 @@ footer{padding:36px 0;border-top:1px solid var(--line);color:var(--soft);font-si
     <h3>Bertukar kartu nama (名刺交換)</h3>
     <p>Kartu nama atau <span class="jp">名刺</span> <span class="yomi">(meishi)</span> dianggap cerminan diri dan perusahaanmu, jadi memberi dan menerimanya punya tata cara sendiri. Pertukaran kartu biasanya terjadi di awal pertemuan, sebelum duduk atau sebelum rapat dimulai.</p>
     <figure>
-      <div class="slot" data-key="meishi" data-label="Foto: dua orang bertukar kartu nama dengan dua tangan"><img src="images/meishi.jpg" alt="Bertukar kartu nama" onerror="this.remove()"><span class="hint"></span><input type="file" accept="image/*" aria-label="Unggah foto kartu nama"></div>
+      <div class="slot" data-key="meishi" data-label="Foto: dua orang bertukar kartu nama dengan dua tangan"><img src="images/meishi.jpg" alt="Bertukar kartu nama" onerror="this.remove()"><input type="file" accept="image/*" aria-label="Unggah foto kartu nama"></div>
       <figcaption class="cap">Foto: <span contenteditable="true" spellcheck="false">deepjapan.org</span></figcaption>
     </figure>
     <ol class="steps">
@@ -310,7 +317,7 @@ footer{padding:36px 0;border-top:1px solid var(--line);color:var(--soft);font-si
     <h2>Menepati waktu (時間厳守)</h2>
     <p>Di Jepang, waktu adalah milik bersama. Terlambat berarti mencuri waktu orang lain, dan itu bentuk nyata dari <span class="jp">迷惑</span> <span class="yomi">(meiwaku)</span>. Karena itu menepati waktu, atau <span class="jp">時間厳守</span> <span class="yomi">(jikan genshu)</span>, dianggap dasar kepercayaan: orang yang disiplin soal waktu dinilai bisa diandalkan dalam hal lain.</p>
     <figure>
-      <div class="slot" data-key="waktu" data-label="Foto: jam stasiun atau papan jadwal kereta"><img src="images/waktu.jpeg" alt="Menepati waktu" onerror="this.remove()"><span class="hint">Klik untuk unggah foto</span><input type="file" accept="image/*" aria-label="Unggah foto menepati waktu"></div>
+      <div class="slot" data-key="waktu" data-label="Foto: jam stasiun atau papan jadwal kereta"><img src="images/waktu.jpeg" alt="Menepati waktu" onerror="this.remove()"><input type="file" accept="image/*" aria-label="Unggah foto menepati waktu"></div>
       <figcaption class="cap">Foto: <span contenteditable="true" spellcheck="false">isi sumber foto</span></figcaption>
     </figure>
     <div class="quote"><span class="jp">5分前行動</span><span class="yomi">gofun mae kōdō</span><br>Artinya "bertindak lima menit lebih awal". Ini kebiasaan yang diajarkan sejak sekolah dan dipakai di dunia kerja: siap sebelum waktunya, bukan baru berangkat saat waktunya tiba.</div>
@@ -348,7 +355,7 @@ footer{padding:36px 0;border-top:1px solid var(--line);color:var(--soft);font-si
     <h2>Pertanyaan yang sebaiknya tidak diajukan</h2>
     <p>Orang Indonesia terbiasa membuka obrolan dengan "umurnya berapa?", "sudah menikah?", atau "gajinya berapa?". Di Jepang, pertanyaan seperti itu bisa terasa terlalu pribadi, terutama kepada orang yang baru dikenal, kepada wanita, dan kepada atasan. Alasannya sederhana: urusan pribadi dianggap wilayah masing-masing, dan menanyakannya bisa membuat lawan bicara tidak nyaman.</p>
     <figure>
-      <div class="slot" data-key="privasi" data-label="Foto: dua rekan kerja sedang mengobrol santai"><img src="images/privasi.jpeg" alt="Obrolan santai" onerror="this.remove()"><span class="hint">Klik untuk unggah foto</span><input type="file" accept="image/*" aria-label="Unggah foto privasi"></div>
+      <div class="slot" data-key="privasi" data-label="Foto: dua rekan kerja sedang mengobrol santai"><img src="images/privasi.jpeg" alt="Obrolan santai" onerror="this.remove()"><input type="file" accept="image/*" aria-label="Unggah foto privasi"></div>
       <figcaption class="cap">Foto: <span contenteditable="true" spellcheck="false">isi sumber foto</span></figcaption>
     </figure>
     <div class="dd-grid">
@@ -364,7 +371,7 @@ footer{padding:36px 0;border-top:1px solid var(--line);color:var(--soft);font-si
     <h2>Honne dan Tatemae: yang dirasakan dan yang diucapkan</h2>
     <p><span class="jp">本音</span> <span class="yomi">(honne)</span> adalah perasaan atau pendapat yang sebenarnya, sedangkan <span class="jp">建前</span> <span class="yomi">(tatemae)</span> adalah sikap dan ucapan yang ditampilkan di depan umum demi menjaga harmoni. Tatemae bukan kebohongan jahat. Ia dipakai agar tidak ada yang kehilangan muka dan suasana tetap nyaman.</p>
     <figure>
-      <div class="slot" data-key="honne" data-label="Foto: suasana rapat atau obrolan santai setelah kerja"><img src="images/honne.jpeg" alt="Honne dan tatemae" onerror="this.remove()"><span class="hint">Klik untuk unggah foto</span><input type="file" accept="image/*" aria-label="Unggah foto honne dan tatemae"></div>
+      <div class="slot" data-key="honne" data-label="Foto: suasana rapat atau obrolan santai setelah kerja"><img src="images/honne.jpeg" alt="Honne dan tatemae" onerror="this.remove()"><input type="file" accept="image/*" aria-label="Unggah foto honne dan tatemae"></div>
       <figcaption class="cap">Foto: <span contenteditable="true" spellcheck="false">isi sumber foto</span></figcaption>
     </figure>
     <h3>Ucapan yang sering bukan arti harfiahnya</h3>
@@ -435,6 +442,8 @@ footer{padding:36px 0;border-top:1px solid var(--line);color:var(--soft);font-si
   </div>
 </footer>
 
+<button class="totop" id="totop" type="button" aria-label="Kembali ke atas"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+
 <script>
   // Menu
   const dd=document.getElementById('dd'),mt=document.getElementById('mt');
@@ -448,9 +457,16 @@ footer{padding:36px 0;border-top:1px solid var(--line);color:var(--soft);font-si
   document.querySelectorAll('.slot').forEach(slot=>{
     const key=slot.dataset.key,input=slot.querySelector('input');
     if(!key||!input)return;
+    function fit(img){slot.classList.add('has-img');}
+    function bind(img){
+      img.addEventListener('load',()=>fit(img));
+      if(img.complete&&img.naturalWidth)fit(img);
+    }
+    const first=slot.querySelector('img');
+    if(first)bind(first);
     function show(url){
       let img=slot.querySelector('img');
-      if(!img){img=document.createElement('img');img.alt='';slot.insertBefore(img,slot.firstChild);}
+      if(!img){img=document.createElement('img');img.alt='';slot.insertBefore(img,slot.firstChild);bind(img);}
       img.src=url;
     }
     try{const s=localStorage.getItem('tekipaki-maner-'+key);if(s)show(s);}catch(e){}
@@ -462,6 +478,16 @@ footer{padding:36px 0;border-top:1px solid var(--line);color:var(--soft);font-si
       r.readAsDataURL(f);
     });
   });
+  // Tombol ke atas: muncul saat hampir sampai bawah halaman
+  const totop=document.getElementById('totop');
+  const toggleTop=()=>{
+    const bottom=window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-400;
+    totop.classList.toggle('show',bottom);
+  };
+  window.addEventListener('scroll',toggleTop,{passive:true});
+  window.addEventListener('resize',toggleTop);
+  window.addEventListener('load',toggleTop);
+  totop.addEventListener('click',()=>window.scrollTo({top:0,behavior:window.matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth'}));
 </script>
 </body>
 </html>
