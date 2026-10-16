@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Maner dan Etika di Jepang: Panduan Lengkap | PRIME TEKIPAKI RAYA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FFF;--bg-alt:#F5F7FA;--ink:#12182A;--soft:#5B6478;--navy:#1B3160;--navy-d:#0F1F42;--acc:#3E6FB5;--acc-s:#DCE6F5;--line:rgba(18,24,42,.14);--line-s:rgba(18,24,42,.28);--on:#F4F6FA;}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10141F;--bg-alt:#161B29;--ink:#ECEEF4;--soft:#A6ADBE;--navy:#5578B8;--navy-d:#3A5A96;--acc:#8FB0E6;--acc-s:#1E2B45;--line:rgba(236,238,244,.14);--line-s:rgba(236,238,244,.28);}}
+:root[data-theme="dark"]{--bg:#10141F;--bg-alt:#161B29;--ink:#ECEEF4;--soft:#A6ADBE;--navy:#5578B8;--navy-d:#3A5A96;--acc:#8FB0E6;--acc-s:#1E2B45;--line:rgba(236,238,244,.14);--line-s:rgba(236,238,244,.28);}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;scroll-padding-top:calc(80px + env(safe-area-inset-top,0px));}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Noto Sans JP',-apple-system,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+h1,h2,h3{font-family:'Shippori Mincho',serif;font-weight:700;margin:0;line-height:1.3;}
+a{color:inherit;}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px;}
+.narrow{max-width:760px;margin:0 auto;padding:0 24px;}
+
+/* Header */
+header{position:sticky;top:0;z-index:50;padding-top:env(safe-area-inset-top,0px);background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
+.nav{padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px;}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.mark{width:38px;height:38px;border-radius:50%;background:radial-gradient(circle at 34% 30%,var(--navy),var(--navy-d) 72%);flex-shrink:0;}
+.bn{font-family:'Shippori Mincho',serif;font-weight:700;font-size:1.25rem;letter-spacing:.03em;}
+.bs{display:block;font-size:.66rem;color:var(--soft);letter-spacing:.14em;}
+.dd{position:relative;}
+.mbtn{display:flex;align-items:center;gap:8px;background:none;border:1px solid var(--line-s);color:var(--ink);padding:10px 16px;border-radius:3px;font-size:.9rem;font-weight:600;font-family:inherit;cursor:pointer;}
+.mbtn:hover{border-color:var(--navy);}
+.mbtn:focus-visible,.btn:focus-visible,.slot:focus-within{outline:2px solid var(--acc);outline-offset:2px;}
+.chev{width:9px;height:9px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform .2s;}
+.dd.open .chev{transform:rotate(-135deg) translateY(1px);}
+nav.links{position:absolute;top:calc(100% + 10px);right:0;z-index:60;display:flex;flex-direction:column;min-width:230px;background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:8px;box-shadow:0 14px 34px rgba(18,24,42,.16);opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .18s,transform .18s,visibility .18s;}
+.dd.open nav.links{opacity:1;visibility:visible;transform:none;}
+nav.links a{text-decoration:none;font-size:.93rem;padding:11px 14px;border-radius:4px;}
+nav.links a:hover{background:var(--bg-alt);}
+.btn{display:inline-block;background:var(--navy);color:var(--on);text-decoration:none;padding:11px 22px;border-radius:3px;font-size:.9rem;font-weight:600;}
+.btn:hover{background:var(--navy-d);}
+.btn.ghost{background:none;color:var(--ink);border:1px solid var(--line-s);}
+
+/* Hero */
+.hero{position:relative;padding:84px 0 70px;overflow:hidden;background:linear-gradient(180deg,var(--bg-alt),var(--bg));}
+.orb{position:absolute;right:-140px;top:-120px;width:540px;height:540px;border-radius:50%;background:radial-gradient(circle at 38% 32%,var(--acc) 0%,var(--acc-s) 62%,transparent 75%);opacity:.55;}
+.petal{position:absolute;width:14px;height:18px;background:var(--acc);border-radius:0 60% 0 60%;opacity:.45;animation:drift 14s linear infinite;}
+@keyframes drift{0%{transform:translateY(-40px) rotate(0);opacity:0}10%{opacity:.45}100%{transform:translateY(620px) rotate(200deg);opacity:0}}
+@media(prefers-reduced-motion:reduce){.petal{animation:none}html{scroll-behavior:auto}}
+.hero .narrow{position:relative;z-index:2;max-width:860px;}
+.eyebrow{color:var(--navy);font-weight:600;font-size:.9rem;letter-spacing:.06em;margin-bottom:16px;}
+.hero h1{font-size:clamp(2.1rem,4.6vw,3.3rem);}
+.lead{margin:20px 0 22px;color:var(--soft);font-size:1.1rem;line-height:1.8;max-width:60ch;}
+.meta{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:.85rem;color:var(--soft);padding-top:16px;border-top:1px solid var(--line);}
+.toc{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px;}
+.toc a{text-decoration:none;font-size:.85rem;padding:8px 14px;border:1px solid var(--line-s);border-radius:20px;}
+.toc a:hover{background:var(--acc-s);}
+
+/* Foto yang bisa diunggah */
+.slot{position:relative;margin:0;aspect-ratio:16/9;border-radius:4px;overflow:hidden;cursor:pointer;background:linear-gradient(155deg,var(--navy) 0%,var(--navy-d) 100%);display:flex;align-items:center;justify-content:center;}
+.slot::before{content:"+ " attr(data-label);color:rgba(255,255,255,.75);font-size:.9rem;font-weight:500;text-align:center;padding:0 24px;}
+.slot.tall{aspect-ratio:4/3;}
+.slot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;}
+.slot input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer;z-index:3;}
+.hint{position:absolute;top:12px;right:12px;z-index:2;background:rgba(0,0,0,.55);color:#fff;font-size:.72rem;padding:5px 10px;border-radius:20px;opacity:0;transition:opacity .2s;pointer-events:none;}
+.slot:hover .hint,.slot:focus-within .hint{opacity:1;}
+.cap{margin:10px 0 0;font-size:.8rem;color:var(--soft);line-height:1.5;}
+.cap [contenteditable]{border-bottom:1px dashed var(--line-s);outline:none;}
+
+/* Artikel */
+article{padding:70px 0 20px;}
+.chapter{padding:46px 0;border-top:1px solid var(--line);}
+.chapter:first-of-type{border-top:none;}
+.no{font-size:.8rem;letter-spacing:.1em;color:var(--navy);font-weight:600;margin-bottom:10px;}
+.chapter h2{font-size:clamp(1.6rem,3vw,2.2rem);margin-bottom:20px;}
+.chapter h3{font-size:1.2rem;margin:30px 0 10px;}
+.chapter p{color:var(--soft);line-height:1.95;margin:0 0 18px;font-size:1.02rem;}
+.chapter p b,.chapter li b{color:var(--ink);font-weight:600;}
+.chapter .slot{margin:28px 0 0;}
+.chapter figure{margin:26px 0 30px;}
+.chapter figure .slot{margin:0;}
+.jp{font-family:'Shippori Mincho',serif;font-weight:700;color:var(--ink);}
+.yomi{color:var(--navy);font-size:.85rem;}
+.quote{margin:26px 0;padding:22px 26px;border-left:3px solid var(--acc);background:var(--acc-s);line-height:1.85;font-size:1.02rem;}
+.quote .jp{display:block;font-size:1.3rem;margin-bottom:4px;}
+.tbl-wrap{border:1px solid var(--line-s);border-radius:4px;overflow-x:auto;background:var(--bg);margin:22px 0;}
+table{width:100%;border-collapse:collapse;min-width:520px;}
+th,td{text-align:left;vertical-align:top;padding:13px 16px;font-size:.93rem;line-height:1.7;border-top:1px solid var(--line-s);}
+thead th{background:var(--navy);color:var(--on);font-family:'Shippori Mincho',serif;font-size:1.02rem;border-top:none;}
+tbody th{background:var(--bg-alt);font-weight:600;width:26%;}
+td{color:var(--soft);}
+.dd-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:22px 0;}
+.box{border:1px solid var(--line-s);border-radius:4px;padding:20px 22px;}
+.box h4{margin:0 0 10px;font-family:'Shippori Mincho',serif;font-size:1.1rem;}
+.box.ok h4{color:var(--navy);}
+.box ul{margin:0;padding-left:20px;color:var(--soft);line-height:1.85;font-size:.95rem;}
+.steps{list-style:none;margin:22px 0;padding:0;counter-reset:s;}
+.steps li{counter-increment:s;display:grid;grid-template-columns:48px 1fr;gap:12px;padding:15px 0;border-top:1px solid var(--line);color:var(--soft);line-height:1.8;}
+.steps li:last-child{border-bottom:1px solid var(--line);}
+.steps li::before{content:counter(s);font-family:'Shippori Mincho',serif;font-size:1.6rem;font-weight:700;color:var(--acc);}
+
+.summary{background:var(--bg-alt);padding:70px 0;margin-top:30px;}
+.contact{background:var(--ink);color:var(--bg);border-radius:4px;padding:52px;display:grid;grid-template-columns:1.2fr .8fr;gap:44px;align-items:center;}
+.contact h2{font-size:clamp(1.5rem,3vw,2rem);max-width:18ch;}
+.contact p{opacity:.75;line-height:1.8;margin:14px 0 24px;max-width:44ch;}
+.contact .btn{background:var(--acc);color:var(--bg);}
+.cd div{border-top:1px solid rgba(128,128,128,.4);padding-top:14px;margin-bottom:18px;}
+.cd span{display:block;opacity:.6;font-size:.78rem;margin-bottom:4px;}
+footer{padding:36px 0;border-top:1px solid var(--line);color:var(--soft);font-size:.85rem;}
+.fb{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+@media(max-width:760px){.dd-grid,.contact{grid-template-columns:1fr;}.contact{padding:34px 24px;}.hero{padding:64px 0 54px;}}
+</style>
+</head>
+<body>
+<!--
+  PANDUAN FOTO
+  Cara 1: klik kotak biru di halaman, pilih foto (tersimpan di browser Anda saja).
+  Cara 2 (permanen): buat folder  images  di samping file ini, simpan foto dengan nama:
+    maner-hero.jpeg  salam.jpeg  genkan.jpeg  makan.jpeg  kereta.jpeg  kerja.jpeg  privasi.jpeg  honne.jpeg
+  Teks sumber foto di bawah gambar bisa diedit langsung di kode (cari class="cap").
+-->
+
+<header>
+  <div class="nav">
+    <a href="index.html" class="brand"><span class="mark"></span><span><span class="bn">PRIME TEKIPAKI RAYA</span><span class="bs">プレム　テキパキ　ラヤ</span></span></a>
+    <div class="dd" id="dd">
+      <button class="mbtn" id="mt" aria-haspopup="true" aria-expanded="false">Menu <span class="chev"></span></button>
+      <nav class="links" id="nl">
+        <a href="index.html">Beranda</a>
+        <a href="#salam">Salam &amp; Membungkuk</a>
+        <a href="#rumah">Rumah &amp; Tempat Umum</a>
+        <a href="#makan">Etika Makan</a>
+        <a href="#kereta">Transportasi</a>
+        <a href="#kerja">Dunia Kerja</a>
+        <a href="#privasi">Hal yang Tidak Ditanyakan</a>
+        <a href="#honne">Honne &amp; Tatemae</a>
+        <a href="#ringkasan">Ringkasan</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="orb" aria-hidden="true"></div>
+  <div class="petal" style="left:8%;animation-delay:0s" aria-hidden="true"></div>
+  <div class="petal" style="left:34%;animation-delay:4s" aria-hidden="true"></div>
+  <div class="petal" style="left:66%;animation-delay:7s" aria-hidden="true"></div>
+  <div class="narrow">
+    <div class="eyebrow">Budaya Jepang · マナー</div>
+    <h1>Maner di Jepang: Hal Kecil yang Membuatmu Dihormati</h1>
+    <p class="lead">Di Jepang, sopan santun bukan sekadar basa-basi. Ia adalah cara semua orang menjaga kenyamanan bersama. Artikel ini membahas maner yang paling sering dialami pekerja dan peserta magang, dari cara membungkuk sampai etika di ruang rapat.</p>
+    <div class="meta"><span>Panduan budaya</span><span>±14 menit baca</span><span>Cocok untuk calon pekerja &amp; peserta magang</span></div>
+    <div class="toc">
+      <a href="#salam">1 Salam</a><a href="#rumah">2 Rumah</a><a href="#makan">3 Makan</a><a href="#kereta">4 Transportasi</a><a href="#kerja">5 Kerja</a><a href="#privasi">6 Jangan Tanya Umur</a><a href="#honne">7 Honne &amp; Tatemae</a><a href="#ringkasan">Ringkasan</a>
+    </div>
+  </div>
+</section>
+
+<div class="narrow" style="margin-top:-20px;position:relative;z-index:3">
+  <figure style="margin:0">
+    <div class="slot" data-key="hero" data-label="Foto utama: suasana jalan atau stasiun di Jepang"><img src="images/maner-hero.jpeg" alt="Suasana Jepang" onerror="this.remove()"><span class="hint">Klik untuk unggah foto</span><input type="file" accept="image/*" aria-label="Unggah foto utama"></div>
+    <figcaption class="cap">Foto: <span contenteditable="true" spellcheck="false">isi nama fotografer / sumber</span></figcaption>
+  </figure>
+</div>
+
+<article>
+<div class="narrow">
+
+  <div class="chapter" id="pembuka">
+    <div class="no">PEMBUKA</div>
+    <h2>Kenapa maner begitu penting?</h2>
+    <p>Orang Jepang dibesarkan dengan satu prinsip: <b>jangan merepotkan orang lain</b>, atau dalam bahasa Jepangnya <span class="jp">迷惑をかけない</span> <span class="yomi">(meiwaku o kakenai)</span>. Kereta yang sunyi, jalanan bersih, dan antrean rapi adalah hasil dari kebiasaan kecil yang dijaga bersama.</p>
+    <p>Dua nilai lain yang sering muncul adalah <span class="jp">和</span> <span class="yomi">(wa, harmoni kelompok)</span> dan <span class="jp">思いやり</span> <span class="yomi">(omoiyari, kepedulian terhadap perasaan orang lain)</span>. Kalau kamu menyimpannya di kepala, sebagian besar aturan di bawah ini akan terasa masuk akal.</p>
+    <div class="quote"><span class="jp">郷に入っては郷に従え</span>Pepatah ini berarti "ikuti adat tempat yang kamu masuki". Orang Jepang tidak menuntut orang asing sempurna, tetapi usaha untuk menyesuaikan diri akan sangat dihargai.</div>
+  </div>
+
+  <div class="chapter" id="salam">
+    <div class="no">BAB 1</div>
+    <h2>Salam dan membungkuk (お辞儀)</h2>
+    <p>Membungkuk adalah "jabat tangan" orang Jepang. Dalam salam, perkenalan, minta maaf, bahkan berterima kasih, tubuh ikut bicara. Semakin dalam bungkukan, semakin tinggi rasa hormatnya.</p>
+    <figure>
+      <div class="slot tall" data-key="salam" data-label="Foto: orang sedang membungkuk (ojigi)"><img src="images/salam.jpeg" alt="Ojigi" onerror="this.remove()"><span class="hint">Klik untuk unggah foto</span><input type="file" accept="image/*" aria-label="Unggah foto salam"></div>
+      <figcaption class="cap">Foto: <span contenteditable="true" spellcheck="false">isi sumber foto</span></figcaption>
+    </figure>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th>Jenis</th><th>Sudut</th><th>Dipakai saat</th></tr></thead>
+      <tbody>
+        <tr><th><span class="jp">会釈</span><br><span class="yomi">eshaku</span></th><td>±15°</td><td>Berpapasan dengan rekan, salam ringan di koridor.</td></tr>
+        <tr><th><span class="jp">敬礼</span><br><span class="yomi">keirei</span></th><td>±30°</td><td>Bertemu atasan atau tamu, perkenalan di kantor.</td></tr>
+        <tr><th><span class="jp">最敬礼</span><br><span class="yomi">saikeirei</span></th><td>±45°</td><td>Minta maaf dengan sungguh-sungguh atau terima kasih yang dalam.</td></tr>
+      </tbody>
+    </table></div>
+    <h3>Frasa yang wajib dikuasai</h3>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th>Situasi</th><th>Kalimat</th><th>Artinya</th></tr></thead>
+      <tbody>
+        <tr><th>Pagi hari</th><td><span class="jp">おはようございます</span><br><span class="yomi">ohayō gozaimasu</span></td><td>Selamat pagi. Dipakai di kantor sepanjang hari bagi yang baru datang.</td></tr>
+        <tr><th>Perkenalan &amp; minta tolong</th><td><span class="jp">よろしくお願いします</span><br><span class="yomi">yoroshiku onegaishimasu</span></td><td>Mohon bantuannya. Frasa serbaguna yang paling sering dipakai.</td></tr>
+        <tr><th>Menyapa rekan</th><td><span class="jp">お疲れ様です</span><br><span class="yomi">otsukaresama desu</span></td><td>Terima kasih atas kerja kerasnya. Dipakai saat berpapasan atau mengakhiri tugas.</td></tr>
+        <tr><th>Pulang lebih dulu</th><td><span class="jp">お先に失礼します</span><br><span class="yomi">osaki ni shitsurei shimasu</span></td><td>Maaf, saya pulang duluan.</td></tr>
+        <tr><th>Permisi / maaf / terima kasih</th><td><span class="jp">すみません</span><br><span class="yomi">sumimasen</span></td><td>Satu kata, tiga fungsi. Pakai saat memanggil pelayan, minta maaf, atau sekadar berterima kasih.</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <div class="chapter" id="rumah">
+    <div class="no">BAB 2</div>
+    <h2>Di rumah dan tempat umum</h2>
+    <p>Rumah Jepang punya batas yang jelas antara "luar yang kotor" dan "dalam yang bersih". Batas itu bernama <span class="jp">玄関</span> <span class="yomi">(genkan)</span>, area kecil di pintu masuk yang lantainya lebih rendah.</p>
+    <figure>
+      <div class="slot" data-key="genkan" data-label="Foto: genkan (pintu masuk rumah Jepang)"><img src="images/genkan.jpeg" alt="Genkan" onerror="this.remove()"><span class="hint">Klik untuk unggah foto</span><input type="file" accept="image/*" aria-label="Unggah foto genkan"></div>
+      <figcaption class="cap">Foto: <span contenteditable="true" spellcheck="false">isi sumber foto</span></figcaption>
+    </figure>
+    <ol class="steps">
+      <li><div><b>Lepas sepatu di genkan</b>, jangan melangkah ke lantai dalam dengan sepatu.</div></li>
+      <li><div><b>Naik ke lantai</b>, lalu berbalik dan rapikan sepatu agar ujungnya menghadap pintu.</div></li>
+      <li><div><b>Pakai sandal rumah</b> (スリッパ), tetapi lepas sandal sebelum menginjak tatami.</div></li>
+      <li><div><b>Sandal toilet terpisah.</b> Ganti dengan sandal khusus di toilet dan kembalikan saat keluar.</div></li>
+    </ol>
+    <h3>Di tempat umum</h3>
+    <div class="dd-grid">
+      <div class="box ok"><h4>Lakukan</h4><ul><li>Bicara dengan suara pelan.</li><li>Antre di garis yang tersedia.</li><li>Bawa pulang sampahmu sendiri.</li><li>Tutup mulut saat batuk atau bersin, pakai masker saat flu.</li></ul></div>
+      <div class="box"><h4>Hindari</h4><ul><li>Berjalan sambil makan di jalan ramai.</li><li>Membuang sampah sembarangan (tong sampah umum sangat sedikit).</li><li>Memberi tip di restoran atau taksi, karena tidak ada budaya tip.</li><li>Menunjuk orang dengan jari.</li></ul></div>
+    </div>
+  </div>
+
+  <div class="chapter" id="makan">
+    <div class="no">BAB 3</div>
+    <h2>Etika makan</h2>
+    <p>Makan di Jepang punya ritual pembuka dan penutup. Sebelum makan ucapkan <span class="jp">いただきます</span> <span class="yomi">(itadakimasu)</span>, yang berarti "saya menerima makanan ini dengan syukur". Setelah selesai ucapkan <span class="jp">ごちそうさまでした</span> <span class="yomi">(gochisōsama deshita)</span>, tanda terima kasih untuk hidangan dan orang yang menyiapkannya.</p>
+    <figure>
+      <div class="slot" data-key="makan" data-label="Foto: set makan Jepang dengan sumpit"><img src="images/makan.jpeg" alt="Makan di Jepang" onerror="this.remove()"><span class="hint">Klik untuk unggah foto</span><input type="file" accept="image/*" aria-label="Unggah foto makan"></div>
+      <figcaption class="cap">Foto: <span contenteditable="true" spellcheck="false">isi sumber foto</span></figcaption>
+    </figure>
+    <h3>Pantangan memakai sumpit (箸)</h3>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th>Larangan</th><th>Alasannya</th></tr></thead>
+      <tbody>
+        <tr><th><span class="jp">立て箸</span><br><span class="yomi">tatebashi</span></th><td>Menancapkan sumpit tegak di nasi. Menyerupai persembahan dupa untuk orang meninggal.</td></tr>
+        <tr><th><span class="jp">箸渡し</span><br><span class="yomi">hashiwatashi</span></th><td>Mengoper makanan dari sumpit ke sumpit. Mirip ritual memindahkan tulang saat kremasi. Pindahkan lewat piring.</td></tr>
+        <tr><th><span class="jp">刺し箸</span><br><span class="yomi">sashibashi</span></th><td>Menusuk makanan dengan sumpit seperti garpu. Dianggap tidak sopan.</td></tr>
+        <tr><th><span class="jp">迷い箸</span><br><span class="yomi">mayoibashi</span></th><td>Menggoyang sumpit ragu memilih lauk. Putuskan dulu baru ambil.</td></tr>
+      </tbody>
+    </table></div>
+    <p>Hal yang justru wajar: <b>menyeruput mi</b> seperti ramen atau soba dianggap tanda enak dan menjaga mi tetap hangat. Minum sup miso langsung dari mangkuk juga normal.</p>
+  </div>
+
+  <div class="chapter" id="kereta">
+    <div class="no">BAB 4</div>
+    <h2>Naik kereta dan transportasi umum</h2>
+    <p>Kereta adalah panggung maner paling terlihat di Jepang. Di jam sibuk ribuan orang berbagi ruang sempit, namun suasana tetap tenang karena semua orang menahan diri.</p>
+    <figure>
+      <div class="slot" data-key="kereta" data-label="Foto: antrean di peron stasiun"><img src="images/kereta.jpeg" alt="Antre di stasiun" onerror="this.remove()"><span class="hint">Klik untuk unggah foto</span><input type="file" accept="image/*" aria-label="Unggah foto kereta"></div>
+      <figcaption class="cap">Foto: <span contenteditable="true" spellcheck="false">isi sumber foto</span></figcaption>
+    </figure>
+    <ol class="steps">
+      <li><div><b>Antre mengikuti tanda di peron.</b> Berdiri di garis yang ditentukan, biarkan penumpang turun dulu sebelum naik.</div></li>
+      <li><div><b>Ponsel ke mode manner</b> (マナーモード). Jangan menelepon di dalam kereta. Dekat kursi prioritas (優先席), ikuti petunjuk yang tertera dan matikan atau senyapkan ponsel.</div></li>
+      <li><div><b>Suara pelan.</b> Percakapan dengan teman boleh, tetapi jangan keras. Musik dari earphone harus tidak bocor.</div></li>
+      <li><div><b>Tas di depan atau di rak.</b> Lepas ransel dan pangku saat kereta penuh agar tidak mengenai orang lain.</div></li>
+      <li><div><b>Beri tempat duduk</b> kepada lansia, ibu hamil, penyandang disabilitas, dan orang dengan anak kecil.</div></li>
+    </ol>
+  </div>
+
+  <div class="chapter" id="kerja">
+    <div class="no">BAB 5</div>
+    <h2>Maner di dunia kerja</h2>
+    <p>Di tempat kerja, maner adalah bagian dari penilaian. Tepat waktu, komunikasi yang rapi, dan sikap hormat terhadap senior sering lebih dahulu dilihat daripada kemampuan teknis.</p>
+    <figure>
+      <div class="slot" data-key="kerja" data-label="Foto: pertukaran kartu nama atau suasana kantor"><img src="images/kerja.jpeg" alt="Dunia kerja" onerror="this.remove()"><span class="hint">Klik untuk unggah foto</span><input type="file" accept="image/*" aria-label="Unggah foto kerja"></div>
+      <figcaption class="cap">Foto: <span contenteditable="true" spellcheck="false">isi sumber foto</span></figcaption>
+    </figure>
+    <h3>Ho-Ren-Sō (報連相)</h3>
+    <p>Singkatan dari <span class="jp">報告</span> <span class="yomi">(hōkoku, melapor)</span>, <span class="jp">連絡</span> <span class="yomi">(renraku, memberi kabar)</span>, dan <span class="jp">相談</span> <span class="yomi">(sōdan, berkonsultasi)</span>. Lapor hasil kerja, kabari bila ada perubahan atau keterlambatan, dan tanyakan sebelum kamu ragu. Atasan di Jepang lebih menghargai orang yang bertanya sejak awal daripada yang diam lalu salah.</p>
+    <h3>Aturan emas di kantor</h3>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th>Hal</th><th>Yang diharapkan</th></tr></thead>
+      <tbody>
+        <tr><th>Waktu</th><td>Datang 5 sampai 10 menit sebelum jam kerja. Datang tepat waktu sering dianggap sudah terlambat.</td></tr>
+        <tr><th>Kartu nama (名刺)</th><td>Berikan dan terima dengan dua tangan, baca dengan hormat, simpan di tempat kartu. Jangan langsung masuk saku atau dicoret.</td></tr>
+        <tr><th>Pakaian</th><td>Rapi dan bersih. Ikuti seragam atau aturan perusahaan, hindari wewangian kuat.</td></tr>
+        <tr><th>Bahasa</th><td>Pakai bentuk sopan (〜です／〜ます) pada atasan dan rekan yang belum akrab.</td></tr>
+        <tr><th>Mengakui salah</th><td>Minta maaf cepat dengan <span class="jp">申し訳ありません</span>, jelaskan singkat, lalu sampaikan cara memperbaiki.</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <div class="chapter" id="privasi">
+    <div class="no">BAB 6</div>
+    <h2>Pertanyaan yang sebaiknya tidak diajukan</h2>
+    <p>Orang Indonesia terbiasa membuka obrolan dengan "umurnya berapa?", "sudah menikah?", atau "gajinya berapa?". Di Jepang, pertanyaan seperti itu bisa terasa terlalu pribadi, terutama kepada orang yang baru dikenal, kepada wanita, dan kepada atasan. Alasannya sederhana: urusan pribadi dianggap wilayah masing-masing, dan menanyakannya bisa membuat lawan bicara tidak nyaman.</p>
+    <figure>
+      <div class="slot" data-key="privasi" data-label="Foto: dua rekan kerja sedang mengobrol santai"><img src="images/privasi.jpeg" alt="Obrolan santai" onerror="this.remove()"><span class="hint">Klik untuk unggah foto</span><input type="file" accept="image/*" aria-label="Unggah foto privasi"></div>
+      <figcaption class="cap">Foto: <span contenteditable="true" spellcheck="false">isi sumber foto</span></figcaption>
+    </figure>
+    <div class="dd-grid">
+      <div class="box"><h4>Hindari bertanya tentang</h4><ul><li><b>Umur</b> (年齢), terutama kepada wanita dan senior.</li><li><b>Gaji</b> (給料) dan harga barang pribadi.</li><li><b>Status menikah, punya anak atau belum</b>.</li><li><b>Berat badan dan penampilan fisik</b>.</li><li>Agama dan pandangan politik di obrolan pertama.</li></ul></div>
+      <div class="box ok"><h4>Topik yang aman</h4><ul><li><b>Cuaca</b> dan musim (今日は暑いですね).</li><li><b>Daerah asal</b>: <span class="jp">ご出身はどちらですか</span>.</li><li><b>Hobi</b>: <span class="jp">ご趣味は何ですか</span>.</li><li><b>Makanan</b> dan tempat makan favorit.</li><li>Pekerjaan secara umum, tanpa menyinggung gaji.</li></ul></div>
+    </div>
+    <p>Di kantor, urutan hormat biasanya ditentukan oleh <b>senior dan junior</b> (<span class="jp">先輩・後輩</span> <span class="yomi">senpai, kōhai</span>) berdasarkan tahun masuk perusahaan, bukan umur. Jadi kamu tidak perlu menanyakan umur untuk tahu harus bersikap bagaimana. Kalau memang perlu, awali dengan <span class="jp">失礼ですが</span> <span class="yomi">(shitsurei desu ga, "maaf kalau lancang")</span> lalu <span class="jp">おいくつですか</span>, dan terima jika orang itu menolak menjawab.</p>
+    <div class="quote"><span class="jp">聞かない優しさ</span>Artinya kira-kira "kebaikan dengan tidak bertanya". Membiarkan orang bercerita sendiri tentang kehidupannya adalah bentuk hormat.</div>
+  </div>
+
+  <div class="chapter" id="honne">
+    <div class="no">BAB 7</div>
+    <h2>Honne dan Tatemae: yang dirasakan dan yang diucapkan</h2>
+    <p><span class="jp">本音</span> <span class="yomi">(honne)</span> adalah perasaan atau pendapat yang sebenarnya, sedangkan <span class="jp">建前</span> <span class="yomi">(tatemae)</span> adalah sikap dan ucapan yang ditampilkan di depan umum demi menjaga harmoni. Tatemae bukan kebohongan jahat. Ia dipakai agar tidak ada yang kehilangan muka dan suasana tetap nyaman.</p>
+    <figure>
+      <div class="slot" data-key="honne" data-label="Foto: suasana rapat atau obrolan santai setelah kerja"><img src="images/honne.jpeg" alt="Honne dan tatemae" onerror="this.remove()"><span class="hint">Klik untuk unggah foto</span><input type="file" accept="image/*" aria-label="Unggah foto honne dan tatemae"></div>
+      <figcaption class="cap">Foto: <span contenteditable="true" spellcheck="false">isi sumber foto</span></figcaption>
+    </figure>
+    <h3>Ucapan yang sering bukan arti harfiahnya</h3>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th>Ucapan</th><th>Arti harfiah</th><th>Maksud yang mungkin</th></tr></thead>
+      <tbody>
+        <tr><th><span class="jp">検討します</span><br><span class="yomi">kentō shimasu</span></th><td>Akan kami pertimbangkan.</td><td>Bisa serius dipertimbangkan, tetapi sering berarti "kemungkinan besar tidak".</td></tr>
+        <tr><th><span class="jp">ちょっと難しいですね</span><br><span class="yomi">chotto muzukashii desu ne</span></th><td>Agak sulit, ya.</td><td>Hampir pasti "tidak bisa". Jarang diikuti kata "tidak".</td></tr>
+        <tr><th><span class="jp">また今度</span><br><span class="yomi">mata kondo</span></th><td>Lain kali.</td><td>Bisa tulus, bisa penolakan halus. Perhatikan apakah ada tanggal pasti.</td></tr>
+        <tr><th><span class="jp">ぜひ遊びに来てください</span><br><span class="yomi">zehi asobi ni kite kudasai</span></th><td>Silakan main ke rumah.</td><td>Sering hanya basa-basi. Undangan serius biasanya menyebut hari dan jam.</td></tr>
+        <tr><th><span class="jp">いいですね</span><br><span class="yomi">ii desu ne</span></th><td>Bagus, ya.</td><td>Bisa setuju, bisa sekadar sopan. Lihat nada dan lanjutannya.</td></tr>
+      </tbody>
+    </table></div>
+    <h3>Cara menyikapinya</h3>
+    <ol class="steps">
+      <li><div><b>Baca suasana</b> (<span class="jp">空気を読む</span> <span class="yomi">kūki o yomu</span>). Perhatikan nada, jeda, dan ekspresi, bukan hanya kata-kata.</div></li>
+      <li><div><b>Hindari "tidak" yang langsung.</b> Gunakan <span class="jp">ちょっと…</span> atau <span class="jp">難しいかもしれません</span> lalu tawarkan alternatif.</div></li>
+      <li><div><b>Klarifikasi dengan sopan.</b> Tanyakan hal konkret seperti tanggal, jumlah, atau langkah berikutnya, alih-alih menebak.</div></li>
+      <li><div><b>Jangan memaksa honne keluar.</b> Pendapat jujur biasanya muncul di obrolan akrab, misalnya saat makan atau minum bersama rekan (<span class="jp">飲み会</span>), tetapi tetap jaga batas dan hormat.</div></li>
+    </ol>
+    <div class="quote"><span class="jp">本音と建前</span>Jangan menilai tatemae sebagai tanda orang Jepang tidak jujur. Ini cara membangun kepercayaan dan menjaga hubungan jangka panjang, dan kamu pun bisa memakainya dengan bijak.</div>
+  </div>
+
+</div>
+
+<section class="summary" id="ringkasan">
+  <div class="narrow">
+    <div class="no">RINGKASAN</div>
+    <h2 style="font-size:clamp(1.6rem,3vw,2.2rem);margin-bottom:18px">Dua belas kebiasaan yang paling sering dinilai</h2>
+    <ol class="steps">
+      <li><div>Membungkuk dan menyapa dengan <b>suara jelas</b> setiap hari.</div></li>
+      <li><div>Datang <b>lebih awal</b>, jangan terlambat.</div></li>
+      <li><div>Lepas sepatu di <b>genkan</b> dan pakai sandal yang sesuai.</div></li>
+      <li><div>Ucapkan <b>itadakimasu</b> dan <b>gochisōsama</b>.</div></li>
+      <li><div>Jangan melakukan <b>pantangan sumpit</b>.</div></li>
+      <li><div>Pelankan suara dan <b>senyapkan ponsel</b> di kereta.</div></li>
+      <li><div><b>Bawa pulang sampah</b> dan pilah sesuai aturan wilayah.</div></li>
+      <li><div>Terapkan <b>Ho-Ren-Sō</b>: lapor, kabari, konsultasi.</div></li>
+      <li><div>Pegang <b>kartu nama</b> dengan dua tangan.</div></li>
+      <li><div>Saat salah, <b>minta maaf cepat</b> dan perbaiki.</div></li>
+      <li><div>Jangan tanya <b>umur, gaji, atau status pernikahan</b>. Pilih topik aman.</div></li>
+      <li><div>Pahami <b>honne dan tatemae</b>, dan baca suasana sebelum mengambil kesimpulan.</div></li>
+    </ol>
+  </div>
+</section>
+
+<div class="wrap" style="padding-bottom:70px">
+  <div class="contact">
+    <div>
+      <h2>Siap belajar budaya dan bahasa Jepang?</h2>
+      <p>Pembelajaran maner dan budaya kerja adalah bagian dari program pelatihan kami. Silakan konsultasi kapan saja.</p>
+      <a href="formulir.html" class="btn">Isi Formulir Pendaftaran</a>
+    </div>
+    <div class="cd">
+      <div><span>Telepon / WhatsApp</span><strong>+62 821 3080 7776</strong></div>
+      <div><span>Email</span><strong>info@tekipaki.co.id</strong></div>
+    </div>
+  </div>
+</div>
+</article>
+</main>
+
+<footer>
+  <div class="wrap fb">
+    <span>© 2026 PRIME TEKIPAKI RAYA. Seluruh hak cipta dilindungi.</span>
+    <a href="index.html" style="text-decoration:none">Kembali ke Beranda</a>
+  </div>
+</footer>
+
+<script>
+  // Menu
+  const dd=document.getElementById('dd'),mt=document.getElementById('mt');
+  const close=()=>{dd.classList.remove('open');mt.setAttribute('aria-expanded','false');};
+  mt.addEventListener('click',e=>{e.stopPropagation();mt.setAttribute('aria-expanded',dd.classList.toggle('open')?'true':'false');});
+  document.querySelectorAll('#nl a').forEach(a=>a.addEventListener('click',close));
+  document.addEventListener('click',e=>{if(!dd.contains(e.target))close();});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')close();});
+
+  // Foto: klik untuk unggah (tersimpan di browser)
+  document.querySelectorAll('.slot').forEach(slot=>{
+    const key=slot.dataset.key,input=slot.querySelector('input');
+    if(!key||!input)return;
+    function show(url){
+      let img=slot.querySelector('img');
+      if(!img){img=document.createElement('img');img.alt='';slot.insertBefore(img,slot.firstChild);}
+      img.src=url;
+    }
+    try{const s=localStorage.getItem('tekipaki-maner-'+key);if(s)show(s);}catch(e){}
+    input.addEventListener('change',e=>{
+      const f=e.target.files&&e.target.files[0];
+      if(!f||!f.type.startsWith('image/'))return;
+      const r=new FileReader();
+      r.onload=()=>{show(r.result);try{localStorage.setItem('tekipaki-maner-'+key,r.result);}catch(err){}};
+      r.readAsDataURL(f);
+    });
+  });
+</script>
+</body>
+</html>
