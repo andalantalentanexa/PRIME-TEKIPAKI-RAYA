@@ -131,6 +131,14 @@
   .varian figcaption{margin-top:6px; font-size:.78rem; line-height:1.45; color:var(--ink-soft);}
   .varian figcaption .jp{display:block; font-size:.95rem; color:var(--ink);}
 
+  img[hidden]{display:none !important;}
+  body.edit .pic,body.edit .photo,body.edit .vp{cursor:pointer; outline:2px dashed var(--sakura); outline-offset:-2px;}
+  body.edit [data-pk]:not(img)::after{content:"📷 foto/" attr(data-pk) ".jpg · klik untuk ganti"; position:absolute; left:6px; top:6px; z-index:5; max-width:calc(100% - 12px); font-size:.68rem; line-height:1.3; background:var(--ink); color:var(--bg); padding:3px 9px; border-radius:12px; pointer-events:none;}
+  #editBar{position:fixed; left:0; right:0; bottom:0; z-index:80; display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:center; padding:12px 18px calc(12px + env(safe-area-inset-bottom,0px)); background:var(--ink); color:var(--bg); font-size:.84rem; line-height:1.5;}
+  #editBar span{max-width:70ch;}
+  #editBar button{font-family:inherit; font-size:.82rem; font-weight:600; padding:8px 14px; border-radius:3px; border:1px solid currentColor; background:none; color:inherit; cursor:pointer;}
+  #editBar button.pri{background:var(--sakura); border-color:var(--sakura); color:var(--bg);}
+
   .tbl-wrap{border:1px solid var(--line-strong); border-radius:4px; overflow-x:auto; background:var(--bg);}
   .tbl{width:100%; border-collapse:collapse; min-width:560px;}
   .tbl thead th{background:var(--red); color:var(--on-red); font-family:'Shippori Mincho',serif; font-size:1.05rem; text-align:left; padding:14px 18px; white-space:nowrap;}
@@ -425,8 +433,8 @@
       const sg = slug(it[4]);
       const top = noPhoto.includes(sg)
         ? '<span class="emo" aria-hidden="true">' + it[1] + '</span>'
-        : '<span class="pic"><span class="pe" aria-hidden="true">' + it[1] + '</span>' +
-          '<img src="foto/' + sg + '.jpg" alt="Contoh gambar ' + esc(it[4]) + '" loading="lazy" onerror="this.remove()"></span>';
+        : '<span class="pic" data-pk="' + sg + '"><span class="pe" aria-hidden="true">' + it[1] + '</span>' +
+          '<img src="foto/' + sg + '.jpg" data-pk="' + sg + '" alt="Contoh gambar ' + esc(it[4]) + '" loading="lazy" onerror="this.hidden=1"></span>';
       return '<button type="button" class="card' + alk + '">' +
         '<span class="badge">' + badge[it[0]] + '</span>' + top +
         '<span class="jpw">' + esc(it[2]) + '</span>' +
@@ -436,6 +444,7 @@
       '</button>';
     }).join('');
     countEl.textContent = list.length + ' kata';
+    applyStored(grid);
   }
 
   document.querySelectorAll('#chips .chip').forEach(b => {
@@ -483,6 +492,76 @@
     'warabi-mochi': 'Kue bening bertekstur kenyal dari pati warabi, ditaburi bubuk kedelai panggang (kinako) dan sering disiram sirup gula kuromitsu. Pas dimakan dingin saat musim panas.'
   };
 
+  // ===== Mode Edit Foto: buka halaman dengan ?edit=1 di belakang alamatnya =====
+  const EDIT = /[?&]edit(=1|=true)?(&|$)/.test(location.search);
+  const mem = {};
+  let db = null;
+  function idbOpen(){ return new Promise(res => { try{ const r = indexedDB.open('tekipaki-foto', 1); r.onupgradeneeded = () => r.result.createObjectStore('f'); r.onsuccess = () => res(r.result); r.onerror = () => res(null); }catch(e){ res(null); } }); }
+  function idbPut(k, v){ if(!db) return; try{ db.transaction('f','readwrite').objectStore('f').put(v, k); }catch(e){} }
+  function applyStored(root){
+    root.querySelectorAll('img[data-pk]').forEach(im => { const v = mem[im.dataset.pk]; if(v){ im.src = v; im.hidden = false; } });
+  }
+  async function initPhotos(){
+    db = await idbOpen();
+    if(db){
+      await new Promise(res => {
+        try{
+          const rq = db.transaction('f').objectStore('f').openCursor();
+          rq.onsuccess = e => { const c = e.target.result; if(c){ mem[c.key] = c.value; c.continue(); } else res(); };
+          rq.onerror = () => res();
+        }catch(e){ res(); }
+      });
+    }
+    applyStored(document);
+  }
+  initPhotos();
+
+  if(EDIT){
+    document.body.classList.add('edit');
+    const fi = document.createElement('input');
+    fi.type = 'file'; fi.accept = 'image/*'; fi.hidden = true;
+    document.body.appendChild(fi);
+    let target = null;
+    document.addEventListener('click', e => {
+      const box = e.target.closest('.pic,.photo,.vp');
+      if(!box || !box.dataset.pk) return;
+      e.preventDefault(); e.stopPropagation();
+      target = box.dataset.pk; fi.value = ''; fi.click();
+    }, true);
+    fi.addEventListener('change', () => {
+      const f = fi.files && fi.files[0];
+      if(!f || !target) return;
+      const url = URL.createObjectURL(f), im = new Image(), key = target;
+      im.onload = () => {
+        const sc = Math.min(1, 900 / Math.max(im.width, im.height));
+        const c = document.createElement('canvas');
+        c.width = Math.round(im.width * sc); c.height = Math.round(im.height * sc);
+        c.getContext('2d').drawImage(im, 0, 0, c.width, c.height);
+        mem[key] = c.toDataURL('image/jpeg', 0.85);
+        idbPut(key, mem[key]);
+        URL.revokeObjectURL(url);
+        applyStored(document);
+      };
+      im.src = url;
+    });
+    const bar = document.createElement('div');
+    bar.id = 'editBar';
+    bar.innerHTML = '<span><b>Mode Edit Foto.</b> Klik kotak foto untuk memilih gambar. Foto tersimpan di browser ini saja. Agar siswa bisa melihatnya, unduh fotonya lalu unggah ke folder <b>foto/</b> di website.</span>' +
+      '<button type="button" class="pri" id="dlAll">Unduh semua foto</button><button type="button" id="clrAll">Hapus semua</button>';
+    document.body.appendChild(bar);
+    document.getElementById('dlAll').addEventListener('click', () => {
+      Object.keys(mem).forEach((k, i) => setTimeout(() => {
+        const a = document.createElement('a'); a.href = mem[k]; a.download = k + '.jpg';
+        document.body.appendChild(a); a.click(); a.remove();
+      }, i * 350));
+    });
+    document.getElementById('clrAll').addEventListener('click', () => {
+      if(!confirm('Hapus semua foto yang tersimpan di browser ini?')) return;
+      try{ db.transaction('f','readwrite').objectStore('f').clear(); }catch(e){}
+      location.reload();
+    });
+  }
+
   // Jenis-jenis (varian) tiap makanan. Foto: foto/<kode>.jpg
   const varian = {
     'tenpura': [
@@ -496,8 +575,8 @@
   function variants(sg){
     if(!varian[sg]) return '';
     return '<div class="varian"><h4>JENIS-JENIS</h4><div class="varian-grid">' + varian[sg].map(v =>
-      '<figure><div class="vp"><span aria-hidden="true">' + v[3] + '</span>' +
-      '<img src="foto/' + v[4] + '.jpg" alt="Contoh gambar ' + esc(v[2]) + '" loading="lazy" onerror="this.remove()"></div>' +
+      '<figure><div class="vp" data-pk="' + v[4] + '"><span aria-hidden="true">' + v[3] + '</span>' +
+      '<img src="foto/' + v[4] + '.jpg" data-pk="' + v[4] + '" alt="Contoh gambar ' + esc(v[2]) + '" loading="lazy" onerror="this.hidden=1"></div>' +
       '<figcaption><span class="jp">' + esc(v[0]) + '</span>' + esc(v[1]) + ' · ' + esc(v[2]) + '</figcaption></figure>'
     ).join('') + '</div></div>';
   }
@@ -508,8 +587,8 @@
   document.getElementById('artikelList').innerHTML = items.filter(it => it[0] === 'makanan').map((it, i) => {
     const sg = slug(it[4]);
     return '<article class="article' + (i % 2 ? ' flip' : '') + '">' +
-      '<figure class="photo"><span class="ph"><b>' + it[1] + '</b>Foto ' + esc(it[4]) + '</span>' +
-      '<img src="foto/' + sg + '.jpg" alt="Contoh gambar ' + esc(it[4]) + '" loading="lazy" onerror="this.remove()">' +
+      '<figure class="photo" data-pk="' + sg + '"><span class="ph"><b>' + it[1] + '</b>Foto ' + esc(it[4]) + '</span>' +
+      '<img src="foto/' + sg + '.jpg" data-pk="' + sg + '" alt="Contoh gambar ' + esc(it[4]) + '" loading="lazy" onerror="this.hidden=1">' +
       '<figcaption>' + esc(it[4]) + '</figcaption></figure>' +
       '<div><div class="kicker">HIDANGAN</div><h3>' + esc(it[2]) + '</h3>' +
       '<div class="jp-sub">' + esc(it[3]) + ' · ' + esc(it[4]) + '</div>' +
