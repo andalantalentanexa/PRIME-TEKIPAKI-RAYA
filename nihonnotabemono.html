@@ -633,12 +633,12 @@
     });
     const bar = document.createElement('div');
     bar.id = 'editBar';
-    bar.innerHTML = '<span><b>Mode Edit Foto.</b> Klik kotak foto untuk memilih gambar. Foto tersimpan di browser ini saja. Agar siswa bisa melihatnya, unduh fotonya lalu unggah ke folder <b>images/</b> di website.</span>' +
+    bar.innerHTML = '<span><b>Mode Edit Foto.</b> Klik kotak foto untuk memilih gambar. Foto tersimpan di browser ini saja. Agar siswa bisa melihatnya, unduh fotonya (nama file sudah sesuai daftar FOTO, berekstensi .jpg) lalu unggah ke folder <b>images/</b> di website.</span>' +
       '<button type="button" class="pri" id="dlAll">Unduh semua foto</button><button type="button" id="clrAll">Hapus semua</button>';
     document.body.appendChild(bar);
     document.getElementById('dlAll').addEventListener('click', () => {
       Object.keys(mem).forEach((k, i) => setTimeout(() => {
-        const a = document.createElement('a'); a.href = mem[k]; a.download = k + '.jpg';
+        const a = document.createElement('a'); a.href = mem[k]; a.download = (FOTO[k] || k).split('/').pop().replace(/\.\w+$/, '') + '.jpg';
         document.body.appendChild(a); a.click(); a.remove();
       }, i * 350));
     });
