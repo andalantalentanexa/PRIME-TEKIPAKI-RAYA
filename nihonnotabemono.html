@@ -132,6 +132,7 @@
   .varian figcaption .jp{display:block; font-size:.95rem; color:var(--ink);}
 
   img[hidden]{display:none !important;}
+  .dbg{position:absolute; left:0; right:0; bottom:0; z-index:6; color:#fff; font:600 .62rem/1.3 monospace; padding:3px 6px; word-break:break-all; pointer-events:none;}
   body.edit .pic,body.edit .photo,body.edit .vp{cursor:pointer; outline:2px dashed var(--sakura); outline-offset:-2px;}
   body.edit [data-pk]:not(img)::after{content:"📷 " attr(data-pk) ".jpg · klik untuk ganti"; position:absolute; left:6px; top:6px; z-index:5; max-width:calc(100% - 12px); font-size:.68rem; line-height:1.3; background:var(--ink); color:var(--bg); padding:3px 9px; border-radius:12px; pointer-events:none;}
   #editBar{position:fixed; left:0; right:0; bottom:0; z-index:80; display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:center; padding:12px 18px calc(12px + env(safe-area-inset-bottom,0px)); background:var(--ink); color:var(--bg); font-size:.84rem; line-height:1.5;}
@@ -432,45 +433,45 @@
     // ---------- MAKANAN ----------
     'gohan': 'gohan.jpg',                   // ご飯
     'onigiri': 'onigiri.jpg',               // おにぎり
-    'sushi': 'images/sushi.jpg',                  // 寿司
+    'sushi': 'sushi.jpg',                   // 寿司
     'sashimi': 'sashimi.jpg',               // 刺身
-    'tenpura': 'images/tenpura.jpg',               // 天ぷら
-    'tenpura-ebi': 'images/tenpura-ebi.jpg',           // jenis tenpura: 海老天 (udang)
-    'tenpura-kakiage': 'images/tenpura-kakiage.jpg',// jenis tenpura: かき揚げ
-    'tenpura-kabocha': 'images/tenpura-kabocha.jpg',// jenis tenpura: かぼちゃ (labu)
-    'tenpura-nasu': 'images/tenpura-nasu.jpg',     // jenis tenpura: なす (terong)
-    'tenpura-shiitake': 'images/tenpura-shiitake.jpg',// jenis tenpura: しいたけ
-    'ramen': 'images/ramen-shoyu.jpg',             // ラーメン
-    'udon': 'images/udon.jpg',                     // うどん
-    'soba': 'images/soba.jpg',                     // そば
-    'kare': 'images/kare.jpg',                     // カレー
-    'donburi': 'images/donburi.jpg',               // 丼
-    'misoshiru': 'images/misoshiru.jpg',           // 味噌汁
-    'natto': 'images/natto.jpg',                   // 納豆
-    'yakitori': 'images/yakitori.jpg',             // 焼き鳥
-    'okonomiyaki': 'images/okonomiyaki.jpg',       // お好み焼き
-    'tamagoyaki': 'images/tamagoyaki.jpg',         // 卵焼き
-    'bento': 'images/bento.jpg',                   // 弁当
-    'tsukemono': 'images/tsukemono.jpg',           // 漬物
-    'pan': 'images/pan.jpg',                       // パン
-    'dango': 'images/dango.jpg',                   // 団子
-    'dorayaki': 'images/dorayaki.jpg',             // どら焼き
-    'taiyaki': 'images/taiyaki.jpg',               // たい焼き
-    'purin': 'images/purin.jpg',                   // プリン
-    'warabi-mochi': 'images/warabi-mochi.jpg',     // わらび餅
+    'tenpura': 'tenpura.jpg',               // 天ぷら
+    'tenpura-ebi': 'tempura.jpg',           // jenis tenpura: 海老天 (udang)
+    'tenpura-kakiage': 'tenpura-kakiage.jpg',// jenis tenpura: かき揚げ
+    'tenpura-kabocha': 'tenpura-kabocha.jpg',// jenis tenpura: かぼちゃ (labu)
+    'tenpura-nasu': 'tenpura-nasu.jpg',     // jenis tenpura: なす (terong)
+    'tenpura-shiitake': 'tenpura-shiitake.jpg',// jenis tenpura: しいたけ
+    'ramen': 'ramen-shoyu.jpg',             // ラーメン
+    'udon': 'udon.jpg',                     // うどん
+    'soba': 'soba.jpg',                     // そば
+    'kare': 'kare.jpg',                     // カレー
+    'donburi': 'donburi.jpg',               // 丼
+    'misoshiru': 'misoshiru.jpg',           // 味噌汁
+    'natto': 'natto.jpg',                   // 納豆
+    'yakitori': 'yakitori.jpg',             // 焼き鳥
+    'okonomiyaki': 'okonomiyaki.jpg',       // お好み焼き
+    'tamagoyaki': 'tamagoyaki.jpg',         // 卵焼き
+    'bento': 'bento.jpg',                   // 弁当
+    'tsukemono': 'tsukemono.jpg',           // 漬物
+    'pan': 'pan.jpg',                       // パン
+    'dango': 'dango.jpg',                   // 団子
+    'dorayaki': 'dorayaki.jpg',             // どら焼き
+    'taiyaki': 'taiyaki.jpg',               // たい焼き
+    'purin': 'purin.jpg',                   // プリン
+    'warabi-mochi': 'warabi-mochi.jpg',     // わらび餅
     // ---------- BAHAN ----------
-    'niku': 'images/niku.jpg',                     // 肉
-    'butaniku': 'images/butaniku.jpg',             // 豚肉
-    'toriniku': 'images/toriniku.jpg',             // 鶏肉
-    'gyuniku': 'images/gyuniku.jpg',               // 牛肉
-    'sakana': 'images/sakana.jpg',                 // 魚
-    'tamago': 'images/tamago.jpg',                 // 卵
-    'kudamono': 'images/kudamono.jpg',             // 果物
-    'kome': 'images/kome.jpg',                     // 米
-    'tofu': 'images/tofu.jpg',                     // 豆腐
-    'shio': 'images/shio.jpg',                     // 塩
-    'sato': 'images/sato.jpg',                     // 砂糖
-    'shoyu': 'images/shoyu.jpg',                   // 醤油
+    'niku': 'niku.jpg',                     // 肉
+    'butaniku': 'butaniku.jpg',             // 豚肉
+    'toriniku': 'toriniku.jpg',             // 鶏肉
+    'gyuniku': 'gyuniku.jpg',               // 牛肉
+    'sakana': 'sakana.jpg',                 // 魚
+    'tamago': 'tamago.jpg',                 // 卵
+    'kudamono': 'kudamono.jpg',             // 果物
+    'kome': 'kome.jpg',                     // 米
+    'tofu': 'tofu.jpg',                     // 豆腐
+    'shio': 'shio.jpg',                     // 塩
+    'sato': 'sato.jpg',                     // 砂糖
+    'shoyu': 'shoyu.jpg',                   // 醤油
     // ---------- MINUMAN ----------
     'ocha': 'ocha.jpg',                     // お茶
     'ryokucha': 'ryokucha.jpg',             // 緑茶
@@ -491,6 +492,20 @@
     if(!v) return FOTO_DIR + key + '.jpg';
     return (v.includes('/') || /^https?:/.test(v)) ? v : FOTO_DIR + v;
   };
+
+  // Mode Cek Foto: tambahkan ?debug=1 di alamat halaman. Tiap kotak foto menampilkan alamat yang dicari browser
+  // (hijau = foto ketemu, merah = tidak ditemukan).
+  if(/[?&]debug/.test(location.search)){
+    const mark = (im, ok) => {
+      const box = im.parentElement; if(!box) return;
+      let l = box.querySelector('.dbg');
+      if(!l){ l = document.createElement('span'); l.className = 'dbg'; box.appendChild(l); }
+      l.style.background = ok ? '#1a7f37' : '#b4452b';
+      l.textContent = (ok ? 'OK: ' : 'TIDAK DITEMUKAN: ') + im.src;
+    };
+    document.addEventListener('error', e => { if(e.target.tagName === 'IMG' && e.target.dataset.pk) mark(e.target, false); }, true);
+    document.addEventListener('load', e => { if(e.target.tagName === 'IMG' && e.target.dataset.pk) mark(e.target, true); }, true);
+  }
 
   // Foto kartu: nama file = romaji tanpa tanda panjang, huruf kecil, di folder FOTO_DIR
   // Contoh: sushi -> foto/sushi.jpg, rāmen -> foto/ramen.jpg, nattō -> foto/natto.jpg
