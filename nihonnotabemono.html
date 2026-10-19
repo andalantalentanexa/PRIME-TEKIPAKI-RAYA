@@ -133,7 +133,7 @@
 
   img[hidden]{display:none !important;}
   body.edit .pic,body.edit .photo,body.edit .vp{cursor:pointer; outline:2px dashed var(--sakura); outline-offset:-2px;}
-  body.edit [data-pk]:not(img)::after{content:"📷 foto/" attr(data-pk) ".jpg · klik untuk ganti"; position:absolute; left:6px; top:6px; z-index:5; max-width:calc(100% - 12px); font-size:.68rem; line-height:1.3; background:var(--ink); color:var(--bg); padding:3px 9px; border-radius:12px; pointer-events:none;}
+  body.edit [data-pk]:not(img)::after{content:"📷 " attr(data-pk) ".jpg · klik untuk ganti"; position:absolute; left:6px; top:6px; z-index:5; max-width:calc(100% - 12px); font-size:.68rem; line-height:1.3; background:var(--ink); color:var(--bg); padding:3px 9px; border-radius:12px; pointer-events:none;}
   #editBar{position:fixed; left:0; right:0; bottom:0; z-index:80; display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:center; padding:12px 18px calc(12px + env(safe-area-inset-bottom,0px)); background:var(--ink); color:var(--bg); font-size:.84rem; line-height:1.5;}
   #editBar span{max-width:70ch;}
   #editBar button{font-family:inherit; font-size:.82rem; font-weight:600; padding:8px 14px; border-radius:3px; border:1px solid currentColor; background:none; color:inherit; cursor:pointer;}
@@ -420,7 +420,23 @@
 
   function esc(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;'); }
 
-  // Foto kartu: nama file = romaji tanpa tanda panjang, huruf kecil, di folder "foto/"
+  /* ==========================================================
+     PENGATURAN FOTO  <-- ISI FOTO DI SINI
+     1) FOTO_DIR = folder foto Anda.
+     2) Otomatis: nama file = kode makanan + .jpg
+        contoh: images/sushi.jpg, images/ramen.jpg, images/natto.jpg
+     3) Kalau nama file Anda berbeda, tulis di FOTO di bawah:
+        'kode': 'images/namafile-anda.jpg'
+     ========================================================== */
+  const FOTO_DIR = 'images/';
+  const FOTO = {
+        'sushi': 'images/sushi.jpg',
+        'ramen': 'images/ramen-shoyu.jpg',
+        'tenpura-ebi': 'images/ebi-tempura.jpg',
+  };
+  const photoSrc = key => FOTO[key] || (FOTO_DIR + key + '.jpg');
+
+  // Foto kartu: nama file = romaji tanpa tanda panjang, huruf kecil, di folder FOTO_DIR
   // Contoh: sushi -> foto/sushi.jpg, rāmen -> foto/ramen.jpg, nattō -> foto/natto.jpg
   const noPhoto = ['mizu', 'yasai']; // kata yang tidak diberi foto
   const slug = s => s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
@@ -434,7 +450,7 @@
       const top = noPhoto.includes(sg)
         ? '<span class="emo" aria-hidden="true">' + it[1] + '</span>'
         : '<span class="pic" data-pk="' + sg + '"><span class="pe" aria-hidden="true">' + it[1] + '</span>' +
-          '<img src="foto/' + sg + '.jpg" data-pk="' + sg + '" alt="Contoh gambar ' + esc(it[4]) + '" loading="lazy" onerror="this.hidden=1"></span>';
+          '<img src="' + photoSrc(sg) + '" data-pk="' + sg + '" alt="Contoh gambar ' + esc(it[4]) + '" loading="lazy" onerror="this.hidden=1"></span>';
       return '<button type="button" class="card' + alk + '">' +
         '<span class="badge">' + badge[it[0]] + '</span>' + top +
         '<span class="jpw">' + esc(it[2]) + '</span>' +
@@ -546,7 +562,7 @@
     });
     const bar = document.createElement('div');
     bar.id = 'editBar';
-    bar.innerHTML = '<span><b>Mode Edit Foto.</b> Klik kotak foto untuk memilih gambar. Foto tersimpan di browser ini saja. Agar siswa bisa melihatnya, unduh fotonya lalu unggah ke folder <b>foto/</b> di website.</span>' +
+    bar.innerHTML = '<span><b>Mode Edit Foto.</b> Klik kotak foto untuk memilih gambar. Foto tersimpan di browser ini saja. Agar siswa bisa melihatnya, unduh fotonya lalu unggah ke folder <b>images/</b> di website.</span>' +
       '<button type="button" class="pri" id="dlAll">Unduh semua foto</button><button type="button" id="clrAll">Hapus semua</button>';
     document.body.appendChild(bar);
     document.getElementById('dlAll').addEventListener('click', () => {
@@ -562,7 +578,7 @@
     });
   }
 
-  // Jenis-jenis (varian) tiap makanan. Foto: foto/<kode>.jpg
+  // Jenis-jenis (varian) tiap makanan. Foto: FOTO_DIR + <kode>.jpg
   const varian = {
     'tenpura': [
       ['海老天','えびてん','Tenpura udang','🦐','tenpura-ebi'],
@@ -576,19 +592,19 @@
     if(!varian[sg]) return '';
     return '<div class="varian"><h4>JENIS-JENIS</h4><div class="varian-grid">' + varian[sg].map(v =>
       '<figure><div class="vp" data-pk="' + v[4] + '"><span aria-hidden="true">' + v[3] + '</span>' +
-      '<img src="foto/' + v[4] + '.jpg" data-pk="' + v[4] + '" alt="Contoh gambar ' + esc(v[2]) + '" loading="lazy" onerror="this.hidden=1"></div>' +
+      '<img src="' + photoSrc(v[4]) + '" data-pk="' + v[4] + '" alt="Contoh gambar ' + esc(v[2]) + '" loading="lazy" onerror="this.hidden=1"></div>' +
       '<figcaption><span class="jp">' + esc(v[0]) + '</span>' + esc(v[1]) + ' · ' + esc(v[2]) + '</figcaption></figure>'
     ).join('') + '</div></div>';
   }
 
   render();
 
-  // Artikel bergambar untuk semua jenis makanan (foto: foto/<romaji>.jpg, sama dengan kartu)
+  // Artikel bergambar untuk semua jenis makanan (foto: sama dengan kartu)
   document.getElementById('artikelList').innerHTML = items.filter(it => it[0] === 'makanan').map((it, i) => {
     const sg = slug(it[4]);
     return '<article class="article' + (i % 2 ? ' flip' : '') + '">' +
       '<figure class="photo" data-pk="' + sg + '"><span class="ph"><b>' + it[1] + '</b>Foto ' + esc(it[4]) + '</span>' +
-      '<img src="foto/' + sg + '.jpg" data-pk="' + sg + '" alt="Contoh gambar ' + esc(it[4]) + '" loading="lazy" onerror="this.hidden=1">' +
+      '<img src="' + photoSrc(sg) + '" data-pk="' + sg + '" alt="Contoh gambar ' + esc(it[4]) + '" loading="lazy" onerror="this.hidden=1">' +
       '<figcaption>' + esc(it[4]) + '</figcaption></figure>' +
       '<div><div class="kicker">HIDANGAN</div><h3>' + esc(it[2]) + '</h3>' +
       '<div class="jp-sub">' + esc(it[3]) + ' · ' + esc(it[4]) + '</div>' +
