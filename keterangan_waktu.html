@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Kata Waktu: Gozen, Gogo, Ototoi, Asatte, Kagetsu | PRIME TEKIPAKI RAYA</title>
+<title>Kata Waktu: Gozen, Gogo, Ototoi, Asatte, Tookakan, Kagetsu | PRIME TEKIPAKI RAYA</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -110,12 +110,16 @@
   .yomi{color:var(--red); font-size:.82rem;}
   .note{margin-top:32px; padding:22px 26px; border-left:3px solid var(--sakura); background:var(--sakura-soft); color:var(--ink); line-height:1.8; font-size:.95rem; max-width:80ch;}
   .scroll-hint{display:none; color:var(--ink-soft); font-size:.8rem; margin:0 0 10px;}
+  .row-hint{color:var(--ink-soft); font-size:.8rem; margin:0 0 10px;}
 
-  /* Tabel bulan (kagetsu) */
-  .tbl-month{min-width:640px;}
-  .tbl-month tbody th{width:80px; text-align:center; vertical-align:middle; font-family:'Shippori Mincho',serif; font-size:1.1rem;}
-  .tbl-month td{vertical-align:middle;}
-  .tbl-month tr.hl td,.tbl-month tr.hl th{background:var(--sakura-soft);}
+  /* Tabel hitungan (hari & bulan): sorotan baris bisa dipindah */
+  .tbl-count{min-width:640px;}
+  .tbl-count tbody th{width:80px; text-align:center; vertical-align:middle; font-family:'Shippori Mincho',serif; font-size:1.1rem;}
+  .tbl-count td{vertical-align:middle;}
+  .tbl-count tbody tr{cursor:pointer;}
+  .tbl-count tbody tr:hover td,.tbl-count tbody tr:hover th{background:color-mix(in srgb,var(--sakura-soft) 55%,transparent);}
+  .tbl-count tbody tr.hl td,.tbl-count tbody tr.hl th{background:var(--sakura-soft);}
+  .tbl-count tbody tr:focus-visible{outline:2px solid var(--sakura); outline-offset:-2px;}
 
   /* Contoh kalimat */
   .facts{margin:0; padding:0; list-style:none; border-top:1px solid var(--line);}
@@ -167,6 +171,7 @@
           <a href="#gozengogo" data-jp="午前と午後">Gozen &amp; Gogo</a>
           <a href="#katawaktu" data-jp="時を表す言葉">Kata Waktu</a>
           <a href="#maeato" data-jp="〜前・〜後">Sebelum &amp; Sesudah</a>
+          <a href="#nichikan" data-jp="〜日間">Hitungan Hari</a>
           <a href="#kagetsu" data-jp="〜か月・〜か月間">Hitungan Bulan</a>
           <a href="#kontak" data-jp="お問い合わせ">Kontak</a>
         </nav>
@@ -185,7 +190,7 @@
       <div>
         <div class="hero-eyebrow" data-jp="日本語の基本">Kosakata Dasar Bahasa Jepang</div>
         <h1 data-jp="時間の言葉を覚えよう">Mengenal Kata Waktu</h1>
-        <p class="lead" data-jp="午前・午後から、一昨日・明後日・再来週、そして「6か月」「6か月間」まで。日常生活と試験によく出る時間の言葉をまとめました。">Dari gozen dan gogo sampai ototoi, asatte, saraishū, dan hitungan bulan seperti rokkagetsu. Kata waktu yang sering muncul di kehidupan sehari-hari dan di ujian JFT.</p>
+        <p class="lead" data-jp="午前・午後から、一昨日・明後日・再来週、そして「10日間」「6か月間」まで。日常生活と試験によく出る時間の言葉をまとめました。">Dari gozen dan gogo sampai ototoi, asatte, saraishū, dan lamanya waktu seperti tookakan (10 hari) dan rokkagetsukan (6 bulan). Kata waktu yang sering muncul di kehidupan sehari-hari dan di ujian JFT.</p>
         <div class="hero-cta">
           <a href="#gozengogo" class="cta-btn" data-jp="午前・午後を見る">Mulai dari Gozen &amp; Gogo</a>
           <a href="#katawaktu" class="cta-ghost" data-jp="表を見る">Langsung ke Tabel</a>
@@ -311,13 +316,13 @@
       </div>
 
       <div class="tbl-wrap"><table class="tbl"><thead><tr><th>Satuan</th><th>〜前 · yang lalu</th><th>〜後 · lagi / setelah</th></tr></thead><tbody>
-<tr><th scope="row">Hari (〜日)</th><td><span class="jp">二日前</span> <span class="yomi">ふつかまえ</span><br>2 hari lalu<br><span class="jp">三日前</span> <span class="yomi">みっかまえ</span><br>3 hari lalu</td><td><span class="jp">二日後</span> <span class="yomi">ふつかご</span><br>2 hari lagi<br><span class="jp">三日後</span> <span class="yomi">みっかご</span><br>3 hari lagi</td></tr>
+<tr><th scope="row">Hari (〜日)</th><td><span class="jp">二日前</span> <span class="yomi">ふつかまえ</span><br>2 hari lalu<br><span class="jp">三日前</span> <span class="yomi">みっかまえ</span><br>3 hari lalu<br><span class="jp">十日前</span> <span class="yomi">とおかまえ</span><br>10 hari lalu</td><td><span class="jp">二日後</span> <span class="yomi">ふつかご</span><br>2 hari lagi<br><span class="jp">三日後</span> <span class="yomi">みっかご</span><br>3 hari lagi<br><span class="jp">十日後</span> <span class="yomi">とおかご</span><br>10 hari lagi</td></tr>
 <tr><th scope="row">Minggu (〜週間)</th><td><span class="jp">一週間前</span> <span class="yomi">いっしゅうかんまえ</span><br>1 minggu lalu<br><span class="jp">二週間前</span> <span class="yomi">にしゅうかんまえ</span><br>2 minggu lalu</td><td><span class="jp">一週間後</span> <span class="yomi">いっしゅうかんご</span><br>1 minggu lagi<br><span class="jp">二週間後</span> <span class="yomi">にしゅうかんご</span><br>2 minggu lagi</td></tr>
 <tr><th scope="row">Bulan (〜か月)</th><td><span class="jp">一か月前</span> <span class="yomi">いっかげつまえ</span><br>1 bulan lalu<br><span class="jp">三か月前</span> <span class="yomi">さんかげつまえ</span><br>3 bulan lalu</td><td><span class="jp">一か月後</span> <span class="yomi">いっかげつご</span><br>1 bulan lagi<br><span class="jp">三か月後</span> <span class="yomi">さんかげつご</span><br>3 bulan lagi</td></tr>
 <tr><th scope="row">Tahun (〜年)</th><td><span class="jp">一年前</span> <span class="yomi">いちねんまえ</span><br>1 tahun lalu<br><span class="jp">二年前</span> <span class="yomi">にねんまえ</span><br>2 tahun lalu</td><td><span class="jp">一年後</span> <span class="yomi">いちねんご</span><br>1 tahun lagi<br><span class="jp">二年後</span> <span class="yomi">にねんご</span><br>2 tahun lagi</td></tr>
 </tbody></table></div>
 
-      <div class="note" data-jp="注意：「前」は「〜まえ」、「後」は「〜ご」と読みます。「あと」と読むと意味が少し変わります。">Perhatikan: 前 dibaca <b>mae</b> dan 後 dibaca <b>go</b> pada pola ini. Kata dasar 日 (hari) pada 2 sampai 10 hari memakai bacaan khusus seperti ふつか dan みっか.</div>
+      <div class="note" data-jp="注意：「前」は「〜まえ」、「後」は「〜ご」と読みます。「あと」と読むと意味が少し変わります。">Perhatikan: 前 dibaca <b>mae</b> dan 後 dibaca <b>go</b> pada pola ini. Kata dasar 日 (hari) pada 2 sampai 10 hari memakai bacaan khusus seperti ふつか, みっか, dan とおか.</div>
 
       <div class="section-head" style="margin-top:72px;">
         <div class="tag" data-jp="例文">CONTOH</div>
@@ -330,12 +335,74 @@
         <li><div><span class="jp">再来週、試験があります。</span><span class="yomi">さらいしゅう、しけんが あります。</span></div><div>Minggu setelah minggu depan ada ujian.</div></li>
         <li><div><span class="jp">午前九時から午後五時まで働きます。</span><span class="yomi">ごぜん くじから ごご ごじまで はたらきます。</span></div><div>Saya bekerja dari jam 9 pagi sampai jam 5 sore.</div></li>
         <li><div><span class="jp">二年前に日本へ来ました。</span><span class="yomi">にねんまえに にほんへ きました。</span></div><div>Saya datang ke Jepang 2 tahun lalu.</div></li>
+        <li><div><span class="jp">十日前に日本へ来ました。</span><span class="yomi">とおかまえに にほんへ きました。</span></div><div>Saya datang ke Jepang 10 hari lalu.</div></li>
+        <li><div><span class="jp">十日後に試験があります。</span><span class="yomi">とおかごに しけんが あります。</span></div><div>Ada ujian 10 hari lagi.</div></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== 〜日間 (Tookakan dst.) ===== -->
+  <section class="alt" id="nichikan">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="tag" data-jp="〜日間">NICHIKAN &amp; TOOKAKAN</div>
+        <div>
+          <h2 data-jp="「10日間」「3日間」の言い方">Menghitung hari: 十日間 (tookakan) dan 〜日間</h2>
+          <div class="desc" data-jp="「〜日間」は期間の長さ（何日間）を表します。「〜日」だけだと日付（何日）になることがあるので注意しましょう。">Akhiran <b>〜日間 (kan)</b> menyatakan <b>lamanya hari</b> (berapa hari). Tanpa 間, <b>〜日</b> bisa berarti <b>tanggal</b>, jadi jangan tertukar.</div>
+        </div>
+      </div>
+
+      <p class="row-hint" data-jp="行をタップすると色が移動します。">Ketuk baris untuk memindahkan sorotan warna.</p>
+      <p class="scroll-hint">Geser tabel ke samping untuk melihat semua kolom →</p>
+      <div class="tbl-wrap"><table class="tbl tbl-count"><thead><tr><th>Jumlah</th><th>〜日間 · selama</th><th>〜日 · tanggal</th></tr></thead><tbody>
+<tr><th scope="row">1</th><td><span class="jp">一日</span> <span class="yomi">いちにち</span> (一日間 いちにちかん)</td><td>一日 ついたち · tanggal 1</td></tr>
+<tr><th scope="row">2</th><td><span class="jp">二日間</span> <span class="yomi">ふつかかん</span></td><td>二日 ふつか · tanggal 2</td></tr>
+<tr><th scope="row">3</th><td><span class="jp">三日間</span> <span class="yomi">みっかかん</span></td><td>三日 みっか · tanggal 3</td></tr>
+<tr><th scope="row">4</th><td><span class="jp">四日間</span> <span class="yomi">よっかかん</span></td><td>四日 よっか · tanggal 4</td></tr>
+<tr><th scope="row">5</th><td><span class="jp">五日間</span> <span class="yomi">いつかかん</span></td><td>五日 いつか · tanggal 5</td></tr>
+<tr><th scope="row">6</th><td><span class="jp">六日間</span> <span class="yomi">むいかかん</span></td><td>六日 むいか · tanggal 6</td></tr>
+<tr><th scope="row">7</th><td><span class="jp">七日間</span> <span class="yomi">なのかかん</span></td><td>七日 なのか · tanggal 7</td></tr>
+<tr><th scope="row">8</th><td><span class="jp">八日間</span> <span class="yomi">ようかかん</span></td><td>八日 ようか · tanggal 8</td></tr>
+<tr><th scope="row">9</th><td><span class="jp">九日間</span> <span class="yomi">ここのかかん</span></td><td>九日 ここのか · tanggal 9</td></tr>
+<tr class="hl"><th scope="row">10</th><td><span class="jp">十日間</span> <span class="yomi">とおかかん</span></td><td>十日 とおか · tanggal 10</td></tr>
+<tr><th scope="row">11</th><td><span class="jp">十一日間</span> <span class="yomi">じゅういちにちかん</span></td><td>十一日 じゅういちにち · tanggal 11</td></tr>
+<tr><th scope="row">14</th><td><span class="jp">十四日間</span> <span class="yomi">じゅうよっかかん</span></td><td>十四日 じゅうよっか · tanggal 14</td></tr>
+<tr><th scope="row">20</th><td><span class="jp">二十日間</span> <span class="yomi">はつかかん</span></td><td>二十日 はつか · tanggal 20</td></tr>
+<tr><th scope="row">24</th><td><span class="jp">二十四日間</span> <span class="yomi">にじゅうよっかかん</span></td><td>二十四日 にじゅうよっか · tanggal 24</td></tr>
+<tr><th scope="row">?</th><td><span class="jp">何日間</span> <span class="yomi">なんにちかん</span></td><td>何日 なんにち · tanggal berapa</td></tr>
+</tbody></table></div>
+
+      <div class="note" data-jp="覚え方：2〜10日、14日、20日、24日は特別な読み方です（ふつか・みっか…とおか・じゅうよっか・はつか・にじゅうよっか）。それ以外は「数字＋にち」（11日＝じゅういちにち）です。1日の日付は「ついたち」、期間は「いちにち」です。">Hafalan: <b>2 sampai 10 hari</b>, serta <b>14, 20, dan 24</b> memakai bacaan khusus (ふつか, みっか … とおか, じゅうよっか, はつか, にじゅうよっか). Selain itu cukup <b>angka + にち</b> (11 = じゅういちにち). Untuk angka 1, tanggal 1 dibaca <b>ついたち</b>, sedangkan "satu hari" dibaca <b>いちにち</b>. Satu minggu sama dengan <b>七日間 (なのかかん)</b> atau <b>一週間</b>.</div>
+
+      <div class="section-head" style="margin-top:72px;">
+        <div class="tag" data-jp="〜間・〜前・〜後">KAN, MAE, GO</div>
+        <div>
+          <h2 data-jp="「十日間」「十日前」「十日後」の違い">Beda 十日間, 十日前, dan 十日後</h2>
+          <div class="desc" data-jp="「間」は期間の長さ、「前」「後」は今を基準にした時点です。「十日」だけだと日付（10日）になります。">Akhiran <b>間 (kan)</b> menyatakan <b>lamanya</b>. <b>前</b> dan <b>後</b> menyatakan <b>titik waktu</b> dari sekarang. Tanpa akhiran, <b>十日</b> berarti <b>tanggal 10</b>.</div>
+        </div>
+      </div>
+
+      <div class="tbl-wrap"><table class="tbl"><thead><tr><th>Pola</th><th>Contoh</th><th>Arti</th></tr></thead><tbody>
+<tr><th scope="row">〜日間</th><td><span class="jp">十日間</span> <span class="yomi">とおかかん</span></td><td>Selama 10 hari (lamanya)</td></tr>
+<tr><th scope="row">〜日前</th><td><span class="jp">十日前</span> <span class="yomi">とおかまえ</span></td><td>10 hari yang lalu (titik waktu di masa lalu)</td></tr>
+<tr><th scope="row">〜日後</th><td><span class="jp">十日後</span> <span class="yomi">とおかご</span></td><td>10 hari lagi (titik waktu di masa depan)</td></tr>
+<tr><th scope="row">〜日</th><td><span class="jp">十日</span> <span class="yomi">とおか</span></td><td>Tanggal 10</td></tr>
+</tbody></table></div>
+
+      <ul class="facts" style="margin-top:32px;">
+        <li><div><span class="jp">十日間休みました。</span><span class="yomi">とおかかん やすみました。</span></div><div>Saya libur selama 10 hari.</div></li>
+        <li><div><span class="jp">三日間、日本にいます。</span><span class="yomi">みっかかん、にほんに います。</span></div><div>Saya berada di Jepang selama 3 hari.</div></li>
+        <li><div><span class="jp">五日間、研修があります。</span><span class="yomi">いつかかん、けんしゅうが あります。</span></div><div>Ada pelatihan selama 5 hari.</div></li>
+        <li><div><span class="jp">十日前に仕事を始めました。</span><span class="yomi">とおかまえに しごとを はじめました。</span></div><div>Saya mulai bekerja 10 hari yang lalu.</div></li>
+        <li><div><span class="jp">十日後に国へ帰ります。</span><span class="yomi">とおかごに くにへ かえります。</span></div><div>Saya pulang ke negara asal 10 hari lagi.</div></li>
+        <li><div><span class="jp">試験は十日です。</span><span class="yomi">しけんは とおかです。</span></div><div>Ujiannya tanggal 10. (tanggal, bukan lamanya)</div></li>
+        <li><div><span class="jp">二十日間、工場で働きました。</span><span class="yomi">はつかかん、こうじょうで はたらきました。</span></div><div>Saya bekerja di pabrik selama 20 hari.</div></li>
       </ul>
     </div>
   </section>
 
   <!-- ===== 〜か月 / 〜か月間 ===== -->
-  <section class="alt" id="kagetsu">
+  <section id="kagetsu">
     <div class="wrap">
       <div class="section-head">
         <div class="tag" data-jp="〜か月・〜か月間">KAGETSU &amp; KAGETSUKAN</div>
@@ -345,8 +412,9 @@
         </div>
       </div>
 
+      <p class="row-hint" data-jp="行をタップすると色が移動します。">Ketuk baris untuk memindahkan sorotan warna.</p>
       <p class="scroll-hint">Geser tabel ke samping untuk melihat semua kolom →</p>
-      <div class="tbl-wrap"><table class="tbl tbl-month"><thead><tr><th>Jumlah</th><th>〜か月 · jumlah bulan</th><th>〜か月間 · selama</th><th>Nama bulan (〜月)</th></tr></thead><tbody>
+      <div class="tbl-wrap"><table class="tbl tbl-count"><thead><tr><th>Jumlah</th><th>〜か月 · jumlah bulan</th><th>〜か月間 · selama</th><th>Nama bulan (〜月)</th></tr></thead><tbody>
 <tr><th scope="row">1</th><td><span class="jp">一か月</span> <span class="yomi">いっかげつ</span></td><td><span class="jp">一か月間</span> <span class="yomi">いっかげつかん</span></td><td>一月 いちがつ · Januari</td></tr>
 <tr><th scope="row">2</th><td><span class="jp">二か月</span> <span class="yomi">にかげつ</span></td><td><span class="jp">二か月間</span> <span class="yomi">にかげつかん</span></td><td>二月 にがつ · Februari</td></tr>
 <tr><th scope="row">3</th><td><span class="jp">三か月</span> <span class="yomi">さんかげつ</span></td><td><span class="jp">三か月間</span> <span class="yomi">さんかげつかん</span></td><td>三月 さんがつ · Maret</td></tr>
@@ -388,7 +456,7 @@
     </div>
   </section>
 
-  <section id="kontak">
+  <section class="alt" id="kontak">
     <div class="wrap">
       <div class="contact-panel">
         <div>
@@ -450,6 +518,19 @@
   applyLang(lang);
   document.getElementById('langToggle').addEventListener('click', () => {
     lang = lang === 'jp' ? 'id' : 'jp'; applyLang(lang);
+  });
+
+  // Sorotan baris tabel hitungan (hari & bulan) bisa dipindah
+  document.querySelectorAll('.tbl-count').forEach(t => {
+    const rows = [...t.querySelectorAll('tbody tr')];
+    const pick = r => { rows.forEach(x => x.classList.remove('hl')); r.classList.add('hl'); };
+    rows.forEach(r => {
+      r.tabIndex = 0;
+      r.addEventListener('click', () => pick(r));
+      r.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pick(r); }
+      });
+    });
   });
 
   // Menu dropdown
