@@ -101,6 +101,35 @@
   .card.alk .badge{background:var(--warn-soft); color:var(--warn);}
   body.quiz .card:not(.shown) .ans{filter:blur(7px); user-select:none;}
   .ans{transition:filter .2s ease;}
+  .card .pic{position:relative; display:flex; align-items:center; justify-content:center; width:calc(100% + 36px); aspect-ratio:4/3; margin:-20px -18px 12px; border-radius:5px 5px 0 0; overflow:hidden; background:var(--sakura-soft); border-bottom:1px solid var(--line);}
+  .card .pic .pe{font-size:2.6rem; line-height:1;}
+  .card .pic img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block;}
+  .card .badge{z-index:2;}
+
+  /* ===== Artikel bergambar ===== */
+  .article{display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center; padding:40px 0; border-top:1px solid var(--line);}
+  .article:first-of-type{border-top:none; padding-top:0;}
+  .article.flip .photo{order:2;}
+  .photo{position:relative; margin:0; border-radius:6px; overflow:hidden; border:1px solid var(--line-strong); background:var(--sakura-soft); aspect-ratio:4/3;}
+  .photo img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; z-index:1;}
+  .photo .ph{position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px; color:var(--ink-soft); font-size:.82rem; text-align:center; padding:16px;}
+  .photo .ph b{font-size:2rem;}
+  .photo figcaption{position:absolute; left:0; right:0; bottom:0; padding:8px 14px; font-size:.75rem; background:color-mix(in srgb,var(--bg) 82%,transparent); color:var(--ink-soft); z-index:2;}
+  .article .kicker{color:var(--red); font-size:.8rem; font-weight:600; letter-spacing:.08em; margin-bottom:10px;}
+  .article h3{font-size:clamp(1.4rem,2.6vw,1.9rem); margin-bottom:6px;}
+  .article .jp-sub{color:var(--red); font-size:.9rem; margin-bottom:16px;}
+  .article p{color:var(--ink-soft); line-height:1.85; font-size:.97rem; margin:0 0 14px;}
+  .article .vocab{display:flex; flex-wrap:wrap; gap:8px; margin-top:6px;}
+  .article .vocab span{border:1px solid var(--line-strong); border-radius:20px; padding:4px 12px; font-size:.82rem;}
+
+  .varian{margin-top:18px;}
+  .varian h4{margin:0 0 10px; font-size:.82rem; letter-spacing:.06em; color:var(--red);}
+  .varian-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(112px,1fr)); gap:10px;}
+  .varian figure{margin:0;}
+  .varian .vp{position:relative; display:flex; align-items:center; justify-content:center; aspect-ratio:4/3; border:1px solid var(--line-strong); border-radius:4px; overflow:hidden; background:var(--sakura-soft); font-size:1.7rem;}
+  .varian .vp img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block;}
+  .varian figcaption{margin-top:6px; font-size:.78rem; line-height:1.45; color:var(--ink-soft);}
+  .varian figcaption .jp{display:block; font-size:.95rem; color:var(--ink);}
 
   .tbl-wrap{border:1px solid var(--line-strong); border-radius:4px; overflow-x:auto; background:var(--bg);}
   .tbl{width:100%; border-collapse:collapse; min-width:560px;}
@@ -139,6 +168,8 @@
     .contact-panel{padding:36px 26px;}
     .mode-btn{margin-left:0;}
     .grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:12px;}
+    .article{grid-template-columns:1fr; gap:22px; padding:30px 0;}
+    .article.flip .photo{order:0;}
   }
 </style>
 </head>
@@ -160,9 +191,9 @@
         <nav class="links" id="navLinks">
           <a href="index.html" data-jp="ホーム">Beranda</a>
           <a href="#kosakata" data-jp="食べ物・飲み物">Makanan &amp; Minuman</a>
+          <a href="#artikel" data-jp="読みもの">Artikel</a>
           <a href="#rasa" data-jp="味の言葉">Rasa &amp; Suhu</a>
           <a href="#restoran" data-jp="レストランで">Di Restoran</a>
-          <a href="#hitung" data-jp="数え方">Cara Menghitung</a>
           <a href="#kontak" data-jp="お問い合わせ">Kontak</a>
         </nav>
       </div>
@@ -180,7 +211,7 @@
       <div>
         <div class="hero-eyebrow" data-jp="日本語の基本">Kosakata Dasar Bahasa Jepang</div>
         <h1 data-jp="食べ物と飲み物を覚えよう">Makanan &amp; Minuman Jepang</h1>
-        <p class="lead" data-jp="ご飯、寿司、ラーメンからお茶、コーヒーまで。レストランで使える表現や、味の言葉もまとめました。">Dari gohan, sushi, dan rāmen sampai ocha dan kōhī. Lengkap dengan ungkapan di restoran, kata rasa, dan cara menghitung makanan serta minuman.</p>
+        <p class="lead" data-jp="ご飯、寿司、ラーメンからお茶、コーヒーまで。レストランで使える表現や、味の言葉もまとめました。">Dari gohan, sushi, dan rāmen sampai ocha dan kōhī. Lengkap dengan ungkapan di restoran, kata rasa, dan contoh kalimat.</p>
         <div class="hero-cta">
           <a href="#kosakata" class="cta-btn" data-jp="単語を見る">Lihat Kosakata</a>
           <a href="#restoran" class="cta-ghost" data-jp="レストランの表現">Ungkapan di Restoran</a>
@@ -214,6 +245,21 @@
       <div class="grid" id="grid"></div>
 
       <div class="note warn" data-jp="注意：お酒（ビール・日本酒）やみりんにはアルコールが入っています。豚肉やラードが入っている料理もあるので、食べられない場合は注文のときに聞きましょう。">Perhatian: <b>お酒 (osake)</b>, bir, sake, dan bumbu seperti <b>みりん (mirin)</b> mengandung alkohol. Banyak masakan juga memakai daging babi atau lemaknya. Kalau ada pantangan, tanyakan dulu saat memesan (lihat bagian Di Restoran).</div>
+
+      <!-- ===== ARTIKEL BERGAMBAR =====
+           Cara pasang foto: isi atribut src pada <img>, contoh src="foto/sushi.jpg".
+           Selama src kosong atau file tidak ada, kotak placeholder yang tampil. -->
+      <div id="artikel" style="margin-top:72px;">
+        <div class="section-head">
+          <div class="tag" data-jp="読みもの">ARTIKEL</div>
+          <div>
+            <h2 data-jp="日本の料理を知ろう">Mengenal semua jenis makanan Jepang</h2>
+            <div class="desc" data-jp="料理の種類を写真つきで紹介します。">Semua jenis makanan dari daftar kosakata, masing-masing dengan ruang foto contoh.</div>
+          </div>
+        </div>
+
+        <div id="artikelList"></div>
+      </div>
     </div>
   </section>
 
@@ -283,35 +329,6 @@
     </div>
   </section>
 
-  <section class="alt" id="hitung">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="tag" data-jp="数え方">KAZOEKATA</div>
-        <div>
-          <h2 data-jp="一杯・二杯…と数える">Menghitung minuman dengan 〜杯 (hai)</h2>
-          <div class="desc" data-jp="コップやカップに入った飲み物やご飯は「〜杯」で数えます。読み方が変わるので注意しましょう。">Minuman dalam gelas atau cangkir, dan juga semangkuk nasi atau mi, dihitung dengan <b>〜杯 (hai)</b>. Bacaannya berubah-ubah, jadi hafalkan polanya.</div>
-        </div>
-      </div>
-
-      <p class="scroll-hint">Geser tabel ke samping untuk melihat semua kolom →</p>
-      <div class="tbl-wrap"><table class="tbl"><thead><tr><th>Jumlah</th><th>〜杯 · gelas / mangkuk</th><th>Contoh</th></tr></thead><tbody>
-<tr><th scope="row">1</th><td><span class="jp">一杯</span> <span class="yomi-i">いっぱい</span></td><td>コーヒーを一杯ください。 · Satu kopi, ya.</td></tr>
-<tr><th scope="row">2</th><td><span class="jp">二杯</span> <span class="yomi-i">にはい</span></td><td>お茶を二杯飲みました。 · Saya minum dua gelas teh.</td></tr>
-<tr><th scope="row">3</th><td><span class="jp">三杯</span> <span class="yomi-i">さんばい</span></td><td>ご飯を三杯食べました。 · Saya makan tiga mangkuk nasi.</td></tr>
-<tr><th scope="row">4</th><td><span class="jp">四杯</span> <span class="yomi-i">よんはい</span></td><td>水を四杯ください。 · Minta empat gelas air.</td></tr>
-<tr><th scope="row">5</th><td><span class="jp">五杯</span> <span class="yomi-i">ごはい</span></td><td>ラーメンを五杯作ります。 · Saya membuat lima mangkuk rāmen.</td></tr>
-<tr><th scope="row">6</th><td><span class="jp">六杯</span> <span class="yomi-i">ろっぱい</span></td><td>ジュースを六杯用意します。 · Saya siapkan enam gelas jus.</td></tr>
-<tr><th scope="row">7</th><td><span class="jp">七杯</span> <span class="yomi-i">ななはい</span></td><td>お茶を七杯入れました。 · Saya tuangkan tujuh gelas teh.</td></tr>
-<tr><th scope="row">8</th><td><span class="jp">八杯</span> <span class="yomi-i">はっぱい</span></td><td>水を八杯飲みました。 · Saya minum delapan gelas air.</td></tr>
-<tr><th scope="row">9</th><td><span class="jp">九杯</span> <span class="yomi-i">きゅうはい</span></td><td>コーヒーを九杯注文しました。 · Saya pesan sembilan kopi.</td></tr>
-<tr><th scope="row">10</th><td><span class="jp">十杯</span> <span class="yomi-i">じゅっぱい</span></td><td>ご飯を十杯炊きます。 · Saya masak sepuluh mangkuk nasi.</td></tr>
-<tr><th scope="row">?</th><td><span class="jp">何杯</span> <span class="yomi-i">なんばい</span></td><td>何杯飲みましたか。 · Berapa gelas yang kamu minum?</td></tr>
-</tbody></table></div>
-
-      <div class="note" data-jp="覚え方：1・6・8・10杯は「っぱい」、3杯と「何杯」は「ばい」、それ以外は「はい」です。すしや魚、肉などは「〜つ」「〜個」「〜枚」で数えることが多いです（例：すしを二つください）。">Hafalan: <b>1, 6, 8, 10</b> berbunyi <b>っぱい</b> (いっぱい, ろっぱい, はっぱい, じゅっぱい). <b>3</b> dan <b>何</b> berbunyi <b>ばい</b> (さんばい, なんばい). Angka lainnya <b>はい</b>. Untuk sushi, buah, atau lauk, biasanya dipakai <b>〜つ</b> atau <b>〜個</b>, misalnya すしを二つください (minta dua sushi).</div>
-    </div>
-  </section>
-
   <section id="kontak">
     <div class="wrap">
       <div class="contact-panel">
@@ -356,6 +373,11 @@
     ['makanan','🍱','弁当','べんとう','bentō','Bekal makan siang dalam kotak','お弁当 dengan awalan sopan o-'],
     ['makanan','🥬','漬物','つけもの','tsukemono','Sayur acar',''],
     ['makanan','🍞','パン','ぱん','pan','Roti',''],
+    ['makanan','🍡','団子','だんご','dango','Bola mochi kecil yang ditusuk, biasanya 3 sampai 5 butir','Sering diberi saus manis shōyu (mitarashi) atau pasta kacang merah'],
+    ['makanan','🥞','どら焼き','どらやき','dorayaki','Dua pancake bulat dengan isi pasta kacang merah (anko)','Camilan favorit tokoh Doraemon'],
+    ['makanan','🐟','たい焼き','たいやき','taiyaki','Kue panggang berbentuk ikan tai (kakap merah) dengan isi manis','Isi umum: anko, krim custard, atau cokelat'],
+    ['makanan','🍮','プリン','ぷりん','purin','Puding ala Jepang dengan saus karamel','Teksturnya lembut dan kenyal'],
+    ['makanan','🍡','わらび餅','わらびもち','warabi mochi','Kue bening yang kenyal dan lembut, ditaburi kinako','Biasanya dimakan dingin'],
     ['bahan','🍖','肉','にく','niku','Daging',''],
     ['bahan','🐷','豚肉','ぶたにく','butaniku','Daging babi','Penting bagi yang tidak makan babi'],
     ['bahan','🐔','鶏肉','とりにく','toriniku','Daging ayam',''],
@@ -390,14 +412,23 @@
 
   function esc(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;'); }
 
+  // Foto kartu: nama file = romaji tanpa tanda panjang, huruf kecil, di folder "foto/"
+  // Contoh: sushi -> foto/sushi.jpg, rāmen -> foto/ramen.jpg, nattō -> foto/natto.jpg
+  const noPhoto = ['mizu', 'yasai']; // kata yang tidak diberi foto
+  const slug = s => s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+
   function render(){
     const list = items.filter(it => filter === 'semua' || it[0] === filter || (filter === 'minuman' && it[0] === 'alkohol'));
     grid.innerHTML = list.map(it => {
       const alk = it[0] === 'alkohol' ? ' alk' : '';
       const note = it[6] ? '<div class="nt">' + esc(it[6]) + '</div>' : '';
+      const sg = slug(it[4]);
+      const top = noPhoto.includes(sg)
+        ? '<span class="emo" aria-hidden="true">' + it[1] + '</span>'
+        : '<span class="pic"><span class="pe" aria-hidden="true">' + it[1] + '</span>' +
+          '<img src="foto/' + sg + '.jpg" alt="Contoh gambar ' + esc(it[4]) + '" loading="lazy" onerror="this.remove()"></span>';
       return '<button type="button" class="card' + alk + '">' +
-        '<span class="badge">' + badge[it[0]] + '</span>' +
-        '<span class="emo" aria-hidden="true">' + it[1] + '</span>' +
+        '<span class="badge">' + badge[it[0]] + '</span>' + top +
         '<span class="jpw">' + esc(it[2]) + '</span>' +
         '<span class="ans"><span class="yomi">' + esc(it[3]) + '</span><br>' +
         '<span class="roma">' + esc(it[4]) + '</span>' +
@@ -425,7 +456,65 @@
     if (c && document.body.classList.contains('quiz')) c.classList.toggle('shown');
   });
 
+  // Penjelasan singkat untuk tiap makanan (kunci = nama file foto tanpa .jpg)
+  const exp = {
+    'gohan': 'Nasi putih adalah makanan pokok Jepang, biasanya dimakan bersama lauk dan sup. Kata ご飯 juga dipakai untuk menyebut waktu makan.',
+    'onigiri': 'Nasi yang dikepal berbentuk segitiga atau bulat, sering dibungkus rumput laut (nori). Praktis dibawa sebagai bekal dan mudah dibeli di minimarket.',
+    'sushi': 'Nasi berbumbu cuka dengan topping seperti ikan, telur, atau sayur. Jenis yang paling dikenal adalah nigiri (dikepal) dan maki (digulung).',
+    'sashimi': 'Irisan tipis ikan atau seafood mentah yang disajikan tanpa nasi. Biasanya dimakan dengan shōyu dan wasabi.',
+    'tenpura': 'Udang, ikan, atau sayur yang dicelup adonan tepung tipis lalu digoreng. Biasa dimakan dengan saus celup tsuyu atau garam.',
+    'ramen': 'Mi kuah dengan topping seperti irisan daging, telur, dan daun bawang. Rasa kuah yang umum adalah shōyu, miso, shio, dan tonkotsu.',
+    'udon': 'Mi dari tepung terigu yang tebal dan kenyal. Disajikan panas dalam kuah, atau dingin dengan saus celup.',
+    'soba': 'Mi tipis dari tepung soba (buckwheat). Bisa dimakan panas berkuah atau dingin dengan saus celup.',
+    'kare': 'Kari ala Jepang yang rasanya lembut dan agak manis, berisi kentang, wortel, dan daging, lalu dimakan dengan nasi.',
+    'donburi': 'Semangkuk nasi dengan lauk di atasnya, misalnya gyūdon (daging sapi) atau oyakodon (ayam dan telur). Praktis dan mengenyangkan.',
+    'misoshiru': 'Sup dari kaldu dashi yang dicampur pasta miso, biasanya berisi tahu, rumput laut wakame, atau daun bawang.',
+    'natto': 'Kedelai yang difermentasi dengan tekstur lengket dan aroma kuat. Sering dimakan bersama nasi saat sarapan.',
+    'yakitori': 'Potongan ayam yang ditusuk lalu dipanggang, dibumbui garam (shio) atau saus manis-asin (tare).',
+    'okonomiyaki': 'Adonan tepung dan kubis yang dipanggang di atas pelat besi, diberi saus, mayones, dan taburan. Terkenal dari daerah Osaka dan Hiroshima.',
+    'tamagoyaki': 'Telur yang digulung berlapis di wajan persegi dengan rasa sedikit manis. Sering menjadi isi bentō dan sushi.',
+    'bento': 'Kotak bekal berisi nasi, lauk, dan sayur yang ditata rapi. Bisa dibuat sendiri atau dibeli di toko dan stasiun.',
+    'tsukemono': 'Sayuran yang diawetkan dengan garam, cuka, atau bekatul. Disajikan sebagai pelengkap nasi.',
+    'pan': 'Roti, kata serapan dari bahasa Portugis. Roti tawar tebal (shokupan) sangat populer di Jepang.',
+    'dango': 'Bola kecil dari tepung beras yang ditusuk dengan tusukan. Variasi populer adalah mitarashi dango yang dilumuri saus manis-asin dari shōyu dan gula.',
+    'dorayaki': 'Dua lapis pancake lembut yang diapit pasta kacang merah manis (anko). Ada juga versi dengan isi krim atau kastanye.',
+    'taiyaki': 'Kue panggang berbentuk ikan tai, bagian luarnya renyah dan dalamnya lembut. Dijual hangat, terutama di festival dan pinggir jalan.',
+    'purin': 'Puding susu dan telur yang dikukus, diberi saus karamel di atasnya. Mudah ditemukan di minimarket dan kafe.',
+    'warabi-mochi': 'Kue bening bertekstur kenyal dari pati warabi, ditaburi bubuk kedelai panggang (kinako) dan sering disiram sirup gula kuromitsu. Pas dimakan dingin saat musim panas.'
+  };
+
+  // Jenis-jenis (varian) tiap makanan. Foto: foto/<kode>.jpg
+  const varian = {
+    'tenpura': [
+      ['海老天','えびてん','Tenpura udang','🦐','tenpura-ebi'],
+      ['かき揚げ','かきあげ','Gorengan campur sayur dan seafood iris','🍤','tenpura-kakiage'],
+      ['かぼちゃ','かぼちゃ','Tenpura labu kuning','🎃','tenpura-kabocha'],
+      ['なす','なす','Tenpura terong','🍆','tenpura-nasu'],
+      ['しいたけ','しいたけ','Tenpura jamur shiitake','🍄','tenpura-shiitake']
+    ]
+  };
+  function variants(sg){
+    if(!varian[sg]) return '';
+    return '<div class="varian"><h4>JENIS-JENIS</h4><div class="varian-grid">' + varian[sg].map(v =>
+      '<figure><div class="vp"><span aria-hidden="true">' + v[3] + '</span>' +
+      '<img src="foto/' + v[4] + '.jpg" alt="Contoh gambar ' + esc(v[2]) + '" loading="lazy" onerror="this.remove()"></div>' +
+      '<figcaption><span class="jp">' + esc(v[0]) + '</span>' + esc(v[1]) + ' · ' + esc(v[2]) + '</figcaption></figure>'
+    ).join('') + '</div></div>';
+  }
+
   render();
+
+  // Artikel bergambar untuk semua jenis makanan (foto: foto/<romaji>.jpg, sama dengan kartu)
+  document.getElementById('artikelList').innerHTML = items.filter(it => it[0] === 'makanan').map((it, i) => {
+    const sg = slug(it[4]);
+    return '<article class="article' + (i % 2 ? ' flip' : '') + '">' +
+      '<figure class="photo"><span class="ph"><b>' + it[1] + '</b>Foto ' + esc(it[4]) + '</span>' +
+      '<img src="foto/' + sg + '.jpg" alt="Contoh gambar ' + esc(it[4]) + '" loading="lazy" onerror="this.remove()">' +
+      '<figcaption>' + esc(it[4]) + '</figcaption></figure>' +
+      '<div><div class="kicker">HIDANGAN</div><h3>' + esc(it[2]) + '</h3>' +
+      '<div class="jp-sub">' + esc(it[3]) + ' · ' + esc(it[4]) + '</div>' +
+      '<p><b>' + esc(it[5]) + '.</b></p>' + (exp[sg] ? '<p>' + esc(exp[sg]) + '</p>' : '') + (it[6] ? '<p>' + esc(it[6]) + '</p>' : '') + variants(sg) + '</div></article>';
+  }).join('');
 
   const langLabel = document.getElementById('langLabel');
   const i18n = document.querySelectorAll('[data-jp]');
