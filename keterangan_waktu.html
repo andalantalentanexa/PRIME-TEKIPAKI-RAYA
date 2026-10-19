@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Kata Waktu: Gozen, Gogo, Ototoi, Asatte | PRIME TEKIPAKI RAYA</title>
+<title>Kata Waktu: Gozen, Gogo, Ototoi, Asatte, Kagetsu | PRIME TEKIPAKI RAYA</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -111,6 +111,12 @@
   .note{margin-top:32px; padding:22px 26px; border-left:3px solid var(--sakura); background:var(--sakura-soft); color:var(--ink); line-height:1.8; font-size:.95rem; max-width:80ch;}
   .scroll-hint{display:none; color:var(--ink-soft); font-size:.8rem; margin:0 0 10px;}
 
+  /* Tabel bulan (kagetsu) */
+  .tbl-month{min-width:640px;}
+  .tbl-month tbody th{width:80px; text-align:center; vertical-align:middle; font-family:'Shippori Mincho',serif; font-size:1.1rem;}
+  .tbl-month td{vertical-align:middle;}
+  .tbl-month tr.hl td,.tbl-month tr.hl th{background:var(--sakura-soft);}
+
   /* Contoh kalimat */
   .facts{margin:0; padding:0; list-style:none; border-top:1px solid var(--line);}
   .facts li{display:grid; grid-template-columns:1.2fr 1fr; gap:20px; padding:16px 0; border-bottom:1px solid var(--line); font-size:.93rem; line-height:1.7;}
@@ -161,6 +167,7 @@
           <a href="#gozengogo" data-jp="午前と午後">Gozen &amp; Gogo</a>
           <a href="#katawaktu" data-jp="時を表す言葉">Kata Waktu</a>
           <a href="#maeato" data-jp="〜前・〜後">Sebelum &amp; Sesudah</a>
+          <a href="#kagetsu" data-jp="〜か月・〜か月間">Hitungan Bulan</a>
           <a href="#kontak" data-jp="お問い合わせ">Kontak</a>
         </nav>
       </div>
@@ -178,7 +185,7 @@
       <div>
         <div class="hero-eyebrow" data-jp="日本語の基本">Kosakata Dasar Bahasa Jepang</div>
         <h1 data-jp="時間の言葉を覚えよう">Mengenal Kata Waktu</h1>
-        <p class="lead" data-jp="午前・午後から、一昨日・明後日・再来週まで。日常生活と試験によく出る時間の言葉をまとめました。">Dari gozen dan gogo sampai ototoi, asatte, dan saraishū. Kata waktu yang sering muncul di kehidupan sehari-hari dan di ujian JFT.</p>
+        <p class="lead" data-jp="午前・午後から、一昨日・明後日・再来週、そして「6か月」「6か月間」まで。日常生活と試験によく出る時間の言葉をまとめました。">Dari gozen dan gogo sampai ototoi, asatte, saraishū, dan hitungan bulan seperti rokkagetsu. Kata waktu yang sering muncul di kehidupan sehari-hari dan di ujian JFT.</p>
         <div class="hero-cta">
           <a href="#gozengogo" class="cta-btn" data-jp="午前・午後を見る">Mulai dari Gozen &amp; Gogo</a>
           <a href="#katawaktu" class="cta-ghost" data-jp="表を見る">Langsung ke Tabel</a>
@@ -327,7 +334,61 @@
     </div>
   </section>
 
-  <section class="alt" id="kontak">
+  <!-- ===== 〜か月 / 〜か月間 ===== -->
+  <section class="alt" id="kagetsu">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="tag" data-jp="〜か月・〜か月間">KAGETSU &amp; KAGETSUKAN</div>
+        <div>
+          <h2 data-jp="「6か月」「6か月間」の言い方">Menghitung bulan: 6か月 dan 6か月間</h2>
+          <div class="desc" data-jp="「〜か月」は期間（何か月）を表します。「〜月（がつ）」は月の名前です。読み方がまったく違うので注意しましょう。">Satuan <b>〜か月 (kagetsu)</b> untuk <b>jumlah bulan</b>, sedangkan <b>〜月 (gatsu)</b> untuk <b>nama bulan</b>. Bacaannya berbeda, jadi jangan tertukar.</div>
+        </div>
+      </div>
+
+      <p class="scroll-hint">Geser tabel ke samping untuk melihat semua kolom →</p>
+      <div class="tbl-wrap"><table class="tbl tbl-month"><thead><tr><th>Jumlah</th><th>〜か月 · jumlah bulan</th><th>〜か月間 · selama</th><th>Nama bulan (〜月)</th></tr></thead><tbody>
+<tr><th scope="row">1</th><td><span class="jp">一か月</span> <span class="yomi">いっかげつ</span></td><td><span class="jp">一か月間</span> <span class="yomi">いっかげつかん</span></td><td>一月 いちがつ · Januari</td></tr>
+<tr><th scope="row">2</th><td><span class="jp">二か月</span> <span class="yomi">にかげつ</span></td><td><span class="jp">二か月間</span> <span class="yomi">にかげつかん</span></td><td>二月 にがつ · Februari</td></tr>
+<tr><th scope="row">3</th><td><span class="jp">三か月</span> <span class="yomi">さんかげつ</span></td><td><span class="jp">三か月間</span> <span class="yomi">さんかげつかん</span></td><td>三月 さんがつ · Maret</td></tr>
+<tr><th scope="row">4</th><td><span class="jp">四か月</span> <span class="yomi">よんかげつ</span></td><td><span class="jp">四か月間</span> <span class="yomi">よんかげつかん</span></td><td>四月 しがつ · April</td></tr>
+<tr><th scope="row">5</th><td><span class="jp">五か月</span> <span class="yomi">ごかげつ</span></td><td><span class="jp">五か月間</span> <span class="yomi">ごかげつかん</span></td><td>五月 ごがつ · Mei</td></tr>
+<tr class="hl"><th scope="row">6</th><td><span class="jp">六か月</span> <span class="yomi">ろっかげつ</span></td><td><span class="jp">六か月間</span> <span class="yomi">ろっかげつかん</span></td><td>六月 ろくがつ · Juni</td></tr>
+<tr><th scope="row">7</th><td><span class="jp">七か月</span> <span class="yomi">ななかげつ</span> (しちかげつ)</td><td><span class="jp">七か月間</span> <span class="yomi">ななかげつかん</span></td><td>七月 しちがつ · Juli</td></tr>
+<tr><th scope="row">8</th><td><span class="jp">八か月</span> <span class="yomi">はっかげつ</span> (はちかげつ)</td><td><span class="jp">八か月間</span> <span class="yomi">はっかげつかん</span></td><td>八月 はちがつ · Agustus</td></tr>
+<tr><th scope="row">9</th><td><span class="jp">九か月</span> <span class="yomi">きゅうかげつ</span></td><td><span class="jp">九か月間</span> <span class="yomi">きゅうかげつかん</span></td><td>九月 くがつ · September</td></tr>
+<tr><th scope="row">10</th><td><span class="jp">十か月</span> <span class="yomi">じゅっかげつ</span> (じっかげつ)</td><td><span class="jp">十か月間</span> <span class="yomi">じゅっかげつかん</span></td><td>十月 じゅうがつ · Oktober</td></tr>
+<tr><th scope="row">11</th><td><span class="jp">十一か月</span> <span class="yomi">じゅういっかげつ</span></td><td><span class="jp">十一か月間</span> <span class="yomi">じゅういっかげつかん</span></td><td>十一月 じゅういちがつ · November</td></tr>
+<tr><th scope="row">12</th><td><span class="jp">十二か月</span> <span class="yomi">じゅうにかげつ</span></td><td><span class="jp">十二か月間</span> <span class="yomi">じゅうにかげつかん</span></td><td>十二月 じゅうにがつ · Desember</td></tr>
+<tr><th scope="row">?</th><td><span class="jp">何か月</span> <span class="yomi">なんかげつ</span></td><td><span class="jp">何か月間</span> <span class="yomi">なんかげつかん</span></td><td>何月 なんがつ · bulan apa</td></tr>
+</tbody></table></div>
+
+      <div class="note" data-jp="覚え方：1・6・8・10か月は「っ」が入ります（いっ・ろっ・はっ・じゅっ）。「か月」は「ヶ月」「カ月」「ケ月」とも書きますが、どれも「かげつ」と読みます。半年は「はんとし」です。">Hafalan: pada <b>1, 6, 8, dan 10</b> bulan ada bunyi kecil <b>っ</b> (<b>いっ・ろっ・はっ・じゅっ</b>). Penulisan 〜か月 bisa juga 〜ヶ月, 〜カ月, atau 〜ケ月, semuanya dibaca <b>kagetsu</b>. Setengah tahun (6 bulan) juga bisa disebut <b>半年 (hantoshi)</b>.</div>
+
+      <div class="section-head" style="margin-top:72px;">
+        <div class="tag" data-jp="〜間・〜前・〜後">KAN, MAE, GO</div>
+        <div>
+          <h2 data-jp="「間」「前」「後」の違い">Beda 〜か月間, 〜か月前, dan 〜か月後</h2>
+          <div class="desc" data-jp="「間」は期間の長さ、「前」「後」は今を基準にした時点です。">Akhiran <b>間 (kan)</b> menyatakan <b>lamanya</b> suatu periode. <b>前</b> dan <b>後</b> menyatakan <b>titik waktu</b> yang dihitung dari sekarang.</div>
+        </div>
+      </div>
+
+      <div class="tbl-wrap"><table class="tbl"><thead><tr><th>Pola</th><th>Contoh</th><th>Arti</th></tr></thead><tbody>
+<tr><th scope="row">〜か月間</th><td><span class="jp">六か月間</span> <span class="yomi">ろっかげつかん</span></td><td>Selama 6 bulan (lamanya)</td></tr>
+<tr><th scope="row">〜か月前</th><td><span class="jp">六か月前</span> <span class="yomi">ろっかげつまえ</span></td><td>6 bulan yang lalu (titik waktu di masa lalu)</td></tr>
+<tr><th scope="row">〜か月後</th><td><span class="jp">六か月後</span> <span class="yomi">ろっかげつご</span></td><td>6 bulan lagi (titik waktu di masa depan)</td></tr>
+</tbody></table></div>
+
+      <ul class="facts" style="margin-top:32px;">
+        <li><div><span class="jp">日本語を六か月間勉強しました。</span><span class="yomi">にほんごを ろっかげつかん べんきょうしました。</span></div><div>Saya belajar bahasa Jepang selama 6 bulan.</div></li>
+        <li><div><span class="jp">六か月前に日本へ来ました。</span><span class="yomi">ろっかげつまえに にほんへ きました。</span></div><div>Saya datang ke Jepang 6 bulan lalu.</div></li>
+        <li><div><span class="jp">六か月後に国へ帰ります。</span><span class="yomi">ろっかげつごに くにへ かえります。</span></div><div>Saya pulang ke negara asal 6 bulan lagi.</div></li>
+        <li><div><span class="jp">八か月間、工場で働いています。</span><span class="yomi">はっかげつかん、こうじょうで はたらいています。</span></div><div>Saya bekerja di pabrik selama 8 bulan.</div></li>
+        <li><div><span class="jp">試験は六月です。</span><span class="yomi">しけんは ろくがつです。</span></div><div>Ujiannya bulan Juni. (nama bulan, bukan lamanya)</div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="kontak">
     <div class="wrap">
       <div class="contact-panel">
         <div>
