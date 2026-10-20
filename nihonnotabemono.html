@@ -148,6 +148,13 @@
   .tbl tbody tr:hover td{background:color-mix(in srgb,var(--sakura-soft) 45%,transparent);}
   .jp{font-family:'Shippori Mincho',serif; font-weight:700; font-size:1.1rem;}
   .yomi-i{color:var(--red); font-size:.82rem;}
+
+  /* ===== Furigana di atas kanji (ruby) ===== */
+  ruby{ruby-position:over;}
+  ruby rt{font-family:'Noto Sans JP',sans-serif; font-weight:500; font-size:.52em; color:var(--red); letter-spacing:.02em;}
+  .tbl .jp{line-height:2.2;}
+  .tbl tbody th ruby rt,.tbl td ruby rt{font-size:.5em;}
+
   .note{margin-top:32px; padding:22px 26px; border-left:3px solid var(--sakura); background:var(--sakura-soft); color:var(--ink); line-height:1.8; font-size:.95rem; max-width:80ch;}
   .note.warn{border-left-color:var(--warn); background:var(--warn-soft);}
   .scroll-hint{display:none; color:var(--ink-soft); font-size:.8rem; margin:0 0 10px;}
@@ -283,14 +290,14 @@
 
       <p class="scroll-hint">Geser tabel ke samping untuk melihat semua kolom →</p>
       <div class="tbl-wrap"><table class="tbl"><thead><tr><th>Kata</th><th>Arti</th><th>Lawan kata</th></tr></thead><tbody>
-<tr><th scope="row"><span class="jp">甘い</span> <span class="yomi-i">あまい</span></th><td>Manis</td><td><span class="jp">辛い</span> <span class="yomi-i">からい</span> · pedas (untuk makanan)</td></tr>
-<tr><th scope="row"><span class="jp">しょっぱい</span></th><td>Asin (juga 塩辛い しおからい)</td><td><span class="jp">薄い</span> <span class="yomi-i">うすい</span> · tawar, encer</td></tr>
-<tr><th scope="row"><span class="jp">酸っぱい</span> <span class="yomi-i">すっぱい</span></th><td>Asam</td><td><span class="jp">甘い</span> <span class="yomi-i">あまい</span> · manis</td></tr>
-<tr><th scope="row"><span class="jp">苦い</span> <span class="yomi-i">にがい</span></th><td>Pahit</td><td><span class="jp">甘い</span> <span class="yomi-i">あまい</span> · manis</td></tr>
-<tr><th scope="row"><span class="jp">美味しい</span> <span class="yomi-i">おいしい</span></th><td>Enak</td><td><span class="jp">まずい</span> · tidak enak (agak kasar, hati-hati)</td></tr>
-<tr><th scope="row"><span class="jp">熱い</span> <span class="yomi-i">あつい</span></th><td>Panas (benda, makanan, minuman)</td><td><span class="jp">冷たい</span> <span class="yomi-i">つめたい</span> · dingin (benda)</td></tr>
-<tr><th scope="row"><span class="jp">柔らかい</span> <span class="yomi-i">やわらかい</span></th><td>Empuk, lembut</td><td><span class="jp">硬い</span> <span class="yomi-i">かたい</span> · keras, alot</td></tr>
-<tr><th scope="row"><span class="jp">濃い</span> <span class="yomi-i">こい</span></th><td>Pekat, kuat rasanya</td><td><span class="jp">薄い</span> <span class="yomi-i">うすい</span> · tawar, encer</td></tr>
+<tr><th scope="row"><span class="jp"><ruby>甘<rt>あま</rt></ruby>い</span></th><td>Manis</td><td><span class="jp"><ruby>辛<rt>から</rt></ruby>い</span> · pedas (untuk makanan)</td></tr>
+<tr><th scope="row"><span class="jp">しょっぱい</span></th><td>Asin (juga <span class="jp"><ruby>塩辛<rt>しおから</rt></ruby>い</span>)</td><td><span class="jp"><ruby>薄<rt>うす</rt></ruby>い</span> · tawar, encer</td></tr>
+<tr><th scope="row"><span class="jp"><ruby>酸<rt>す</rt></ruby>っぱい</span></th><td>Asam</td><td><span class="jp"><ruby>甘<rt>あま</rt></ruby>い</span> · manis</td></tr>
+<tr><th scope="row"><span class="jp"><ruby>苦<rt>にが</rt></ruby>い</span></th><td>Pahit</td><td><span class="jp"><ruby>甘<rt>あま</rt></ruby>い</span> · manis</td></tr>
+<tr><th scope="row"><span class="jp"><ruby>美味<rt>おい</rt></ruby>しい</span></th><td>Enak</td><td><span class="jp">まずい</span> · tidak enak (agak kasar, hati-hati)</td></tr>
+<tr><th scope="row"><span class="jp"><ruby>熱<rt>あつ</rt></ruby>い</span></th><td>Panas (benda, makanan, minuman)</td><td><span class="jp"><ruby>冷<rt>つめ</rt></ruby>たい</span> · dingin (benda)</td></tr>
+<tr><th scope="row"><span class="jp"><ruby>柔<rt>やわ</rt></ruby>らかい</span></th><td>Empuk, lembut</td><td><span class="jp"><ruby>硬<rt>かた</rt></ruby>い</span> · keras, alot</td></tr>
+<tr><th scope="row"><span class="jp"><ruby>濃<rt>こ</rt></ruby>い</span></th><td>Pekat, kuat rasanya</td><td><span class="jp"><ruby>薄<rt>うす</rt></ruby>い</span> · tawar, encer</td></tr>
 </tbody></table></div>
 
       <div class="note" data-jp="覚え方：「辛い」は唐辛子のからさにも、塩気の強さにも使います。「熱い（あつい）」は食べ物や飲み物の温度、「暑い（あつい）」は天気の暑さです。声に出すと同じ読み方なので、漢字で区別しましょう。">Hafalan: <b>辛い (からい)</b> dipakai untuk pedas cabai maupun rasa yang sangat asin. <b>熱い</b> untuk suhu benda atau minuman, sedangkan <b>暑い</b> untuk cuaca panas. Keduanya dibaca <b>あつい</b>, jadi bedakan lewat kanji.</div>
@@ -311,14 +318,14 @@
       <div class="tbl-wrap"><table class="tbl"><thead><tr><th>Situasi</th><th>Ungkapan</th><th>Arti</th></tr></thead><tbody>
 <tr><th scope="row">Sebelum makan</th><td><span class="jp">いただきます。</span></td><td>Selamat makan (diucapkan sebelum mulai makan)</td></tr>
 <tr><th scope="row">Sesudah makan</th><td><span class="jp">ごちそうさまでした。</span></td><td>Terima kasih atas makanannya</td></tr>
-<tr><th scope="row">Minta menu</th><td><span class="jp">メニューをください。</span><br><span class="yomi-i">めにゅーを ください。</span></td><td>Tolong beri saya menu</td></tr>
-<tr><th scope="row">Memesan</th><td><span class="jp">これをください。</span><br><span class="yomi-i">これを ください。</span></td><td>Saya minta yang ini</td></tr>
-<tr><th scope="row">Minta air</th><td><span class="jp">お水をください。</span><br><span class="yomi-i">おみずを ください。</span></td><td>Tolong air putih</td></tr>
-<tr><th scope="row">Minta rekomendasi</th><td><span class="jp">おすすめは何ですか。</span><br><span class="yomi-i">おすすめは なんですか。</span></td><td>Apa yang direkomendasikan?</td></tr>
-<tr><th scope="row">Menanyakan babi</th><td><span class="jp">豚肉は入っていますか。</span><br><span class="yomi-i">ぶたにくは はいっていますか。</span></td><td>Apakah ada daging babi di dalamnya?</td></tr>
-<tr><th scope="row">Makan di tempat</th><td><span class="jp">ここで食べます。</span><br><span class="yomi-i">ここで たべます。</span></td><td>Saya makan di sini</td></tr>
-<tr><th scope="row">Dibawa pulang</th><td><span class="jp">持ち帰りでお願いします。</span><br><span class="yomi-i">もちかえりで おねがいします。</span></td><td>Tolong dibungkus, dibawa pulang</td></tr>
-<tr><th scope="row">Membayar</th><td><span class="jp">お会計をお願いします。</span><br><span class="yomi-i">おかいけいを おねがいします。</span></td><td>Tolong bayar (minta tagihan)</td></tr>
+<tr><th scope="row">Minta menu</th><td><span class="jp">メニューをください。</span></td><td>Tolong beri saya menu</td></tr>
+<tr><th scope="row">Memesan</th><td><span class="jp">これをください。</span></td><td>Saya minta yang ini</td></tr>
+<tr><th scope="row">Minta air</th><td><span class="jp">お<ruby>水<rt>みず</rt></ruby>をください。</span></td><td>Tolong air putih</td></tr>
+<tr><th scope="row">Minta rekomendasi</th><td><span class="jp">おすすめは<ruby>何<rt>なん</rt></ruby>ですか。</span></td><td>Apa yang direkomendasikan?</td></tr>
+<tr><th scope="row">Menanyakan babi</th><td><span class="jp"><ruby>豚肉<rt>ぶたにく</rt></ruby>は<ruby>入<rt>はい</rt></ruby>っていますか。</span></td><td>Apakah ada daging babi di dalamnya?</td></tr>
+<tr><th scope="row">Makan di tempat</th><td><span class="jp">ここで<ruby>食<rt>た</rt></ruby>べます。</span></td><td>Saya makan di sini</td></tr>
+<tr><th scope="row">Dibawa pulang</th><td><span class="jp"><ruby>持<rt>も</rt></ruby>ち<ruby>帰<rt>かえ</rt></ruby>りでお<ruby>願<rt>ねが</rt></ruby>いします。</span></td><td>Tolong dibungkus, dibawa pulang</td></tr>
+<tr><th scope="row">Membayar</th><td><span class="jp">お<ruby>会計<rt>かいけい</rt></ruby>をお<ruby>願<rt>ねが</rt></ruby>いします。</span></td><td>Tolong bayar (minta tagihan)</td></tr>
 </tbody></table></div>
 
       <div class="section-head" style="margin-top:72px;">
