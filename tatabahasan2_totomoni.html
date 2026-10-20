@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="google" content="notranslate">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>〜とともに（同時・変化） | Tata Bahasa N2</title>
+<title>〜を問わず（無関係・範囲） | Tata Bahasa N2</title>
 <style>
 :root{--navy:#001f3f;--navy2:#002a54;--navy3:#022655;--gold:#facc15;--gold2:#ffd700;--text:#001f3f}
 *{margin:0;padding:0;box-sizing:border-box;font-family:"Segoe UI",Arial,sans-serif}
@@ -24,17 +24,26 @@ body{background:#fff;color:var(--text)}
 .dropdown-menu a{display:block;padding:12px 15px;color:#ffd700;text-decoration:none}
 .dropdown-menu a:hover{background:#e0b52a;color:#001530}
 .show{display:block}
-@media(max-width:600px){
-.navbar-inner{flex-direction:column;align-items:flex-start;gap:8px}
-.nav-right{width:100%}
-.dropdown-btn{font-size:.72rem;padding:6px 9px}
+.burger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:44px;height:40px;background:none;border:2px solid #e0b52a;border-radius:8px;cursor:pointer}
+.burger span{display:block;width:22px;height:3px;background:#e0b52a;border-radius:2px;transition:.25s}
+.burger.open span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+@media(max-width:700px){
+.navbar-inner{flex-wrap:wrap;gap:0}
+.burger{display:flex}
+.nav-right{display:none;width:100%;flex-direction:column;align-items:stretch;gap:8px;padding-top:12px}
+.nav-right.open{display:flex}
+.dropdown{width:100%}
+.dropdown-btn{width:100%;text-align:left;font-size:.9rem;padding:10px 14px}
+.dropdown-menu,.dropdown-menu.align-right{position:static;left:auto;right:auto;top:auto;min-width:0;max-width:100%;margin-top:6px;box-shadow:none}
 .breadcrumb{margin-top:16px}
 }
 .breadcrumb{margin:20px 0 0;padding:0 0 0 20px;font-size:14px;color:#8892a3}
 .breadcrumb a{color:var(--navy);text-decoration:none;font-weight:600}
 .breadcrumb a:hover{text-decoration:underline}
 .pattern-hero{max-width:900px;margin:20px auto 0;padding:40px 30px;background:linear-gradient(135deg,var(--navy) 0%,#062a52 100%);border-radius:22px;position:relative;overflow:hidden;text-align:center}
-.pattern-hero::before{content:"共";position:absolute;font-size:260px;font-weight:900;color:rgba(250,204,21,.06);top:-60px;right:-30px;pointer-events:none;user-select:none}
+.pattern-hero::before{content:"問";position:absolute;font-size:260px;font-weight:900;color:rgba(250,204,21,.06);top:-60px;right:-30px;pointer-events:none;user-select:none}
 .no-badge{display:inline-block;background:rgba(250,204,21,.12);border:1px solid rgba(250,204,21,.4);color:var(--gold);font-size:13px;font-weight:bold;letter-spacing:1px;padding:6px 16px;border-radius:999px;margin-bottom:18px;position:relative}
 .pattern-hero h1{font-size:56px;color:#fff;position:relative;margin-bottom:8px}
 .romaji{font-size:20px;color:var(--gold2);font-weight:600;position:relative;margin-bottom:14px}
@@ -116,7 +125,8 @@ footer{text-align:center;padding:30px;color:#666;font-size:14px}
 HOME
 </a>
 </div>
-<div class="nav-right">
+<button class="burger" id="burger" type="button" aria-label="Menu" aria-expanded="false" onclick="toggleBurger()"><span></span><span></span><span></span></button>
+<div class="nav-right" id="navRight">
   <div class="dropdown">
     <button class="dropdown-btn" onclick="toggleDropdown('materi')">MATERI ▼</button>
     <div class="dropdown-menu" id="materi">
@@ -154,10 +164,10 @@ HOME
 </div>
 
 <div class="pattern-hero">
-    <span class="no-badge">POLA 58 · JLPT N2</span>
-    <h1>〜とともに</h1>
-    <div class="romaji">~to tomo ni</div>
-    <div class="mean">bersama dengan / seiring dengan / sekaligus</div>
+    <span class="no-badge">POLA 59 · JLPT N2</span>
+    <h1>〜を問わず</h1>
+    <div class="romaji">~o towazu</div>
+    <div class="mean">tanpa memandang / tidak peduli / tidak membedakan</div>
 </div>
 
 <div class="content">
@@ -165,93 +175,98 @@ HOME
     <div class="section-block">
         <h2><span class="tag">ARTI</span> Penjelasan</h2>
         <p>
-            <b>〜とともに</b> punya tiga pemakaian utama:
-            <b>(1) "bersama dengan ..."</b> (melakukan sesuatu bersama orang lain),
-            <b>(2) "seiring dengan ..."</b> (satu hal berubah, hal lain ikut berubah), dan
-            <b>(3) "sekaligus / bersamaan dengan ..."</b> (dua hal terjadi atau berlaku pada saat yang sama).
-            Bentuknya agak formal dan sering muncul di tulisan, berita, dan pidato.
+            <b>〜を問わず</b> berarti <b>"tanpa memandang ..., tidak peduli ..."</b>. Dipakai untuk menyatakan
+            bahwa suatu hal <b>berlaku untuk semua kondisi</b> dalam satu kategori (usia, jenis kelamin,
+            cuaca, pengalaman, siang atau malam), jadi <b>kondisi itu tidak mempengaruhi hasilnya</b>.
+            Bentuknya formal dan sangat sering muncul di iklan lowongan kerja, pengumuman, dan aturan.
         </p>
     </div>
 
     <div class="section-block">
         <h2><span class="tag">POLA</span> Rumus</h2>
         <div class="formula-box">
-            名詞＋とともに、〜　（bersama N / seiring N）<br>
-            動詞（辞書形）＋とともに、〜　（seiring V / begitu V, ...）<br>
-            い形容詞・な形容詞（である）＋とともに、〜　（sekaligus ...）<br>
-            名詞＋であるとともに、〜　（N sekaligus ...）
-            <small>Contoh: 家族とともに／年を取るとともに／時代の変化とともに／教師であるとともに</small>
+            名詞＋を問わず、〜　（tanpa memandang N, ...）<br>
+            名詞A・名詞B（lawan kata）＋を問わず、〜　（baik A maupun B）<br>
+            名詞＋は問わない　（N tidak dipermasalahkan）<br>
+            名詞＋を問わない＋名詞　（N yang tidak memandang ...）
+            <small>Contoh: 年齢を問わず／昼夜を問わず／経験の有無を問わず／国籍は問わない</small>
         </div>
     </div>
 
     <div class="section-block">
-        <h2><span class="tag">TABEL</span> Pola Penggunaan 〜とともに</h2>
-        <p style="margin-bottom:16px;">Berikut bentuk 〜とともに berdasarkan makna dan jenis kata di depannya.</p>
+        <h2><span class="tag">TABEL</span> Pola Penggunaan 〜を問わず</h2>
+        <p style="margin-bottom:16px;">Berikut bentuk 〜を問わず berdasarkan jenis kata di depannya.</p>
         <div class="table-wrap">
             <table class="konjugasi-table">
                 <thead>
-                    <tr><th>Kata Dasar</th><th></th><th>Bentuk 〜とともに</th><th>Artinya</th></tr>
+                    <tr><th>Kata Dasar</th><th></th><th>Bentuk 〜を問わず</th><th>Artinya</th></tr>
                 </thead>
                 <tbody>
-                    <tr class="group-row"><td colspan="4">① 名詞（人） ＋ とともに　［bersama］</td></tr>
+                    <tr class="group-row"><td colspan="4">① 対になる名詞（pasangan lawan kata） ＋ を問わず</td></tr>
                     <tr>
-                        <td><span class="kamus">家族</span><span class="yomi-small">かぞく (kazoku)</span></td>
+                        <td><span class="kamus">昼夜</span><span class="yomi-small">ちゅうや (chuuya)</span></td>
                         <td class="arrow">→</td>
-                        <td><span class="shi">家族とともに</span><span class="yomi-small">かぞくとともに</span></td>
-                        <td>bersama keluarga</td>
+                        <td><span class="shi">昼夜を問わず</span><span class="yomi-small">ちゅうやをとわず</span></td>
+                        <td>siang maupun malam</td>
                     </tr>
                     <tr>
-                        <td><span class="kamus">仲間</span><span class="yomi-small">なかま (nakama)</span></td>
+                        <td><span class="kamus">男女</span><span class="yomi-small">だんじょ (danjo)</span></td>
                         <td class="arrow">→</td>
-                        <td><span class="shi">仲間とともに</span><span class="yomi-small">なかまとともに</span></td>
-                        <td>bersama rekan-rekan</td>
+                        <td><span class="shi">男女を問わず</span><span class="yomi-small">だんじょをとわず</span></td>
+                        <td>pria maupun wanita</td>
                     </tr>
-                    <tr class="group-row"><td colspan="4">② 名詞（変化） ＋ とともに　［seiring］</td></tr>
                     <tr>
-                        <td><span class="kamus">時代の変化</span><span class="yomi-small">じだいのへんか (jidai no henka)</span></td>
+                        <td><span class="kamus">晴雨</span><span class="yomi-small">せいう (seiu)</span></td>
                         <td class="arrow">→</td>
-                        <td><span class="shi">時代の変化とともに</span><span class="yomi-small">じだいのへんかとともに</span></td>
-                        <td>seiring perubahan zaman</td>
+                        <td><span class="shi">晴雨を問わず</span><span class="yomi-small">せいうをとわず</span></td>
+                        <td>cerah maupun hujan</td>
                     </tr>
+                    <tr class="group-row"><td colspan="4">② 範囲を表す名詞（kata benda yang punya rentang） ＋ を問わず</td></tr>
                     <tr>
                         <td><span class="kamus">年齢</span><span class="yomi-small">ねんれい (nenrei)</span></td>
                         <td class="arrow">→</td>
-                        <td><span class="shi">年齢とともに</span><span class="yomi-small">ねんれいとともに</span></td>
-                        <td>seiring bertambahnya usia</td>
-                    </tr>
-                    <tr class="group-row"><td colspan="4">③ 動詞（辞書形） ＋ とともに　［seiring / begitu］</td></tr>
-                    <tr>
-                        <td><span class="kamus">年を取る</span><span class="yomi-small">としをとる (toshi o toru)</span></td>
-                        <td class="arrow">→</td>
-                        <td><span class="shi">年を取るとともに</span><span class="yomi-small">としをとるとともに</span></td>
-                        <td>seiring bertambah tua</td>
+                        <td><span class="shi">年齢を問わず</span><span class="yomi-small">ねんれいをとわず</span></td>
+                        <td>tanpa memandang usia</td>
                     </tr>
                     <tr>
-                        <td><span class="kamus">増える</span><span class="yomi-small">ふえる (fueru)</span></td>
+                        <td><span class="kamus">国籍</span><span class="yomi-small">こくせき (kokuseki)</span></td>
                         <td class="arrow">→</td>
-                        <td><span class="shi">増えるとともに</span><span class="yomi-small">ふえるとともに</span></td>
-                        <td>seiring bertambahnya</td>
-                    </tr>
-                    <tr class="group-row"><td colspan="4">④ 名詞／形容詞（である） ＋ とともに　［sekaligus］</td></tr>
-                    <tr>
-                        <td><span class="kamus">教師である</span><span class="yomi-small">きょうしである (kyoushi de aru)</span></td>
-                        <td class="arrow">→</td>
-                        <td><span class="shi">教師であるとともに</span><span class="yomi-small">きょうしであるとともに</span></td>
-                        <td>sekaligus seorang guru</td>
+                        <td><span class="shi">国籍を問わず</span><span class="yomi-small">こくせきをとわず</span></td>
+                        <td>tanpa memandang kewarganegaraan</td>
                     </tr>
                     <tr>
-                        <td><span class="kamus">嬉しい</span><span class="yomi-small">うれしい (ureshii)</span></td>
+                        <td><span class="kamus">天候</span><span class="yomi-small">てんこう (tenkou)</span></td>
                         <td class="arrow">→</td>
-                        <td><span class="shi">嬉しいとともに</span><span class="yomi-small">うれしいとともに</span></td>
-                        <td>senang, dan sekaligus ...</td>
+                        <td><span class="shi">天候を問わず</span><span class="yomi-small">てんこうをとわず</span></td>
+                        <td>tanpa memandang cuaca</td>
+                    </tr>
+                    <tr class="group-row"><td colspan="4">③ 有無・可否など（ada atau tidak, dll.） ＋ を問わず</td></tr>
+                    <tr>
+                        <td><span class="kamus">経験の有無</span><span class="yomi-small">けいけんのうむ (keiken no umu)</span></td>
+                        <td class="arrow">→</td>
+                        <td><span class="shi">経験の有無を問わず</span><span class="yomi-small">けいけんのうむをとわず</span></td>
+                        <td>ada atau tidaknya pengalaman tidak masalah</td>
+                    </tr>
+                    <tr class="group-row"><td colspan="4">形の変化（perubahan bentuk）</td></tr>
+                    <tr>
+                        <td><span class="kamus">〜は問わない</span><span class="yomi-small">bentuk negatif / akhir kalimat</span></td>
+                        <td class="arrow">→</td>
+                        <td><span class="shi">経験は問わない</span><span class="yomi-small">けいけんはとわない</span></td>
+                        <td>pengalaman tidak dipermasalahkan</td>
+                    </tr>
+                    <tr>
+                        <td><span class="kamus">〜を問わない＋N</span><span class="yomi-small">menerangkan kata benda</span></td>
+                        <td class="arrow">→</td>
+                        <td><span class="shi">年齢を問わない仕事</span><span class="yomi-small">ねんれいをとわないしごと</span></td>
+                        <td>pekerjaan yang tidak memandang usia</td>
                     </tr>
                 </tbody>
             </table>
         </div>
         <div class="note-box" style="margin-top:16px;">
-            <b>Catatan penting:</b> pada makna <b>"seiring"</b>, kedua hal harus <b>berubah atau berkembang</b>
-            (naik, turun, bertambah, berkurang, dll.). Pada makna <b>"bersama"</b>, yang di depan harus
-            <b>orang atau kelompok</b>. Tidak dipakai untuk kegiatan tetap yang tidak berubah.
+            <b>Catatan penting:</b> kata di depan harus berupa <b>kategori yang punya banyak pilihan</b>
+            (usia, jenis kelamin, cuaca, dll.). Tidak dipakai untuk satu hal tertentu seperti
+            「×田中さんを問わず」. Bentuk 〜を問わず hanya menerima <b>kata benda</b>, tidak langsung kata kerja.
         </div>
     </div>
 
@@ -259,50 +274,51 @@ HOME
         <h2><span class="tag">CONTOH</span> Contoh Kalimat</h2>
 
         <div class="example">
-            <div class="jp">家族とともに日本で暮らしている。</div>
-            <div class="yomi">かぞくとともに にほんで くらしている。</div>
-            <div class="id">Saya tinggal di Jepang bersama keluarga.</div>
+            <div class="jp">このスポーツは年齢や性別を問わず、誰でも楽しめる。</div>
+            <div class="yomi">この スポーツは ねんれいや せいべつを とわず、だれでも たのしめる。</div>
+            <div class="id">Olahraga ini bisa dinikmati siapa saja tanpa memandang usia dan jenis kelamin.</div>
         </div>
         <div class="example">
-            <div class="jp">年を取るとともに、体力が落ちてきた。</div>
-            <div class="yomi">としを とる とともに、たいりょくが おちてきた。</div>
-            <div class="id">Seiring bertambahnya usia, stamina saya menurun.</div>
+            <div class="jp">経験の有無を問わず、やる気のある人を募集します。</div>
+            <div class="yomi">けいけんの うむを とわず、やるきの ある ひとを ぼしゅうします。</div>
+            <div class="id">Kami membuka lowongan bagi orang yang bersemangat, ada atau tidaknya pengalaman.</div>
         </div>
         <div class="example">
-            <div class="jp">時代の変化とともに、人々の生活も変わった。</div>
-            <div class="yomi">じだいの へんかとともに、ひとびとの せいかつも かわった。</div>
-            <div class="id">Seiring perubahan zaman, kehidupan orang-orang pun berubah.</div>
+            <div class="jp">彼は天候を問わず、毎朝ジョギングをしている。</div>
+            <div class="yomi">かれは てんこうを とわず、まいあさ ジョギングを している。</div>
+            <div class="id">Dia jogging setiap pagi, apa pun cuacanya.</div>
         </div>
         <div class="example">
-            <div class="jp">人口が増えるとともに、ごみの量も増えている。</div>
-            <div class="yomi">じんこうが ふえるとともに、ごみの りょうも ふえている。</div>
-            <div class="id">Seiring bertambahnya penduduk, jumlah sampah juga meningkat.</div>
+            <div class="jp">この店は昼夜を問わず、多くの客が訪れる。</div>
+            <div class="yomi">この みせは ちゅうやを とわず、おおくの きゃくが おとずれる。</div>
+            <div class="id">Toko ini dikunjungi banyak pelanggan siang maupun malam.</div>
         </div>
         <div class="example">
-            <div class="jp">彼は医者であるとともに、作家でもある。</div>
-            <div class="yomi">かれは いしゃである とともに、さっかでもある。</div>
-            <div class="id">Dia seorang dokter sekaligus penulis.</div>
+            <div class="jp">国籍は問わないので、外国人も応募できます。</div>
+            <div class="yomi">こくせきは とわない ので、がいこくじんも おうぼ できます。</div>
+            <div class="id">Kewarganegaraan tidak dipermasalahkan, jadi orang asing pun bisa melamar.</div>
         </div>
     </div>
 
     <div class="section-block">
         <h2><span class="tag">CATATAN</span> Tips & Perbedaan</h2>
         <div class="note-box">
-            <b>Sering dipakai di:</b> berita, artikel, pidato, dan soal bacaan JLPT N2.<br><br>
-            <b>Bentuk lisan:</b> untuk makna "bersama", percakapan sehari-hari lebih natural memakai 〜と一緒に.<br><br>
-            <b>Makna "begitu ... langsung":</b> 動詞辞書形＋とともに juga bisa berarti kejadian kedua muncul
-            bersamaan dengan kejadian pertama, misalnya 「春になるとともに、花が咲き始めた」.
+            <b>Sering dipakai di:</b> iklan lowongan kerja, brosur, pengumuman acara, dan soal bacaan JLPT N2.<br><br>
+            <b>Bentuk 〜は問わない:</b> dipakai di akhir kalimat untuk berkata "tidak masalah", misalnya
+            「学歴は問わない」 (pendidikan tidak dipermasalahkan).<br><br>
+            <b>Kata kunci lawan kata:</b> pasangan seperti 昼夜, 男女, 老若男女, 内外, 国内外 sangat sering
+            muncul bersama 〜を問わず.
         </div>
     </div>
 
     <div class="section-block">
-        <h2><span class="tag">PERBEDAAN</span> 〜とともに vs 〜と一緒に vs 〜につれて</h2>
-        <p style="margin-bottom:12px;">Ketiganya berhubungan dengan "bersama" atau "seiring", tetapi pemakaiannya berbeda.</p>
+        <h2><span class="tag">PERBEDAAN</span> 〜を問わず vs 〜にかかわらず vs 〜にもかかわらず</h2>
+        <p style="margin-bottom:12px;">Bentuknya mirip, tetapi makna dan kata yang bisa di depannya berbeda.</p>
 
         <div class="compare-legend">
-            <span class="chip"><span class="dot shi"></span> 〜とともに — bersama / seiring / sekaligus (formal)</span>
-            <span class="chip"><span class="dot kara"></span> 〜と一緒に — bersama (lisan, orang)</span>
-            <span class="chip"><span class="dot node"></span> 〜につれて — seiring (hanya perubahan)</span>
+            <span class="chip"><span class="dot shi"></span> 〜を問わず — tanpa memandang (hanya kata benda)</span>
+            <span class="chip"><span class="dot kara"></span> 〜にかかわらず — tidak terpengaruh (kata benda / kata kerja)</span>
+            <span class="chip"><span class="dot node"></span> 〜にもかかわらず — meskipun (kontras)</span>
         </div>
 
         <div class="compare-wrap">
@@ -310,38 +326,38 @@ HOME
                 <thead>
                     <tr>
                         <th class="th-kamus">Situasi</th>
-                        <th class="th-shi">〜とともに<small>bersama / seiring</small></th>
-                        <th class="th-kara">〜と一緒に<small>bersama</small></th>
-                        <th class="th-node">〜につれて<small>seiring</small></th>
+                        <th class="th-shi">〜を問わず<small>tanpa memandang</small></th>
+                        <th class="th-kara">〜にかかわらず<small>tidak terpengaruh</small></th>
+                        <th class="th-node">〜にもかかわらず<small>meskipun</small></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td><span class="kamus">Bersama orang</span><span class="yomi-small">ひとと いっしょに</span></td>
-                        <td><span class="val-shi">家族とともに旅行する</span><span class="yomi-small">かぞくとともに りょこうする</span><span class="arti-mini">Bepergian bersama keluarga (formal).</span></td>
-                        <td><span class="val-kara">家族と一緒に旅行する</span><span class="yomi-small">かぞくと いっしょに りょこうする</span><span class="arti-mini">Bepergian bersama keluarga (lisan).</span></td>
-                        <td><span class="val-node">× 使えない</span><span class="yomi-small">つかえない</span><span class="arti-mini">Tidak bisa dipakai untuk "bersama orang".</span></td>
+                        <td><span class="kamus">Kategori</span><span class="yomi-small">ねんれい</span></td>
+                        <td><span class="val-shi">年齢を問わず参加できる</span><span class="yomi-small">ねんれいをとわず さんかできる</span><span class="arti-mini">Bisa ikut tanpa memandang usia.</span></td>
+                        <td><span class="val-kara">年齢にかかわらず参加できる</span><span class="yomi-small">ねんれいにかかわらず さんかできる</span><span class="arti-mini">Bisa ikut, usia tidak berpengaruh.</span></td>
+                        <td><span class="val-node">× 意味が合わない</span><span class="yomi-small">いみがあわない</span><span class="arti-mini">Maknanya "meskipun", tidak cocok.</span></td>
                     </tr>
                     <tr>
-                        <td><span class="kamus">Perubahan paralel</span><span class="yomi-small">へんかの へいこう</span></td>
-                        <td><span class="val-shi">年とともに体力が落ちる</span><span class="yomi-small">としとともに たいりょくが おちる</span><span class="arti-mini">Seiring usia, stamina menurun.</span></td>
-                        <td><span class="val-kara">× 使えない</span><span class="yomi-small">つかえない</span><span class="arti-mini">Tidak dipakai untuk perubahan.</span></td>
-                        <td><span class="val-node">年を取るにつれて体力が落ちる</span><span class="yomi-small">としをとるにつれて たいりょくが おちる</span><span class="arti-mini">Semakin tua, stamina semakin turun.</span></td>
+                        <td><span class="kamus">Kata kerja</span><span class="yomi-small">どうし</span></td>
+                        <td><span class="val-shi">× 使えない</span><span class="yomi-small">つかえない</span><span class="arti-mini">Tidak bisa langsung dengan kata kerja.</span></td>
+                        <td><span class="val-kara">行くか行かないかにかかわらず</span><span class="yomi-small">いくか いかないかに かかわらず</span><span class="arti-mini">Pergi atau tidak, tidak berpengaruh.</span></td>
+                        <td><span class="val-node">雨が降るにもかかわらず出かけた</span><span class="yomi-small">あめがふるにもかかわらず でかけた</span><span class="arti-mini">Meskipun hujan, tetap pergi.</span></td>
                     </tr>
                     <tr>
-                        <td><span class="kamus">Sekaligus</span><span class="yomi-small">〜であると ともに</span></td>
-                        <td><span class="val-shi">教師であるとともに親でもある</span><span class="yomi-small">きょうしであるとともに おやでもある</span><span class="arti-mini">Guru sekaligus orang tua.</span></td>
-                        <td><span class="val-kara">× 使えない</span><span class="yomi-small">つかえない</span><span class="arti-mini">Tidak punya makna "sekaligus".</span></td>
-                        <td><span class="val-node">× 使えない</span><span class="yomi-small">つかえない</span><span class="arti-mini">Tidak punya makna "sekaligus".</span></td>
+                        <td><span class="kamus">Hasil kalimat</span><span class="yomi-small">けっか</span></td>
+                        <td><span class="val-shi">結果は同じ（関係ない）</span><span class="yomi-small">けっかは おなじ</span><span class="arti-mini">Hasil sama untuk semua kondisi.</span></td>
+                        <td><span class="val-kara">結果は同じ（関係ない）</span><span class="yomi-small">けっかは おなじ</span><span class="arti-mini">Hasil sama untuk semua kondisi.</span></td>
+                        <td><span class="val-node">結果は予想と逆</span><span class="yomi-small">けっかは よそうと ぎゃく</span><span class="arti-mini">Hasil berlawanan dengan dugaan.</span></td>
                     </tr>
                 </tbody>
             </table>
         </div>
 
         <div class="note-box" style="margin-top:16px;">
-            <b>Kunci membedakan:</b> bersama orang (formal) → <i>とともに</i>, bersama orang (lisan) → <i>と一緒に</i>;
-            perubahan bertahap "semakin ..." → <i>につれて</i>;
-            dua peran atau sifat sekaligus → <i>であるとともに</i>.
+            <b>Kunci membedakan:</b> kategori kata benda, tidak peduli apa pun isinya → <i>を問わず</i>;
+            kata benda atau kalimat "A atau tidak A" → <i>にかかわらず</i>;
+            kontras "meskipun ..., tetapi ..." → <i>にもかかわらず</i>.
         </div>
     </div>
 
@@ -354,13 +370,13 @@ HOME
 
         <div class="quiz-box" id="quiz1">
             <span class="qno">SOAL 1</span>
-            <div class="qtext">＿＿＿＿＿　＿＿＿＿＿　＿★＿　＿＿＿＿＿。 (Seiring bertambahnya usia, stamina saya menurun.)</div>
+            <div class="qtext">＿＿＿＿＿　＿＿＿＿＿　＿★＿　＿＿＿＿＿。 (Siapa saja boleh ikut tanpa memandang usia dan jenis kelamin.)</div>
             <div class="answer-slot" id="slot1"></div>
             <div class="word-bank" id="bank1">
-                <div class="word-tile" data-word="年を取る">としを とる</div>
-                <div class="word-tile" data-word="とともに">とともに</div>
-                <div class="word-tile" data-word="体力が">たいりょくが</div>
-                <div class="word-tile" data-word="落ちてきた">おちてきた</div>
+                <div class="word-tile" data-word="年齢や性別">ねんれいや せいべつ</div>
+                <div class="word-tile" data-word="を問わず">をとわず</div>
+                <div class="word-tile" data-word="誰でも">だれでも</div>
+                <div class="word-tile" data-word="参加できる">さんかできる</div>
             </div>
             <div class="quiz-actions">
                 <button class="quiz-btn" onclick="checkAnswer(1)">Cek Jawaban</button>
@@ -371,13 +387,13 @@ HOME
 
         <div class="quiz-box" id="quiz2">
             <span class="qno">SOAL 2</span>
-            <div class="qtext">＿＿＿＿＿　＿＿＿＿＿　＿★＿　＿＿＿＿＿。 (Seiring perubahan zaman, kehidupan orang-orang pun berubah.)</div>
+            <div class="qtext">＿＿＿＿＿　＿＿＿＿＿　＿★＿　＿＿＿＿＿。 (Apa pun cuacanya, dia berlari setiap pagi.)</div>
             <div class="answer-slot" id="slot2"></div>
             <div class="word-bank" id="bank2">
-                <div class="word-tile" data-word="時代の変化">じだいの へんか</div>
-                <div class="word-tile" data-word="とともに">とともに</div>
-                <div class="word-tile" data-word="生活も">せいかつも</div>
-                <div class="word-tile" data-word="変わった">かわった</div>
+                <div class="word-tile" data-word="天候">てんこう</div>
+                <div class="word-tile" data-word="を問わず">をとわず</div>
+                <div class="word-tile" data-word="毎朝">まいあさ</div>
+                <div class="word-tile" data-word="走っている">はしっている</div>
             </div>
             <div class="quiz-actions">
                 <button class="quiz-btn" onclick="checkAnswer(2)">Cek Jawaban</button>
@@ -391,13 +407,13 @@ HOME
 
 <div class="content" style="padding-top:0;">
     <div class="nav-bottom">
-        <a href="tatabahasan2_niatatte.html" class="prev">
+        <a href="tatabahasan2_totomoni.html" class="prev">
             <span class="dir">← Sebelumnya</span>
-            〜にあたって（開始・心構え）
+            〜とともに（同時・変化）
         </a>
         <a href="tatabahasajlptn2.html" class="next">
             <span class="dir">Selanjutnya →</span>
-            POLA 59
+            POLA 60
         </a>
     </div>
 </div>
@@ -406,8 +422,8 @@ HOME
 
 <script>
 const quizAnswers = {
-    1:["年を取る","とともに","体力が","落ちてきた"],
-    2:["時代の変化","とともに","生活も","変わった"]
+    1:["年齢や性別","を問わず","誰でも","参加できる"],
+    2:["天候","を問わず","毎朝","走っている"]
 };
 const quizState = {1:[],2:[]};
 
@@ -486,7 +502,10 @@ function toggleDropdown(id){
         if(rect.right > window.innerWidth - 8){ menu.classList.add('align-right'); }
     }
 }
+let lastW = window.innerWidth;
 window.addEventListener('resize', ()=>{
+    if(window.innerWidth === lastW) return;
+    lastW = window.innerWidth;
     document.querySelectorAll('.dropdown-menu.show').forEach(m=>{m.classList.remove('show');m.classList.remove('align-right');});
 });
 document.addEventListener("click",function(e){
@@ -494,6 +513,23 @@ document.addEventListener("click",function(e){
         document.querySelectorAll(".dropdown-menu").forEach(m=>{m.classList.remove("show");m.classList.remove("align-right");});
     }
 });
+
+function closeBurger(){
+    const b = document.getElementById('burger'), n = document.getElementById('navRight');
+    if(!b || !n) return;
+    b.classList.remove('open'); n.classList.remove('open');
+    b.setAttribute('aria-expanded','false');
+}
+function toggleBurger(){
+    const b = document.getElementById('burger'), n = document.getElementById('navRight');
+    const open = !n.classList.contains('open');
+    n.classList.toggle('open', open);
+    b.classList.toggle('open', open);
+    b.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if(!open) document.querySelectorAll('.dropdown-menu').forEach(m=>m.classList.remove('show'));
+}
+window.addEventListener('resize', ()=>{ if(window.innerWidth > 700) closeBurger(); });
+document.addEventListener('click', e=>{ if(!e.target.closest('#navbar')) closeBurger(); });
 </script>
 </body>
 </html>
