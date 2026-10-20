@@ -24,10 +24,19 @@ body{background:#fff;color:var(--text)}
 .dropdown-menu a{display:block;padding:12px 15px;color:#ffd700;text-decoration:none}
 .dropdown-menu a:hover{background:#e0b52a;color:#001530}
 .show{display:block}
-@media(max-width:600px){
-.navbar-inner{flex-direction:column;align-items:flex-start;gap:8px}
-.nav-right{width:100%}
-.dropdown-btn{font-size:.72rem;padding:6px 9px}
+.burger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:44px;height:40px;background:none;border:2px solid #e0b52a;border-radius:8px;cursor:pointer}
+.burger span{display:block;width:22px;height:3px;background:#e0b52a;border-radius:2px;transition:.25s}
+.burger.open span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+@media(max-width:700px){
+.navbar-inner{flex-wrap:wrap;gap:0}
+.burger{display:flex}
+.nav-right{display:none;width:100%;flex-direction:column;align-items:stretch;gap:8px;padding-top:12px}
+.nav-right.open{display:flex}
+.dropdown{width:100%}
+.dropdown-btn{width:100%;text-align:left;font-size:.9rem;padding:10px 14px}
+.dropdown-menu,.dropdown-menu.align-right{position:static;left:auto;right:auto;top:auto;min-width:0;max-width:100%;margin-top:6px;box-shadow:none}
 .breadcrumb{margin-top:16px}
 }
 .breadcrumb{margin:20px 0 0;padding:0 0 0 20px;font-size:14px;color:#8892a3}
@@ -116,7 +125,8 @@ footer{text-align:center;padding:30px;color:#666;font-size:14px}
 HOME
 </a>
 </div>
-<div class="nav-right">
+<button class="burger" id="burger" type="button" aria-label="Menu" aria-expanded="false" onclick="toggleBurger()"><span></span><span></span><span></span></button>
+<div class="nav-right" id="navRight">
   <div class="dropdown">
     <button class="dropdown-btn" onclick="toggleDropdown('materi')">MATERI ▼</button>
     <div class="dropdown-menu" id="materi">
@@ -474,7 +484,10 @@ function toggleDropdown(id){
         if(rect.right > window.innerWidth - 8){ menu.classList.add('align-right'); }
     }
 }
+let lastW = window.innerWidth;
 window.addEventListener('resize', ()=>{
+    if(window.innerWidth === lastW) return;
+    lastW = window.innerWidth;
     document.querySelectorAll('.dropdown-menu.show').forEach(m=>{m.classList.remove('show');m.classList.remove('align-right');});
 });
 document.addEventListener("click",function(e){
@@ -482,6 +495,23 @@ document.addEventListener("click",function(e){
         document.querySelectorAll(".dropdown-menu").forEach(m=>{m.classList.remove("show");m.classList.remove("align-right");});
     }
 });
+
+function closeBurger(){
+    const b = document.getElementById('burger'), n = document.getElementById('navRight');
+    if(!b || !n) return;
+    b.classList.remove('open'); n.classList.remove('open');
+    b.setAttribute('aria-expanded','false');
+}
+function toggleBurger(){
+    const b = document.getElementById('burger'), n = document.getElementById('navRight');
+    const open = !n.classList.contains('open');
+    n.classList.toggle('open', open);
+    b.classList.toggle('open', open);
+    b.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if(!open) document.querySelectorAll('.dropdown-menu').forEach(m=>m.classList.remove('show'));
+}
+window.addEventListener('resize', ()=>{ if(window.innerWidth > 700) closeBurger(); });
+document.addEventListener('click', e=>{ if(!e.target.closest('#navbar')) closeBurger(); });
 </script>
 </body>
 </html>
