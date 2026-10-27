@@ -24,12 +24,24 @@ body{background:#fff;color:var(--text)}
 .dropdown-menu a{display:block;padding:12px 15px;color:#ffd700;text-decoration:none}
 .dropdown-menu a:hover{background:#e0b52a;color:#001530}
 .show{display:block}
+
+/* ===== BURGER (ponsel) ===== */
+.burger{display:none;flex-direction:column;align-items:center;justify-content:center;gap:5px;width:44px;height:40px;padding:0;background:none;border:2px solid #e0b52a;border-radius:8px;cursor:pointer}
+.burger span{display:block;width:22px;height:2px;background:#e0b52a;border-radius:2px;transition:transform .25s,opacity .2s}
+.burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 @media(max-width:600px){
-.navbar-inner{flex-direction:column;align-items:flex-start;gap:8px}
-.nav-right{width:100%}
-.dropdown-btn{font-size:.72rem;padding:6px 9px}
+.navbar-inner{flex-wrap:wrap;padding:10px 16px}
+.burger{display:flex}
+.nav-right{display:none;width:100%;flex-direction:column;align-items:stretch;gap:8px;padding:12px 0 6px}
+.nav-right.open{display:flex}
+.dropdown-btn{width:100%;text-align:left;font-size:.9rem;padding:12px 14px}
+.dropdown-menu,.dropdown-menu.align-right{position:static;display:none;min-width:0;max-width:100%;margin-top:6px;box-shadow:none}
+.dropdown-menu.show{display:block}
 .breadcrumb{margin-top:16px}
 }
+
 .breadcrumb{margin:20px 0 0;padding:0 0 0 20px;font-size:14px;color:#8892a3}
 .breadcrumb a{color:var(--navy);text-decoration:none;font-weight:600}
 .breadcrumb a:hover{text-decoration:underline}
@@ -118,7 +130,12 @@ footer{text-align:center;padding:30px;color:#666;font-size:14px}
 HOME
 </a>
 </div>
-<div class="nav-right">
+
+<button class="burger" id="burgerBtn" onclick="toggleMenu()" aria-label="Buka menu" aria-expanded="false" aria-controls="navMenu">
+  <span></span><span></span><span></span>
+</button>
+
+<div class="nav-right" id="navMenu">
   <div class="dropdown">
     <button class="dropdown-btn" onclick="toggleDropdown('materi')">MATERI ▼</button>
     <div class="dropdown-menu" id="materi">
@@ -499,6 +516,19 @@ function resetQuiz(id){
 initQuiz(1);
 initQuiz(2);
 
+/* ===== NAVBAR ===== */
+function closeAllDropdowns(){
+    document.querySelectorAll('.dropdown-menu').forEach(m=>{m.classList.remove('show');m.classList.remove('align-right');});
+}
+function toggleMenu(){
+    const menu = document.getElementById('navMenu');
+    const btn = document.getElementById('burgerBtn');
+    const open = menu.classList.toggle('open');
+    btn.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', open);
+    btn.setAttribute('aria-label', open ? 'Tutup menu' : 'Buka menu');
+    if(!open) closeAllDropdowns();
+}
 function toggleDropdown(id){
     document.querySelectorAll('.dropdown-menu').forEach(m=>{
         if(m.id!==id){m.classList.remove('show');m.classList.remove('align-right');}
@@ -513,11 +543,19 @@ function toggleDropdown(id){
     }
 }
 window.addEventListener('resize', ()=>{
-    document.querySelectorAll('.dropdown-menu.show').forEach(m=>{m.classList.remove('show');m.classList.remove('align-right');});
+    if(window.innerWidth > 600){
+        document.getElementById('navMenu').classList.remove('open');
+        document.getElementById('burgerBtn').classList.remove('open');
+        document.getElementById('burgerBtn').setAttribute('aria-expanded','false');
+        closeAllDropdowns();
+    }
 });
-document.addEventListener("click",function(e){
-    if(!e.target.closest(".dropdown")){
-        document.querySelectorAll(".dropdown-menu").forEach(m=>{m.classList.remove("show");m.classList.remove("align-right");});
+document.addEventListener("click", function(e){
+    if(!e.target.closest(".dropdown")) closeAllDropdowns();
+    if(!e.target.closest("#navbar")){
+        document.getElementById('navMenu').classList.remove('open');
+        document.getElementById('burgerBtn').classList.remove('open');
+        document.getElementById('burgerBtn').setAttribute('aria-expanded','false');
     }
 });
 </script>
